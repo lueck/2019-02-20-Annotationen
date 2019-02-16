@@ -1,0 +1,226 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}% Times bzw. Nimbus
+\usepackage[polutonikogreek,latin,french,english,ngerman]{babel}
+\usepackage{setspace}
+\usepackage[german=guillemets]{csquotes}
+%\MakeAutoQuote{»}{«}% Anführungs-Zeichen
+%\MakeAutoQuote*{›}{‹}% einfache Anführungszeichen
+
+\author{Christian Lück}%
+\title{Beispiel-Annotationen}%
+\subtitle{Zwischen}
+
+\usepackage[%
+style=verbose-ibid,%
+%citestyle=verbose-ibid,%
+idemtracker=constrict,%
+pagetracker=true,%
+babel=hyphen,%other*,%
+sorting=nty,%
+sortlocale=de_DE,%
+autopunct=true,%
+uniquename=init,%
+eprint=true,%false,%
+hyperref=false,%
+backend=biber]{biblatex}
+\bibliography{referatory, meine}
+
+\newcommand*{\see}{\autocap{v}gl\adddot}
+\newcommand*{\huif}{\autocap{h}ier und im Folgenden}
+
+\renewcommand{\nametitledelim}{\addcolon\addspace}
+\renewcommand{\labelnamepunct}{\addcolon\addspace}
+\renewcommand{\newunitpunct}{\addcomma\addspace}
+\renewcommand{\subtitlepunct}{\addperiod\addspace}
+
+\DeclareFieldFormat[article]{title}{\enquote{#1}}
+\DeclareFieldFormat[bookinbook]{title}{\enquote{#1}}
+\DeclareFieldFormat[incollection]{title}{\enquote{#1}}
+\DeclareFieldFormat[inproceedings]{title}{\enquote{#1}}
+\DeclareFieldFormat[inreference]{title}{\enquote{#1}}
+\DeclareFieldFormat{volume}{\ifnumerals{#1}{\bibstring{volume}~#1}{#1}}% volume of a book
+\DeclareFieldFormat[article,periodical]{volume}{#1}% volume of a journal
+
+
+%  Was nicht angezeigt werden soll
+\newcommand*{\CleanUpReferatory}{%
+  \iffieldequalstr{eprinttype}{googlebooks}{%
+    \clearfield{eprint}%
+    \clearfield{eprinttype}%
+  }{}%
+  \clearlist{publisher}%
+  \clearfield{eprint}%
+  \clearfield{eprinttype}%
+}
+\newcommand*{\CLtoVerf}{%
+  \ifkeyword{CL}{%
+    % \savename*{author}{\blx@cluecksname}%
+    % \restorename{author}{tigger}%\blx@cluecksname}%
+    % \clearname{author}%
+   }{}%
+}
+\newcommand*{\RemoveReferatoryLinks}{%
+  \clearfield{url}%
+  \clearfield{urldate}%
+  \clearfield{eprint}%
+  \clearfield{eprinttype}%
+}
+\AtEveryCitekey{\CleanUpReferatory\CLtoVerf}
+
+\DefineBibliographyStrings{ngerman}{%
+  number    = {{H\adddot}},
+}
+
+% \vno und \vvno (Bd.) nach dem Vorbild von \pno und \ppno 
+\DeclarePageCommands{\pno\ppno\vno\vvno}
+\makeatletter
+\appto\blx@blxinit{%
+  \protected\def\vno{\bibstring{volume}}%
+  \protected\def\vvno{\bibstring{volumes}}}
+\makeatother
+
+
+\deffootnote{%
+1em% Einzug des Textes ab der 2. Zeile
+}{0em% Absatzeinzug bei Fn. über mehrere Absätzen
+}{\makebox[1em][l]{\textsuperscript{\thefootnotemark}}}
+
+
+\KOMAoption{headings}{small}
+\KOMAoption{footinclude}{false}% Fußzeile im Rand
+\KOMAoption{headinclude}{false}% Kopf im Rand
+
+
+% Schrift der Überschriften
+\setkomafont{disposition}{\normalcolor\bfseries}
+
+\RequirePackage[%
+hyperfootnotes=false,%
+hyperfigures=false,%
+linktocpage=false,%
+hidelinks=true%
+]{hyperref}
+
+\usepackage{soul}% Gesperrter Text: \so{...}
+\newcommand{\lit}{\emph}% Literaturtitel
+\newcommand{\term}{\emph}% Begriffe
+
+\makeatletter
+\renewcommand*{\maketitle}{%
+  {\centering
+    {\large\@title\par}
+    \vskip .5\baselineskip
+    {\strut\@author\par}
+  }
+}
+\makeatother
+
+\widowpenalty = 10000
+\clubpenalty = 10000
+
+\KOMAoption{draft}{true}% debug overfull boxes
+\setlength{\emergencystretch}{3em}
+
+\begin{document}
+
+\onehalfspacing
+
+\maketitle
+
+\noindent%
+Die Digitalisierung lässt Forschungsfragen entstehen, die einer
+empirischen Revision klassischer Forschungsthemen das Wort reden und
+bisweilen sogar neue Perspektiven eröffnen. Technisch getragen werden
+solche Vorhaben oft von Annotationen. Berichten möchte ich von der
+Annotationspraxis im DFG-Projekt \emph{Das Beispiel im Wissen der
+  Ästhetik (1750-1850). Erforschung und Archivierung einer diskursiven
+  Praxis}, das von der Hypothese ausgeht, dass die Beispiele einen
+wesentlichen Bestandteil des Wissens der philosophischen Ästhetik
+ausmachen und dass man eine Wissensgeschichte nicht nur der abstrakten
+Begriffe und Ideen (etwa Schönheiten der Natur), sondern auch der
+Beispiele (z.B. eine Rose) schreiben muss. Dazu müssen die Beispiele
+auch erfasst werden, und zwar vorzüglich in Annotationen.
+
+Das Beispiel ist eine semantische Struktur; zudem gibt es mit »e.g.«
+bzw. »z.B.« (in älteren Varianten »z.E.«) eine schon alte
+Standardabkürzung, die es auf der Textoberfläche markieren kann, aber
+nicht muss; auch syntaktisch Merkmale lassen sich beschreiben, sind
+aber so vielfältig wie die Semantik, die sich längst nicht auf das
+Verhältnis von Besonderem zu Allgemeinem beschränkt.
+
+Zunächst steht zur Erfassung von Beispielen die ›manuelle‹ Annotation
+zur Verfügung. Wünschenswert ist die technische Realisation der
+Annotationen als externes Markup zu einem Quell-Dokument, welches in
+einem Standard-Format, etwa TEI-XML vorliegt. So lassen sich
+Annotationen kollaborativ herstellen und Kontrollannotationen
+desselben Texts durch eine weitere Annotatorin werden
+realisierbar. Dadurch dass das externe Markup wieder ins TEI-Markup
+integriert werden kann, wird der ›Doppelgesichtigkeit‹ digital
+edierter Texte Rechnung getragen. Das Auszeichnen im \emph{plain
+  text}, welches technisch viel einfacher wäre, kommt hingegen nicht
+in Frage.
+
+Das ›manuelle‹ Auszeichnen semantischer Strukturen ist aufwendig (und
+die Arbeit der Hand ist dabei das Geringste). Eine automatisiertes
+Information Retrieval, ein maschinelles Annotieren von Beispielen wäre
+wünschenswert. Allerdings ist diese Aufgabe komplex. Man wird
+computerlinguistisch erzeugte Daten (Segmentierungen in Tokens und
+Sentences, grammatische Grundformen, Part-Of-Speech-Tags, Tree-Banks),
+wie sie vom
+\href{https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/Main_Page}{WebLicht-Service}
+(oder von NLP-Bibliotheken) für Eingabe-Dokumente zurückgeliefert
+werden, auswerten müssen. Wie jedoch bezieht man die unterschiedlichen
+Typen von Markup -- editorisches XML/TEI, das ›manuell‹ erstellte
+semantische Markup und dann das WebLicht-Standoff-Markup --
+aufeinander? Es stellen sich erst einmal rein technische Probleme, die
+noch nicht gelöst sind…% der Bezugsgröße: Das
+% WebLicht-XML-Format (TCF) definiert zwar einen Text-Structure-Layer,
+% der das im Eingabe-Dokument enthaltene Markup auf die Tokens bezieht,
+% allerdings ist dafür bislang kein Parser realisiert worden (was
+% m.E. auch an der Verkettungsstruktur der WebLicht-Services liegt).
+
+Die Aussicht, die Auszeichnung von Beispielen zu automatisieren hat
+über das Technische hinaus wiederum Rückwirkungen auf die ›manuelle‹
+Annotationspraxis. So führen prognostische Überlegungen, welche Art
+von Beispielen überhaupt durch einen Algorithmus erfasst werden können
+(zunächst nur solche, die auf der Textoberfläche mit »z.B.« markiert
+sind) zu einer Auswahl ›manuell‹ annotierter Beispiele; auch versucht
+man womöglich, die oft recht komplexen semantischen Verhältnisse in
+ihrer Komplexität zu reduzieren. Natürlich ergeben sich bereits ohne
+Rücksicht auf eine zukünftige maschinelle Annotation Spannungen
+zwischen der vielfältigen Wirklichkeit der Beispiele und dem, was in
+einem Annotationsschema (unseres ist in OWL realisiert) bzw. nach den
+Annotationsrichtlinien ausdrückbar ist. So ergeben sich Spannungen in
+einem Dreieck aus interpretativer Arbeit am philosophischem Text,
+Ausdrucksmächtigkeit des Annotationsschemas und künftigem
+Algorithmus. Von diesem Spannungen möchte ich im Vortrag berichten und
+sie nach Möglichkeit systematisieren.
+
+
+\newpage
+
+\newpage
+Christian Lück ist wissenschaftlicher Mitarbeiter am Lehrgebiet für
+Neuere deutsche Literaturwissenschaft und Medienästhetik der
+Fernuniversität in Hagen (Prof. Dr. Michael Niehaus) sowie im
+DFG-Projekt \emph{Das Beispiel im Wissen der Ästhetik
+  (1750-1850). Erforschung und Archivierung einer diskursiven
+  Praxis}. Er hat sich an der Ruhr-Universität Bochum mit einer Arbeit
+über die doppelte Germanistik sowohl als juristische als auch
+philologische Disziplin in der ersten Hälfte des 19. Jahrhunderts
+promoviert (\emph{»Ein Nationalunglück, welches der Patriot nur
+  beklagen kann«. Der Widerstand gegen Römisches Recht in Deutschland
+  1770-1850. München: Fink [im Erscheinen]}). Zum Thema der Tagung:
+»Beispiele annotieren: Was und wie viel?« In: \emph{z.B. Zeitschrift
+  zum Beispiel} 1 (2018).
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+

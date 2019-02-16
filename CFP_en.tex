@@ -1,0 +1,227 @@
+% Ausgabe als odt mit: mk4ht oolatex Wuppertal_en.tex
+\documentclass[12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tgtermes}% Times bzw. Nimbus
+\usepackage[polutonikogreek,latin,french,ngerman,english]{babel}
+\usepackage{setspace}
+\usepackage{csquotes}
+\MakeAutoQuote{»}{«}% Anführungs-Zeichen
+\MakeAutoQuote*{›}{‹}% einfache Anführungszeichen
+
+\author{Christian Lück}%
+\title{Annotating examples}%
+\subtitle{Between hermeneutics, hand-made and machine-made annotations}
+
+\usepackage[%
+style=verbose-ibid,%
+%citestyle=verbose-ibid,%
+idemtracker=constrict,%
+pagetracker=true,%
+babel=hyphen,%other*,%
+sorting=nty,%
+sortlocale=en_En,%
+autopunct=true,%
+uniquename=init,%
+eprint=true,%false,%
+hyperref=false,%
+backend=biber]{biblatex}
+\bibliography{referatory, meine}
+
+\newcommand*{\see}{\autocap{v}gl\adddot}
+\newcommand*{\huif}{\autocap{h}ier und im Folgenden}
+
+\renewcommand{\nametitledelim}{\addcolon\addspace}
+\renewcommand{\labelnamepunct}{\addcolon\addspace}
+\renewcommand{\newunitpunct}{\addcomma\addspace}
+\renewcommand{\subtitlepunct}{\addperiod\addspace}
+
+\DeclareFieldFormat[article]{title}{\enquote{#1}}
+\DeclareFieldFormat[bookinbook]{title}{\enquote{#1}}
+\DeclareFieldFormat[incollection]{title}{\enquote{#1}}
+\DeclareFieldFormat[inproceedings]{title}{\enquote{#1}}
+\DeclareFieldFormat[inreference]{title}{\enquote{#1}}
+\DeclareFieldFormat{volume}{\ifnumerals{#1}{\bibstring{volume}~#1}{#1}}% volume of a book
+\DeclareFieldFormat[article,periodical]{volume}{#1}% volume of a journal
+
+
+%  Was nicht angezeigt werden soll
+\newcommand*{\CleanUpReferatory}{%
+  \iffieldequalstr{eprinttype}{googlebooks}{%
+    \clearfield{eprint}%
+    \clearfield{eprinttype}%
+  }{}%
+  \clearlist{publisher}%
+  \clearfield{eprint}%
+  \clearfield{eprinttype}%
+}
+\newcommand*{\CLtoVerf}{%
+  \ifkeyword{CL}{%
+    % \savename*{author}{\blx@cluecksname}%
+    % \restorename{author}{tigger}%\blx@cluecksname}%
+    % \clearname{author}%
+   }{}%
+}
+\newcommand*{\RemoveReferatoryLinks}{%
+  \clearfield{url}%
+  \clearfield{urldate}%
+  \clearfield{eprint}%
+  \clearfield{eprinttype}%
+}
+\AtEveryCitekey{\CleanUpReferatory\CLtoVerf}
+
+\DefineBibliographyStrings{ngerman}{%
+  number    = {{H\adddot}},
+}
+
+% \vno und \vvno (Bd.) nach dem Vorbild von \pno und \ppno 
+\DeclarePageCommands{\pno\ppno\vno\vvno}
+\makeatletter
+\appto\blx@blxinit{%
+  \protected\def\vno{\bibstring{volume}}%
+  \protected\def\vvno{\bibstring{volumes}}}
+\makeatother
+
+
+\deffootnote{%
+1em% Einzug des Textes ab der 2. Zeile
+}{0em% Absatzeinzug bei Fn. über mehrere Absätzen
+}{\makebox[1em][l]{\textsuperscript{\thefootnotemark}}}
+
+
+\KOMAoption{headings}{small}
+\KOMAoption{footinclude}{false}% Fußzeile im Rand
+\KOMAoption{headinclude}{false}% Kopf im Rand
+
+
+% Schrift der Überschriften
+\setkomafont{disposition}{\normalcolor\bfseries}
+
+\RequirePackage[%
+hyperfootnotes=false,%
+hyperfigures=false,%
+linktocpage=false,%
+hidelinks=true%
+]{hyperref}
+
+\usepackage{soul}% Gesperrter Text: \so{...}
+\newcommand{\lit}{\emph}% Literaturtitel
+\newcommand{\term}{\emph}% Begriffe
+
+\makeatletter
+\renewcommand*{\maketitle}{%
+  {\centering
+    {\large\@title\par}
+    %\vskip .5\baselineskip
+    {\strut\@subtitle\par}
+    \vskip .5\baselineskip
+    {\strut\@author\par}
+    \vskip .5\baselineskip
+  }
+}
+\makeatother
+
+\widowpenalty = 10000
+\clubpenalty = 10000
+
+\KOMAoption{draft}{true}% debug overfull boxes
+\setlength{\emergencystretch}{3em}
+
+\begin{document}
+
+\onehalfspacing
+
+\maketitle
+
+\noindent%
+In my lecture, I want to give an account of the use and production of
+annotations in a research project called
+\emph{\foreignlanguage{ngerman}{Das Beispiel im Wissen der Ästhetik
+    (1750-1850). Erforschung und Archivierung einer diskursiven
+    Praxis}} which is funded by \foreignlanguage{ngerman}{Deutsche
+  Forschungsgemeinschaft}.  The project explores the usage and theory
+of \emph{examples} in German-language philosophy of aesthetics and
+covers the time from about 1750 up to 1850, i.\,e.\ from the founder
+of this philosophical discipline, Gottlob Alexander Baumgarten, to
+some successors of Hegel, like Karl Rosenkranz.  The project's
+hypothesis is that examples (the rose, the tulip, the Alps, etc.)\ are
+essential to the foundation of the philosophy of aesthetics and that
+one has to care about them--and not only about abstract concepts and
+ideas--if one wants to write a history of knowledge.  In fact, our
+hypothesis is a broader one and not just constrained to the philosophy
+of aesthetics: We do think, that every scientific discipline (every
+discourse) somehow depends on the usage of examples, but to a large
+extent the foundational role of examples remains shadowed. So the
+project's aim is a review of the philosophy of aesthetics by switching
+the focus from abstract ideas to the examples and the concrete things
+exhibited in them. It wants to be as material-based and empirical as
+possible. That requires us to \emph{record} examples.
+
+The example is a semantic structure, and there is an old standardized
+abbreviation, »e.\,g.«, which may serve as a \emph{surface marker} but
+needn't be present.  Besides the example and the optional surface
+marker, there is a more or less abstract concept, principle or maxim
+involved, for which the more or less concrete example is given.  The
+relation between these two is not constrained to the ratio of the
+particular (das Besondere) and the general (das Allgemeine), but
+manifold.
+
+For a long period we had a database for recording examples through a
+web form.  However, this database only recorded excerpts and resulted
+in collectanea.  In contrast, \emph{annotations} are a first class
+recorder for examples for further exploration, because the whole
+context is present and the examples can be interconnected by simple
+technical means.  Our annotation vocabulary is defined in OWL, and we
+use a specially written GNU Emacs mode to create external markup.  But
+no matter which approaches to follow, database or annotations, you are
+facing the same difficulties when it comes to recording or annotating
+an example: You have a more or less distinguished and complex form or
+vocabulary on the one hand and the example on the other, which often
+does not precisely fit the formalized annotation vocabulary or
+database fields.  In getting the sense of an example from a
+philosophical text there is hermeneutics involved, and this often
+clashes with the formalized approach for recording data.  There may be
+a clash of spheres, that is crucial to projects in the digital
+humanities.  At least we are used to producing text, not structured
+data when reading and trying to understand philosophical books and
+literature.
+
+Producing annotations manually takes much time.  It forces you to a
+kind of close reading.  To accomplish the aims of the project, we
+think about machine-made annotations, i.\,e.\ the identification of
+examples by some algorithm.  That also affects manual annotation.  The
+focus changes when human-made annotations will be used as test cases
+(or training data) for algorithms.  There will be no hermeneutics
+involved in that algorithm, that's for sure, and it will at best be
+able to annotate just a small subset of the phenomena a human
+annotator can describe with the formalized vocabulary.  Even the
+vocabulary must be adapted to make test cases.
+
+The lecture will explore this triangle between hermeneutics,
+human-made, and machine-made annotations. Therefore I will present
+some examples, their annotations and an approach to machine-made
+annotations of examples.
+
+
+\newpage
+\noindent
+Christian Lück is research assistant in the field of modern German
+literature and aesthetics of the media at the University of Hagen,
+Germany, and also in the research project \emph{Das Beispiel im Wissen
+  der Ästhetik (1750-1850). Erforschung und Archivierung einer
+  diskursiven Praxis}. In his Ph.\,D. thesis he explored the twofold
+Germanistik during the first half of the 19th century, which was a
+sub-discipline of law and an emerging philological
+discipline. (\emph{»Ein Nationalunglück, welches der Patriot nur
+  beklagen kann«. Der Widerstand gegen Römisches Recht in Deutschland
+  1770-1850. München: Fink [im Erscheinen]}) Publication on the topic
+of the workshop: »Beispiele annotieren: Was und wie viel?« In:
+\emph{z.\,B. Zeitschrift zum Beispiel} 1 (2018).
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+

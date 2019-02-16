@@ -1,0 +1,215 @@
+---
+title: Beispiele Annotieren
+subtitle: Manuelle Annotationen im Spannungsfeld zwischen Interpretation, formalem Schema und maschineller Auswertung
+author: Christian Lück
+date:
+fontsize: 14pt
+lang: de
+bibliography: /tmp/all.bib
+csl: modern-language-association.csl
+output:
+  beamer_presentation:
+    slide_level: 2
+    keep_tex: true
+    toc: true
+
+---
+
+# Spekulation über Standardabkürzungen
+
+## Beispiel-Marker
+
+- stark konventionalisierte Abkürzungen zum Markieren von Beispielen,
+  dt. *z.B.*, fr. *par ex.*, engl. *e.g.*
+- gehen auf das *e.g.* des gelehrten Lateins zurück
+- nur wenige Standardabkürzungen mit einem solchen Grad der
+  interlingualen Konventionalisierung (*i.e.*, *etc.*, *cf.*)
+- *e.g.*: *exempli gratia* (abl. mod.), wörtlich *um eines Beispiels
+  willen* oder *aus Gunst des Beispiels*
+- Ort des Beispiel-Wissens: Antike Rhetorik 
+
+## Engl. *e.g.* im zeitlichen Verlauf
+
+![[Zeitl. Verlauf der Frequenz von *e.g.*](https://books.google.com/ngrams/graph?content=e.g.%2Cfor+example%2Cfor+ex.&year_start=1500&year_end=1970&corpus=15&smoothing=2&share=&direct_url=t1%3B%2Ce.g.%3B%2Cc0%3B.t1%3B%2Cfor%20example%3B%2Cc0%3B.t1%3B%2Cfor%20ex%20.%3B%2Cc0)](images/eg-ngram.jpg)
+
+
+## Dt. *z.B.* im zeitlichen Verlauf
+
+![[Zeitl. Verlauf der Frequenz von *z.B.*](https://books.google.com/ngrams/interactive_chart?content=z.B.%2C+z.E.%2Czum+Beispiel%2Czum+Exempel%2Cbspw.%2Ce.g.&year_start=1500&year_end=1970&corpus=20&smoothing=2&share=&direct_url=t1%3B%2Cz.B.%3B%2Cc0%3B.t1%3B%2Cz.E.%3B%2Cc0%3B.t1%3B%2Czum%20Beispiel%3B%2Cc0%3B.t1%3B%2Czum%20Exempel%3B%2Cc0%3B.t1%3B%2Cbspw.%3B%2Cc0%3B.t1%3B%2Ce.g.%3B%2Cc0)](images/zB-ngram.jpg)
+
+
+## Lat. *i.e* und *e.g.*
+
+- die Wendung *exempli gratia* findet sich im antiken Latein
+- die Abkürzung *e.g.* hingegen nicht
+- ebenso *id est*, aber nicht *i.e.*
+- Grund? Überlieferungsgeschichte der Texte? Spätere
+  Konventionalisierung?
+- »[G]lossemata […], id est voces minus usitatas« Quintilian,
+  *Institutio oratoria* 1,8,15
+- *i.e.* belegbar in Glossen ab dem ??? Jh.
+- konventionalisiert zur sog. Kontext-Glosse
+
+
+## Spekulation
+
+- *e.g.* nach dem Vorbild von *i.e.* konventionalisiert
+- gleiche Funktion: Klarheit
+- gleiche Funktion: *per aspera ad astra* (cf. McCarthy)
+- Pointe: Beispiele sind Glossen sind Adnotationen
+- i.A. gibt es jeweils eine offene Reihe von Beispielen
+- Probe aufs Verstehen: Man sollte ein Beispiel hinzufügen/anführen
+  können
+
+
+# Ein DFG-Projekt zum Beispiel
+
+## Das Beispiel im Wissen der Ästhetik …
+
+- DFG-Projekt *Das Beispiel im Wissen der Ästhetik
+  (1750-1850). Erforschung und Archivierung einer diskursiven Praxis*
+- FernUniveristät in Hagen, Lehrgebiet für Neuere deutsche
+  Literaturwissenschaft und Medienästhetik, Prof. Dr. Michael Niehaus
+  (Projektleitung)
+- Ruhr-Universität Bochum, Germanistisches Institut, Dr. habil. Peter
+  Risthaus (Projektleitung)
+
+## Ansatz des Projekts
+
+- Rhetorik büßt ihr Primat in Verwaltung des Wissens über Beispiele ein
+
+## Fragen und Methoden
+
+I.  intensive Lektüren einzelner Textstellen
+	- Nicht-Aufgehen des Beispiels im allgemeinen Begriff
+	- Herausarbeiten eines sog. Beispielstreits
+	- Bezug zu beispieltheoretischen Stellen
+
+. . .
+
+II.  datenbasierte historische Längsschnitte
+	- Häufigkeit/Frequenz bestimmter Beispiele
+	- Auftreten, Konjunktur, Verschwinden
+	- Korreliertheit der Frequenz von Beispielen untereinander …
+	- … oder mit anderen Diskursen
+	- Welche überhaupt?
+
+. . .
+
+**Annotationen sind Datengrundlage für 2**
+
+
+# Ein Vokabular zum Beispiel und man. Annotationen
+
+## Beschreibungsvokabular
+
+- **Marker**
+	- *z.B*, *bspw.*, *zum Beispiel*, *etwa*, *wie* …
+	- optional
+	- eindeutige vs. nicht-eindeutige
+
+. . .
+
+- **Beispiel**
+	- was als Beispiel angeführt wird
+	- (etwas Konkretes)
+	- alles kann zum Beispiel werden
+
+. . .
+
+- **Konzept**
+	- Begriff, Regel, Grundsatz …
+	- (etwas Abstraktes)
+	- dasjenige, zu dem das Beispiel angeführt wird 
+
+
+## Alles kann zum Beispiel werden
+
+> EIN BEISPIEL (EXEMPLUM) ist die Vorstellung von etwas stärker
+> Bestimmtem (repraesentatio magis determinati), die zur Erklärung (ad
+> declarandam) einer Vorstellung von weniger Bestimmtem
+> (repraesentationem minus determinati) beigebracht
+> wird. [@Baumg1983a; § 21.]
+
+
+## Dieses Vokabular ist noch unvollständig
+
+> Eine Blume hingegen, \textcolor{orange}{z.B.}
+> \textcolor{magenta}{eine Tulpe}, wird für schön gehalten, weil eine
+> gewisse Zweckmäßigkeit, die so, wie wir sie beurteilen, auf gar
+> keinen Zweck bezogen wird, in ihrer Wahrnehmung angetroffen
+> wird. [@KantKdU; 61]
+
+\vfill
+
+## Dieses Vokabular ist noch unvollständig
+
+> \textcolor{green}{Eine Blume} hingegen, \textcolor{orange}{z.B.}
+> \textcolor{magenta}{eine Tulpe}, wird für schön gehalten, weil eine
+> gewisse Zweckmäßigkeit, die so, wie wir sie beurteilen, auf gar
+> keinen Zweck bezogen wird, in ihrer Wahrnehmung angetroffen
+> wird. [@KantKdU; 61]
+
+. . .
+
+- formal zufriedenstellend
+- philosophische Aussage in keiner Weise erfasst
+
+## Dieses Vokabular ist noch unvollständig
+
+> \textcolor{green}{Eine Blume} hingegen, \textcolor{orange}{z.B.}
+> \textcolor{magenta}{eine Tulpe}, \textcolor{green}{wird für schön
+> gehalten, weil eine gewisse Zweckmäßigkeit, die so, wie wir sie
+> beurteilen,} \textcolor{green}{auf gar keinen Zweck bezogen wird, in
+> ihrer Wahrnehmung angetroffen wird.} [@KantKdU; 61]
+
+. . .
+
+- philosophische Aussage annähernd erfasst
+- aber formal nicht zufriedenstellend
+
+## Dieses Vokabular ist noch unvollständig
+
+> \textcolor{green}{Eine Blume} hingegen, \textcolor{orange}{z.B.}
+> \textcolor{magenta}{eine Tulpe}, wird für schön gehalten, weil eine
+> gewisse \textcolor{blue}{Zweckmäßigkeit}, die so, wie wir sie
+> beurteilen, auf gar keinen Zweck bezogen wird, in ihrer Wahrnehmung
+> angetroffen wird. [@KantKdU; 61]
+
+. . .
+
+- formal zufriedenstellend
+- philosophischer Zusammenhang kommt vor
+
+
+## Beschreibungsvokabular
+
+- **Marker** …
+- **Beispiel** …
+- **Konzept** …
+- **Thema** (**Kontext**)
+	- der thematische oder argumentative Zusammenhang, in dem ein
+      Beispiel angeführt wird
+	- Zwischenüberschrift, rekurrentes Zeichen, Wortfeld
+
+
+## Beschreibungsvokabular
+
+- **Marker** …
+- **Beispiel** …
+- **Konzept** …
+- **Thema** (**Kontext**)
+- **Relationen**
+	- verbinden Marker und Beispiel, Beispiel und Konzept, Beispiel
+      und Thema
+	- haben einen Namen (Prädikatsnamen)
+	- sind dreistellig
+	- zur Beschreibung der diversen Funktionen
+	- rhetorische Dimension, konzeptuelle D., epistemologische D.,
+      normative D., mnemotechnische D., institutionelle D. [@CL2013b]
+
+
+
+## Literatur
+\fontsize{6pt}{7.2}\selectfont
+ 
