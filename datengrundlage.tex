@@ -1,0 +1,94 @@
+\begin{tikzpicture}[
+doc/.style={
+  draw,
+  rectangle,
+  double copy shadow,
+  fill=gray!20,
+  thick,
+  align=center,
+  minimum width=4em,
+  minimum height=5em
+},
+proc/.style={
+  draw,
+  %rectangle,
+  signal, signal from=west, signal to=east, signal pointer angle=160, 
+  align=center,
+},
+db/.style={
+  draw,
+  cylinder, 
+  fill=gray!20,
+  shape border rotate=90, 
+  shape aspect=.25,
+  align=center,
+  thick
+},
+tm/.style={
+  draw,
+  tape,
+  align=center,
+  minimum width=7em,
+  yshift=8mm,
+},
+start chain=1, node distance=10mm]%
+\node[on chain= 1, doc, join=by -latex](plaintext){plain\\text};
+\node[on chain=1, proc,
+xshift=20mm, align=left](wl){WebLicht\\{\scriptsize \parbox{7em}{
+  \begin{itemize}[topsep=0pt, parsep=0pt, itemsep=0pt, itemindent=0pt,
+    leftmargin=1em, label=-]
+  \item tokens
+  \item sentences
+  \item POS tags
+  \item lemmas
+  \item …
+  \end{itemize}}}};%
+\node[on chain=1,
+proc](tcf2csv){tcf$\rightarrow$csv}; \node[on chain=1,
+db](corpusdb){Corpus\\data base\\{\scriptsize 1 token}\\{\scriptsize per row}};
+
+\node[tm, below right=of corpusdb, tape bend top=0,on chain=1, yshift=-40](tmhead){110100101001};
+\node[tm, below=of tmhead](tulpe){Tulpe};
+\node[tm, below=of tulpe](grabh){Grabhügel};
+\node[tm, below=of grabh](somexam){…};
+\node[tm, below=of somexam, tape bend bottom=0](tmbottom){101001010010};
+
+\node[db, below=of corpusdb, left=of tmbottom, yshift=-5mm](examples){example\\descriptors};
+\node[doc, left=of examples](result){tcf\\example\\layer};
+
+\node[doc, above=of plaintext](tei){TEI\\XML};
+
+{[start branch=2]%
+  \node[doc, on chain, below=of plaintext](pdf){PDF};
+  \node[proc, on chain, right=of pdf, xshift=-5mm](textextract){text\\extr.};
+}
+
+\node[db, below=of pdf](metadb){Meta data\\base\\(bibtex)};%
+
+\draw[-latex] (plaintext) -- (wl);
+\draw[-latex] (wl) -- (tcf2csv);
+\draw[-latex] (tcf2csv) -- (corpusdb);
+\draw[-latex] (pdf) -- (textextract);
+\draw[-latex] (tei.east) -- (wl.west);
+\draw[-latex] (textextract.east) -- (wl.west);
+
+\draw[-latex] (examples) -- (corpusdb);
+
+\draw[-latex] (corpusdb.east) -| (tmhead.north);
+\draw[-latex] (tmbottom.south) |- (examples.east);
+\draw[-latex] (examples) -- (result);
+
+\draw[-latex] (metadb) -- (corpusdb);
+
+\draw[-latex, dash dot, bend left] (tei.east) to node [auto] {tcf vom
+  DTA} (tcf2csv.west);
+
+\draw[dotted, thick, red] ($(corpusdb.north west)+(-0.3, 0.8)$)
+rectangle ($(tmbottom.south east)+(0.3, -1.0)$);
+\end{tikzpicture}
+
+\endinput
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Datengrundlage"
+%%% End:
