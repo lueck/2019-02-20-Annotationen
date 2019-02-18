@@ -6,12 +6,13 @@ date:
 fontsize: 14pt
 lang: de
 bibliography: /tmp/all.bib
-csl: modern-language-association.csl
 output:
   beamer_presentation:
     slide_level: 2
     keep_tex: true
     toc: true
+    includes:
+      in_header: datengrundlage-preamble.tex
 
 ---
 
@@ -101,7 +102,7 @@ II.  datenbasierte historische Längsschnitte
 
 # Ein Vokabular zum Beispiel und man. Annotationen
 
-## Beschreibungsvokabular
+## Beschreibungsvokabular [@CL2018b]
 
 - **Marker**
 	- *z.B*, *bspw.*, *zum Beispiel*, *etwa*, *wie* …
@@ -209,6 +210,14 @@ II.  datenbasierte historische Längsschnitte
       normative D., mnemotechnische D., institutionelle D. [@CL2013b]
 
 
+# Maschinelle Annotation
+
+## Datengrundlage und Architektur
+
+\begingroup
+\fontsize{6pt}{8pt}\selectfont
+\input{datengrundlage}
+\endgroup
 
 ## Literatur
 \fontsize{6pt}{7.2}\selectfont
