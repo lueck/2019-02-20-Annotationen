@@ -47,13 +47,13 @@ tm/.style={
   \node[on chain, db](corpusdb){Corpus\\data base\\1 token\\per row};%
 
   { [start branch=database going below]%
-    \node[db, on chain, yshift=-20mm](examples){examples}; %
-    \node[draw, rectangle, on chain, yshift=-20mm,join](merge){+}; %
+    \node[db, on chain, yshift=-15mm](examples){examples}; %
+    \node[draw, rectangle, on chain, yshift=-6mm,join](merge){+}; %
   }
 
   { [start branch=textmining going below]%
     \node[tm, on chain=going right, below right=of corpusdb, tape bend
-    top=0, yshift=-10mm](tmhead){110100101001};%
+    top=0, yshift=-8mm](tmhead){110100101001};%
     \node[tm, on chain](tulpe){Tulpe};%
     \node[tm, on chain](grabh){Grabhügel};%
     \node[tm, on chain](somexam){…};%
