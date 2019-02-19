@@ -18,6 +18,12 @@ output:
 
 # Spekulation über Standardabkürzungen
 
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+opts_knit$set(root.dir = "~/Projekte/Beispielkorpus/")
+library("beispielr")
+library("ggplot2")
+```
+
 ## Beispiel-Marker
 
 - stark konventionalisierte Abkürzungen zum Markieren von Beispielen,
@@ -210,7 +216,103 @@ II.  datenbasierte historische Längsschnitte
       normative D., mnemotechnische D., institutionelle D. [@CL2013b]
 
 
+## Aufwand
+
+
 # Maschinelle Annotation
+
+## Beobachtung: Frequenz und Beispiele
+
+\begingroup
+\fontsize{6pt}{8pt}\selectfont
+
+```{r frequenzen1}
+corpus <- read_csv_corpus("tcf")
+freqs <- corpus %>%
+    filter(sigle == "KdU1963", POStag == "NN") %>%
+    count(sigle, lemma) %>%
+    arrange(desc(n))
+freqs %>% print(n=20)
+```
+
+\endgroup
+
+## Beobachtung: Frequenz und Beispiele
+
+\begingroup
+\fontsize{6pt}{8pt}\selectfont
+
+```{r frequenzen2}
+freqs %>% slice(200:250) %>% print(n=20)
+```
+
+\endgroup
+
+
+## Beobachtung: Frequenz und Beispiele
+
+\begingroup
+\fontsize{6pt}{8pt}\selectfont
+
+```{r frequenzen3}
+freqs %>% slice(1000:1050) %>% print(n=20)
+```
+
+\endgroup
+
+
+## Beobachtung: Frequenz und Beispiele
+
+\begingroup
+\fontsize{6pt}{8pt}\selectfont
+
+```{r frequenzen4}
+freqs %>% slice(1960:1980) %>% print(n=20)
+```
+
+\endgroup
+
+
+## Zipfs Gesetz
+
+\begingroup
+\fontsize{6pt}{8pt}\selectfont
+
+```{r zipf, echo = FALSE, message = FALSE}
+corpus %>%
+    ##filter(POStag == "NN") %>%
+    freq(sigle, token)%>%
+    arrange(desc(freq)) %>%
+    group_by(sigle) %>%
+    mutate(rank = row_number()) %>%
+    ggplot(aes(rank, freq, color = sigle)) +
+    geom_line(size = 1.1, alpha = 0.8, show.legend = FALSE) +
+    scale_x_log10() +
+    scale_y_log10()
+```
+
+\endgroup
+
+## Substantive
+\begingroup
+\fontsize{6pt}{8pt}\selectfont
+
+```{r zipfnn, echo = FALSE, message = FALSE}
+corpus %>%
+    filter(POStag == "NN") %>%
+    freq(sigle, token)%>%
+    arrange(desc(freq)) %>%
+    group_by(sigle) %>%
+    mutate(rank = row_number()) %>%
+    ggplot(aes(rank, freq, color = sigle)) +
+    geom_line(size = 1.1, alpha = 0.8, show.legend = FALSE) +
+    scale_x_log10() +
+    scale_y_log10()
+```
+
+\endgroup
+
+
 
 ## Datengrundlage und Architektur
 
@@ -218,6 +320,105 @@ II.  datenbasierte historische Längsschnitte
 \fontsize{6pt}{8pt}\selectfont
 \input{datengrundlage}
 \endgroup
+
+
+## Maschinelle Annotationen durch WebLicht
+
+\begingroup
+\fontsize{4pt}{5pt}\selectfont
+
+	<tokens>
+	  …
+	  <token ID="t27071">Ein</token>
+	  <token ID="t27072">Blume</token>
+	  <token ID="t27073">hingegen</token>
+	  <token ID="t27074">,</token>
+	  <token ID="t27075">z.</token>
+	  <token ID="t27076">B.</token>
+	  <token ID="t27077">ein</token>
+	  <token ID="t27078">Tulpe</token>
+	  <token ID="t27079">,</token>
+	  <token ID="t27080">wird</token>
+	  <token ID="t27081">für</token>
+	  …
+	</tokens>
+	<sentences>
+	  …
+	  <sentence ID="s598" tokenIDs="t27071 t27072 t27073 t27074 t27075 t27076 t27077 t27078 t27079 t27080 t27081 t27082 t27083 t27084 t27085 t27086 t27087 t27088 t27089 t27090 t27091 t27092 t27093 t27094 t27095 t27096 t27097 t27098 t27099 t27100 t27101 t27102 t27103 t27104 t27105 t27106 t27107 t27108 t27109 t27110"></sentence>
+	  …
+	</sentences>
+	<lemmas>
+	  …
+	  <lemma ID="l_27070" tokenIDs="t27071">eine</lemma>
+	  <lemma ID="l_27071" tokenIDs="t27072">Blume</lemma>
+	  <lemma ID="l_27072" tokenIDs="t27073">hingegen</lemma>
+	  <lemma ID="l_27073" tokenIDs="t27074">,</lemma>
+	  <lemma ID="l_27074" tokenIDs="t27075">z.</lemma>
+	  <lemma ID="l_27075" tokenIDs="t27076">B.</lemma>
+	  <lemma ID="l_27076" tokenIDs="t27077">ein</lemma>
+	  <lemma ID="l_27077" tokenIDs="t27078">Tulpe</lemma>
+	  <lemma ID="l_27078" tokenIDs="t27079">,</lemma>
+	  <lemma ID="l_27079" tokenIDs="t27080">werden</lemma>
+	  <lemma ID="l_27080" tokenIDs="t27081">für</lemma>
+	  …
+	</lemmas>
+	<POStags>
+	  …
+	  <tag tokenIDs="t27071">ART</tag>
+	  <tag tokenIDs="t27072">NN</tag>
+	  <tag tokenIDs="t27073">ADV</tag>
+	  <tag tokenIDs="t27074">$,</tag>
+	  <tag tokenIDs="t27075">APPRART</tag>
+	  <tag tokenIDs="t27076">NN</tag>
+	  <tag tokenIDs="t27077">ART</tag>
+	  <tag tokenIDs="t27078">NN</tag>
+	  <tag tokenIDs="t27079">$,</tag>
+	  <tag tokenIDs="t27080">VAFIN</tag>
+	  <tag tokenIDs="t27081">APPR</tag>
+	  …
+    </POStags>
+
+\endgroup
+
+
+## Comma Separated Values
+
+\begingroup
+\fontsize{8pt}{10pt}\selectfont
+
+	...
+	27071,Ein,t27071,,,,,eine,ART,598,s598,1
+	27072,Blume,t27072,,,,,Blume,NN,598,s598,2
+	27073,hingegen,t27073,,,,,hingegen,ADV,598,s598,3
+	27074,",",t27074,,,,,",","$,",598,s598,4
+	27075,z.,t27075,,,,,z.,APPRART,598,s598,5
+	27076,B.,t27076,,,,,B.,NN,598,s598,6
+	27077,ein,t27077,,,,,ein,ART,598,s598,7
+	27078,Tulpe,t27078,,,,,Tulpe,NN,598,s598,8
+	27079,",",t27079,,,,,",","$,",598,s598,9
+	27080,wird,t27080,,,,,werden,VAFIN,598,s598,10
+	27081,für,t27081,,,,,für,APPR,598,s598,11
+	27082,schön,t27082,,,,,schön,ADJD,598,s598,12
+	...
+
+\endgroup
+
+
+## R-Tabelle
+
+\begingroup
+\fontsize{8pt}{10.2pt}\selectfont
+
+```{r corpus}
+corpus <- read_csv_corpus("tcf")
+corpus %>% filter(tokenNum >= 27071)
+```
+
+\endgroup
+
+
+## 
+
 
 ## Literatur
 \fontsize{6pt}{7.2}\selectfont
