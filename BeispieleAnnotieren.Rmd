@@ -227,7 +227,7 @@ II.  datenbasierte historische Längsschnitte
 \begingroup
 \fontsize{6pt}{8pt}\selectfont
 
-```{r frequenzen1}
+```{r frequenzen1, echo = FALSE}
 corpus <- read_csv_corpus("tcf")
 freqs <- corpus %>%
     filter(sigle == "KdU1963", POStag == "NN") %>%
@@ -437,7 +437,6 @@ corpus %>%
 \fontsize{8pt}{10.2pt}\selectfont
 
 ```{r corpus}
-corpus <- read_csv_corpus("tcf")
 corpus %>% filter(tokenNum >= 27071)
 ```
 
