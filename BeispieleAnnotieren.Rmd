@@ -313,6 +313,32 @@ corpus %>%
 \endgroup
 
 
+## Bestimmung des Beispiel-Kopfes
+
+- Frequenz
+	- Token-Frequenz
+	- Lemma-Frequenz
+	- 
+	
+. . .
+
+- Distanz vom Marker
+	- in Tokens
+	- in Satzzeichen (Kommas)
+
+. . .
+
+- Wortart
+
+
+## Bestimmung des Beispiel-Kopfes
+
+- jedes Merkmal hat Wert zwischen 0 und 1
+- jedes Merkmal wird mit einem Gewicht multipliziert
+- Bildung der Summe $f_K(t) = \sigma \left( b + \sum_{i=1}^n w_i \cdot f_{K_i}(t) \right)$
+- Beispiel-Kopf $K = max(f_K(…))$
+
+
 
 ## Datengrundlage und Architektur
 
@@ -416,8 +442,26 @@ corpus %>% filter(tokenNum >= 27071)
 
 \endgroup
 
+## Eine Blume, z.B. eine Tulpe, …
 
-## 
+```{r corpus, message = FALSE, warning = FALSE}
+features_in_order <- c("norm_lf", "norm_tf", "poscal", "dmt", "dmc")
+features <- corpus %>%
+    generate_example_features() %>%
+    calculate_example_features()
+features2 <- as_tibble(melt(features %>% filter(sentenceNum == 598),
+                            id.vars="tokenNum",
+                            measure.vars=features_in_order))
+## features3 <- group_by(features2, tokenNum) %>%
+##     mutate(variable = variable[match(features_in_order, variable)]) %>%
+##     ungroup()
+features3 <- features2 %>% arrange(tokenNum, factor(.$variable, levels=features_in_order))
+ggplot(features3) +
+    geom_area(mapping = aes(x=tokenNum, y=value, color=variable, fill=variable))
+
+
+```
+
 
 
 ## Literatur

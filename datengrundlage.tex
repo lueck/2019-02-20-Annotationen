@@ -33,15 +33,18 @@ tm/.style={
 }]
 { [start chain=preproc going right, node distance=5mm]%
   \node[on chain, doc](plaintext){plain\\text};%
-  \node[on chain, proc, xshift=20mm, align=left](wl){WebLicht\\\parbox{7em}{%
-      \begin{itemize}[topsep=0pt, parsep=0pt, itemsep=0pt, itemindent=0pt,
-        leftmargin=1em, label=-]
-      \item tokens
-      \item sentences
-      \item POS tags
-      \item lemmas
-      \item …
-      \end{itemize}}};%
+  \node[on chain, proc, xshift=20mm, align=left](wl){WebLicht\\
+    - tokens\\- sentences\\- POS tags\\- lemmas\\- …
+    % \parbox{7em}{%
+      % \begin{itemize}[topsep=0pt, parsep=0pt, itemsep=0pt, itemindent=0pt,
+      %   leftmargin=1em, label=-]
+      % \item tokens
+      % \item sentences
+      % \item POS tags
+      % \item lemmas
+      % \item …
+      % \end{itemize}}
+  };%
 
   \node[on chain, proc](tcf2csv){tcf$\rightarrow$csv};%
   \node[on chain, db](corpusdb){Corpus\\data base\\1 token\\per row};%
