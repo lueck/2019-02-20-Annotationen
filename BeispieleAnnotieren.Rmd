@@ -319,7 +319,7 @@ corpus %>%
 - Frequenz
 	- Token-Frequenz
 	- Lemma-Frequenz
-	- 
+	- relative Häufigkeit
 	
 . . .
 
