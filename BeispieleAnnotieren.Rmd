@@ -20,8 +20,9 @@ output:
 
 ```{r echo = FALSE, message = FALSE, warning = FALSE}
 opts_knit$set(root.dir = "~/Projekte/Beispielkorpus/")
-library("beispielr")
-library("ggplot2")
+library(beispielr)
+library(ggplot2)
+library(reshape2)
 ```
 
 ## Beispiel-Marker
@@ -444,21 +445,33 @@ corpus %>% filter(tokenNum >= 27071)
 
 ## Eine Blume, z.B. eine Tulpe, …
 
-```{r corpus, message = FALSE, warning = FALSE}
-features_in_order <- c("norm_lf", "norm_tf", "poscal", "dmt", "dmc")
+\begingroup
+\fontsize{8pt}{10.2pt}\selectfont
+
+
+```{r satz_tulpe, echo = FALSE, message = FALSE, warning = FALSE}
 features <- corpus %>%
     generate_example_features() %>%
     calculate_example_features()
-features2 <- as_tibble(melt(features %>% filter(sentenceNum == 598),
-                            id.vars="tokenNum",
-                            measure.vars=features_in_order))
-## features3 <- group_by(features2, tokenNum) %>%
-##     mutate(variable = variable[match(features_in_order, variable)]) %>%
-##     ungroup()
-features3 <- features2 %>% arrange(tokenNum, factor(.$variable, levels=features_in_order))
-ggplot(features3) +
-    geom_area(mapping = aes(x=tokenNum, y=value, color=variable, fill=variable))
+satz_tulpe <- features %>% filter(sentenceNum == 598)
+satz_tulpe %>%
+    select(tokenNum, token, dmt, dmc, norm_tf, norm_lf, poscal, result, is_head) %>%
+    print(n=40)
 
+```
+
+\endgroup
+
+## Eine Blume, z.B. eine Tulpe, …
+
+```{r explain, echo = FALSE, message = FALSE, warning = FALSE}
+features_in_order <- c("dmt", "dmc", "norm_lf", "norm_tf", "poscal")
+satz_tulpe2 <- as_tibble(melt(satz_tulpe,
+                              id.vars="tokenNum",
+                              measure.vars=features_in_order))
+satz_tulpe3 <- satz_tulpe2 %>% arrange(tokenNum, factor(.$variable, levels=features_in_order))
+ggplot(satz_tulpe3) +
+    geom_area(mapping = aes(x=tokenNum, y=value, color=variable, fill=variable))
 
 ```
 
