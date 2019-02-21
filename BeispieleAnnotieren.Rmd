@@ -365,8 +365,8 @@ corpus %>%
 
 - jedes Merkmal hat Wert zwischen 0 und 1
 - jedes Merkmal wird mit einem Gewicht multipliziert
-- Bildung der Summe $f_K(t) = \sigma \left( b + \sum_{i=1}^n w_i \cdot f_{K_i}(t) \right)$
-- Beispiel-Kopf $K = max(f_K(…))$
+- Bildung der Summe $f_K(t) = \sum_{i=1}^n w_i \cdot f_i(t)$
+- Beispiel-Kopf ist das Token, für das $f_K$ maximal
 
 
 
