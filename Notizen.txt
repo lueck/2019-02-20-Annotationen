@@ -1,0 +1,57 @@
+-*- mode: markdown; -*-
+
+## Szondi
+
+Man kann für »Beschreibung« Annotationen einsetzen. Insofern sie einen
+Text hinsichtlich eines bestimmten Phänomens, einer bestimmten
+sprachlich-rhetorischen Struktur, nämlich des Beispiels, formalisiert
+beschreiben wollen, und dann auch für maschinelle Auswertungen eine
+Grundlage sein sollen, sollen sie »eine Beschreibung, die für sich
+aufzufassen wäre«.
+
+Zwei Aspekte, auf die es mir ankommt:
+
+- Aufwand: pragmatischer Aspekt
+- Annotationen sind keine Daten: theoretischer Aspekt (vielleicht
+  sogar dogmatisch, cf. »keine … darf«, Verbot)
+
+Ich würde sagen, dass dieses Problem auch nicht durch eine
+pragmatische Schleife zu lösen ist: Annotationen verwandeln sich nicht
+zu Daten, indem zwei AnnotatorInnen zu einem deckungsgleichen Ergebnis
+gebracht werden.
+
+Annotationen sollen einen Text gewissermaßen verdaten. Aber es sind
+keine Daten, in dem theoretischen Sinne, auf den uns der Wortsinn von
+*datum* führt.
+
+Ich will und kann nicht alle Spannungen auflösen. Vielmehr scheint es
+mir angezeigt, dringend angezeigt, die Spannungen zu benennen.
+
+Einerseits wollen wir Daten gewinnen, nämlich für eine ›emprische‹,
+material- oder eben daten-gesättigte Analyse (zeitliche
+Verläufe). Andererseits ist klar, dass es sich nicht einfach um Daten
+handelt.
+
+Im Aufwand, den es jedes Mal darstellt, Annotationen zu lesen, wird
+ihr Nicht-Datenhaftes erfahrbar.
+
+## Beispiele
+
+eines von einem Student
+
+Die formalisierte Art und Weise macht eigentlich viel mehr
+Kommunikation nötig.
+
+# Maschinelle Annotationen
+
+Sind ein Ausweg aus dem einen misslichen Aspekt, nämlich dem Aufwand.
+
+Vielleicht sind sie auch ein Ausweg von dem theoretischen
+Aspekt. Vielleicht ist das aber auch nur der Wunsch nach einer
+Erlösung von den Spannungen.
+
+Jedenfalls basieren sie auf einem ganz anderen Ansatz und auf
+Beobachtungen ganz anderer Art. Es geht weg von den semantischen
+Aspekten, weg von der philosophischen Aussage, hin zu linguistischen
+Aspekten. Insofern ist es vielleicht wirklich ein Ausweg. -- Aber ich
+will mir und Ihnen auch nicht zu viel versprechen.

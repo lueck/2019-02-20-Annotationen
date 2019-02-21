@@ -5,7 +5,7 @@ author: Christian Lück
 date:
 fontsize: 14pt
 lang: de
-bibliography: /tmp/all.bib
+bibliography: all.bib
 output:
   beamer_presentation:
     slide_level: 2
@@ -216,8 +216,37 @@ II.  datenbasierte historische Längsschnitte
 	- rhetorische Dimension, konzeptuelle D., epistemologische D.,
       normative D., mnemotechnische D., institutionelle D. [@CL2013b]
 
+## Annotieren und Hermeneutik
+
+- Versuch, dem Text bzw. der philosophischen Aussage gerecht zu werden
+- setzt Verstehen voraus
+- Beispiele können beliebig komplex sein
+- entsprechend hoher Verstehens-Aufwand
+- Annotationen drücken ein Verhältnis zwischen Leser und Text aus
+- und sind auch Kommunikationsmittel, etwas Intersubjektives
+- hermeneutischer Aufwand beim Lesen der Annot. erneut nötig
+
+
+## Annotationen und Hermeneutik
+
+> Kein Kommentar, keine stilkritische Untersuchung eines Gedichts darf
+> sich das Ziel setzen, eine *Beschreibung des Gedichts herzustellen,
+> die für sich aufzufassen wäre*. Noch deren unkritischster Leser wird
+> sie mit dem Gedicht konfrontieren wollen, sie allererst verstehen,
+> wenn er die Behauptungen *wieder in die Erkenntnisse aufgelöst hat,
+> aus denen sie hervorgegangen sind*. [@Szondi1967a; S.11]
+
+. . .
+
+- doppelter Aufwand
+
+. . .
+
+- Annotationen sind keine *Daten*
+
 
 ## Aufwand
+
 
 
 # Maschinelle Annotation
@@ -454,7 +483,7 @@ features <- corpus %>%
     calculate_example_features()
 satz_tulpe <- features %>% filter(sentenceNum == 598)
 satz_tulpe %>%
-    select(tokenNum, token, dmt, dmc, norm_tf, norm_lf, poscal, result, is_head) %>%
+    select(tokenNum, token, dmt, dmc, norm_tf, norm_lf, norm_pos, result, is_head) %>%
     print(n=40)
 
 ```
@@ -464,7 +493,7 @@ satz_tulpe %>%
 ## Eine Blume, z.B. eine Tulpe, …
 
 ```{r explain, echo = FALSE, message = FALSE, warning = FALSE}
-features_in_order <- c("dmt", "dmc", "norm_lf", "norm_tf", "poscal")
+features_in_order <- c("dmt", "dmc", "norm_lf", "norm_tf", "norm_pos")
 satz_tulpe2 <- as_tibble(melt(satz_tulpe,
                               id.vars="tokenNum",
                               measure.vars=features_in_order))
@@ -474,6 +503,44 @@ ggplot(satz_tulpe3) +
 
 ```
 
+## Die Beispiele
+
+\begingroup
+\fontsize{8pt}{10.2pt}\selectfont
+
+```{r examples, echo  = FALSE, message = FALSE, warning = FALSE}
+
+examples <- features %>%
+    filter(is_head == TRUE) %>%
+    select(sigle, sentenceNum, token)
+examples %>% print(n = 30)
+
+
+```
+
+\endgroup
+
+
+## Die Beispiele im Satz
+
+\begingroup
+\fontsize{8pt}{10.2pt}\selectfont
+
+```{r sentences, echo = FALSE, message = FALSE, warning = FALSE}
+sentences <- features %>%
+    mutate(read_token = if_else(is_head, paste0("<h>", token, "</h>"), token)) %>%
+    group_by(sigle, sentenceNum) %>%
+    summarize(reads = paste(read_token, collapse = " ")) %>%
+    ungroup()
+
+sentences %>%
+    filter(sigle == "KdU1963") %>%
+    filter(sentenceNum %in% c(269, 497, 523, 569, 598, 637, 1174, 1209, 1501, 1512, 1544)) %>%
+    select(reads) %>% print(n=30)
+
+```
+
+\endgroup
 
 
 ## Literatur
