@@ -27,7 +27,7 @@ nocite: |
 ---
 
 ```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
-opts_knit$set(root.dir = "~/Projekte/Beispielkorpus/")
+opts_knit$set(root.dir = "data") #"~/Projekte/Beispielkorpus/")
 library(beispielr)
 library(ggplot2)
 library(reshape2)
