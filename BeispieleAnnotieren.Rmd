@@ -1,30 +1,40 @@
 ---
-title: Beispiele Annotieren
-subtitle: Manuelle Annotationen im Spannungsfeld zwischen Interpretation, formalem Schema und maschineller Auswertung
+title: Beispiele annotieren
+subtitle: Annotationen im Spannungsfeld zwischen Interpretation, formalem Schema und maschineller Auswertung bzw. Erstellung
 author: Christian Lück
 institute: FernUniversität in Hagen
-date: 22.2.2019
+date: Bergische Universität Wuppertal, 22.2.2019
 fontsize: 10pt
 lang: de
-bibliography: all.bib
+bibliography: biblio.bib
 output:
   beamer_presentation:
+    theme: "Boadilla"
     slide_level: 2
     keep_tex: true
     toc: true
-    includes:
-      in_header: beamer-preamble.tex
+header-includes:
+  - \usepackage{tikz}
+  - \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows,shadows,calc,scopes}
+  - \usepgflibrary{shapes.geometric}
+  - \usepgflibrary{shapes.symbols}
+  - \beamertemplatenavigationsymbolshorizontal
+  - \setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection}
+  - \renewcommand{\contentsname}{Gliederung}
+nocite: |
+  @Schiller1999a, @Dale2000a, @Weigand1984a, @Smalley1984a
 
 ---
 
-# Spekulation über Standardabkürzungen
-
-```{r echo = FALSE, message = FALSE, warning = FALSE}
+```{r setup, echo = FALSE, message = FALSE, warning = FALSE}
 opts_knit$set(root.dir = "~/Projekte/Beispielkorpus/")
 library(beispielr)
 library(ggplot2)
 library(reshape2)
 ```
+
+# Spekulation über Standardabkürzungen
+
 
 ## Beispiel-Marker
 
@@ -47,7 +57,7 @@ library(reshape2)
 
 - die Wendung *exempli gratia* findet sich im antiken Latein
 - die Abkürzung *e.g.* hingegen nicht
-- erst im 17. Jh. [@Cappelli1990a]
+- erst im 17. Jh. [so jedenfalls nach @Cappelli1990a]
 - ebenso *id est* im antiken Latein, aber nicht *i.e.*
 - *i.e.* belegbar in Glossen ab dem 9. Jh.
 - Grund? Scriptura continua?
@@ -59,10 +69,10 @@ library(reshape2)
 - *e.g.* nach dem Vorbild von *i.e.* konventionalisiert
 - gleiche Funktion: Klarheit
 - gleiche Funktion: erlegt dem Leser eine Auseinandersetzung auf, *per
-  aspera ad astra* (cf. McCarthy)
-- i.A. gibt es jeweils eine offene Reihe von Beispielen
-- Probe aufs Verstehen: Man sollte ein Beispiel hinzufügen/anführen
-  können
+  aspera ad astra* (cf. McCarty)
+- I.A. gibt es jeweils eine offene Reihe von Beispielen.
+- Probe aufs Verstehen: Man sollte ein weiteres Beispiel hinzufügen
+  können.
 
 
 # Ein DFG-Projekt zum Beispiel
@@ -77,7 +87,7 @@ library(reshape2)
   zu
 - ihr Status für den Erkenntnisgewinn bleibt allerdings meist
   ungeklärt
-- in der Ästhetik ist der diese diskursive Praxis des Beispielgebens
+- in der Ästhetik ist die diskursive Praxis des Beispielgebens
   besonders gut beobachtbar
 
 ## Fragen und Methoden
@@ -129,7 +139,7 @@ II.  datenbasierte historische Längsschnitte
 > Bestimmtem (repraesentatio magis determinati), die zur Erklärung (ad
 > declarandam) einer Vorstellung von weniger Bestimmtem
 > (repraesentationem minus determinati) beigebracht
-> wird. [@Baumg1983a; § 21.]
+> wird. [@Baumg1983a, § 21.]
 
 
 ## Eine Blume
@@ -137,9 +147,14 @@ II.  datenbasierte historische Längsschnitte
 > Eine Blume hingegen, z.B. eine Tulpe, wird für schön
 > gehalten, weil eine gewisse Zweckmäßigkeit, die so, wie wir sie
 > beurteilen, auf gar keinen Zweck bezogen wird, in ihrer Wahrnehmung
-> angetroffen wird. [@KantKdU; 61]
+> angetroffen wird. [@KdU1963, § 17]
 
 \vfill
+
+. . .
+
+> Eine Paradigmatik der Blume lenkt die dritte
+> *Kritik*. [@Derrida1992, S.107]
 
 
 ## Eine Blume ...
@@ -189,20 +204,32 @@ II.  datenbasierte historische Längsschnitte
 ## Annotationen und Hermeneutik
 
 > Kein Kommentar, keine stilkritische Untersuchung eines Gedichts darf
-> sich das Ziel setzen, eine *Beschreibung des Gedichts herzustellen,
-> die für sich aufzufassen wäre*. Noch deren unkritischster Leser wird
+> sich das Ziel setzen, eine **Beschreibung des Gedichts herzustellen,
+> die für sich aufzufassen wäre**. Noch deren unkritischster Leser wird
 > sie mit dem Gedicht konfrontieren wollen, sie allererst verstehen,
-> wenn er die Behauptungen *wieder in die Erkenntnisse aufgelöst hat,
-> aus denen sie hervorgegangen sind*. [@Szondi1967a; S.11]
+> wenn er die Behauptungen **wieder in die Erkenntnisse aufgelöst hat,
+> aus denen sie hervorgegangen sind**. [@Szondi1967a, S.11]
 
-- mehrfacher (doppelter) Aufwand
-- Annotationen sind keine *Daten*
+- pragmatischer Aspekt: Der hermeneutische Aufwand, der beim
+  Annotieren aufgebracht worden ist, ist beim Lesen von Annotationen
+  erneut nötig.
+- theoretischer bzw. dogmatischer Aspekt: Annotationen sind *keine
+  Daten* in dem Sinne, auf den uns der Wortsinn von lat. *datum*
+  führt. Im Aufwand, den es jedes Mal darstellt, Annotationen zu
+  lesen, wird ihr Nicht-Datenhaftes erfahrbar.
 
+Aporie: Einerseits wollen wir Daten gewinnen, nämlich für eine
+›empirische‹, material- oder daten-gesättigte Analyse (zeitliche
+Verläufe). Andererseits macht sich immer wieder bemerkbar, dass es
+sich nicht einfach um Daten handelt.
 
+M.E. sollte man derlei Spannungen nicht einfach auflösen.
 
 # Maschinelle Annotation
 
 ## Beobachtung: Frequenz und Beispiele
+
+Keine Beispiele unter den Substantiven hoher Häufigkeit (Spalte `n`).
 
 \begingroup
 \fontsize{6pt}{8pt}\selectfont
@@ -220,6 +247,8 @@ freqs %>% print(n=20)
 
 ## Beobachtung: Frequenz und Beispiele
 
+Gelegentlich Beispiele unter den Substantiven mittlerer Häufigkeit.
+
 \begingroup
 \fontsize{6pt}{8pt}\selectfont
 
@@ -231,6 +260,8 @@ freqs %>% slice(200:250) %>% print(n=20)
 
 
 ## Beobachtung: Frequenz und Beispiele
+
+Gelegentlich Beispiele unter den Substantiven geringer Häufigkeit.
 
 \begingroup
 \fontsize{6pt}{8pt}\selectfont
@@ -244,6 +275,8 @@ freqs %>% slice(1000:1050) %>% print(n=20)
 
 ## Beobachtung: Frequenz und Beispiele
 
+Gelegentlich Beispiele unter den Substantiven geringer Häufigkeit.
+
 \begingroup
 \fontsize{6pt}{8pt}\selectfont
 
@@ -254,68 +287,83 @@ freqs %>% slice(1960:1980) %>% print(n=20)
 \endgroup
 
 
-## Zipfs Gesetz
+## Beobachtung: Frequenz und Beispiele
 
-\begingroup
-\fontsize{6pt}{8pt}\selectfont
+Zumindest bei den Werken unseres Korpus finden sich die Beispiele
 
-```{r zipf, echo = FALSE, message = FALSE}
+- nicht unter den Tokens, deren Zitierform eine hohe Frequenz hat,
+- sondern eher im mittleren
+- und unteren Frequenzbereich.
+
+Der Grund liegt vermutlich in der Funktion von Beispielen in Bezug auf
+die Thema-Rhema-Gliederung [@Bussm1990, S.784-786] von
+Texten. (Hypothese)
+
+Herausforderung:
+
+Im unteren und mittleren Frequenzbereich finden sich die Tokens und
+Zitierformen von Beispielen alles anderer als dicht nebeneinander,
+sondern nach dem Zipfschen Gesetz *verstreut*.
+
+## Zipfsches Gesetz
+
+```{r zipf, echo = FALSE, message = FALSE, fig.cap = "Zipfsches Gesetz"}
 corpus %>%
-    ##filter(POStag == "NN") %>%
     freq(sigle, token)%>%
     arrange(desc(freq)) %>%
     group_by(sigle) %>%
     mutate(rank = row_number()) %>%
     ggplot(aes(rank, freq, color = sigle)) +
-    geom_line(size = 1.1, alpha = 0.8, show.legend = FALSE) +
+    geom_line(size = 1.1, alpha = 0.8, show.legend = TRUE) +
     scale_x_log10() +
     scale_y_log10()
 ```
 
-\endgroup
+## Substantive (Zitierformen)
 
-## Substantive
-\begingroup
-\fontsize{6pt}{8pt}\selectfont
-
-```{r zipfnn, echo = FALSE, message = FALSE}
+```{r zipfnn, echo = FALSE, message = FALSE, fig.cap = "Zipfsches Gesetz gilt näherungsweise auch noch für die größte Teilmenge."}
 corpus %>%
     filter(POStag == "NN") %>%
-    freq(sigle, token)%>%
+    freq(sigle, lemma)%>%
     arrange(desc(freq)) %>%
     group_by(sigle) %>%
     mutate(rank = row_number()) %>%
     ggplot(aes(rank, freq, color = sigle)) +
-    geom_line(size = 1.1, alpha = 0.8, show.legend = FALSE) +
+    geom_line(size = 1.1, alpha = 0.8, show.legend = TRUE) +
     scale_x_log10() +
     scale_y_log10()
 ```
-
-\endgroup
 
 
 ## Kopf eines Beispiels
+
+Bei der automatischen Annotation kann (zunächst) nur ein sehr
+beschränktes Ziel verfolgt werden:
 
 - Identifizierung eines einzelnen Tokens als `Kopf` eines Beispiels
 - Kriterium: Das als `Kopf` identifizierte Token soll in der Menge der
   Tokens enthalten sein, die manuell als `Beispiel` annotiert worden
   wäre.
+- der Kopf eines Beispiels nur in Sätzen mit einem eindeutigen Marker
+
+Zur Bestimmung des Kopfes werden folgende Merkmale ausgewertet:
 
 - Frequenz
-	- Token-Frequenz (term frequency)
-	- Lemma-Frequenz
+	- Token-Frequenz (term frequency, `tf`)
+	- Lemma-Frequenz (`lf`)
 - Distanz vom Marker
-	- in Tokens
-	- in Satzzeichen (Kommas)
-- Wortart
+	- in Tokens (`dmt`)
+	- in Satzzeichen (Kommas, `dmc`)
+- Wortart (Part-of-speech-Tags, `pos`)
 
 
 ## Bestimmung des Beispiel-Kopfes
 
-- jedes Merkmal hat Wert zwischen 0 und 1
-- jedes Merkmal wird mit einem Gewicht multipliziert
+- jedes Merkmal $f_i$ hat Wert zwischen 0 und 1
+- jedes Merkmal $f_i$ wird mit einem Gewicht $w_i$ multipliziert
 - Bildung der Summe $f_K(t) = \sum_{i=1}^n w_i \cdot f_i(t)$
-- Beispiel-Kopf ist das Token, für das $f_K$ maximal
+- Beispiel-Kopf ist dasjenige Token $t$ im Satz des Beispielmarkers, für das
+  $f_K$ maximal
 
 
 
@@ -327,34 +375,10 @@ corpus %>%
 \endgroup
 
 
-
-## Comma Separated Values
-
-\begingroup
-\fontsize{8pt}{10pt}\selectfont
-
-	...
-	27071,Ein,t27071,,,,,eine,ART,598,s598,1
-	27072,Blume,t27072,,,,,Blume,NN,598,s598,2
-	27073,hingegen,t27073,,,,,hingegen,ADV,598,s598,3
-	27074,",",t27074,,,,,",","$,",598,s598,4
-	27075,z.,t27075,,,,,z.,APPRART,598,s598,5
-	27076,B.,t27076,,,,,B.,NN,598,s598,6
-	27077,ein,t27077,,,,,ein,ART,598,s598,7
-	27078,Tulpe,t27078,,,,,Tulpe,NN,598,s598,8
-	27079,",",t27079,,,,,",","$,",598,s598,9
-	27080,wird,t27080,,,,,werden,VAFIN,598,s598,10
-	27081,für,t27081,,,,,für,APPR,598,s598,11
-	27082,schön,t27082,,,,,schön,ADJD,598,s598,12
-	...
-
-\endgroup
-
-
-## R-Tabelle
+## Eine Blume hingegen, z.B. … -- Datengrundlage
 
 \begingroup
-\fontsize{8pt}{10.2pt}\selectfont
+\fontsize{8pt}{9.6pt}\selectfont
 
 ```{r corpus}
 corpus %>% filter(tokenNum >= 27071)
@@ -362,29 +386,29 @@ corpus %>% filter(tokenNum >= 27071)
 
 \endgroup
 
-## Eine Blume, z.B. eine Tulpe, …
+## Eine Blume hingegen, z.B. … -- Kopf-Berechnung
 
 \begingroup
-\fontsize{8pt}{10.2pt}\selectfont
+\fontsize{8pt}{9.6pt}\selectfont
 
 
 ```{r satz_tulpe, echo = FALSE, message = FALSE, warning = FALSE}
 features <- corpus %>%
     generate_example_features() %>%
-    calculate_example_features()
+    annotate_example_head(weights)
 satz_tulpe <- features %>% filter(sentenceNum == 598)
 satz_tulpe %>%
-    select(tokenNum, token, dmt, dmc, norm_tf, norm_lf, norm_pos, result, is_head) %>%
+    select(tokenNum, token, norm_dmt, norm_dmc, norm_tf, norm_lf, norm_pos, sum, is_head) %>%
     print(n=40)
 
 ```
 
 \endgroup
 
-## Erklärungsmodul
+## Eine Blume hingegen, z.B. … -- Erklärungskomponente
 
-```{r explain, echo = FALSE, message = FALSE, warning = FALSE}
-features_in_order <- c("dmt", "dmc", "norm_lf", "norm_tf", "norm_pos")
+```{r explain, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Anteile der gewichteten Merkmale an $f_K$"}
+features_in_order <- c("w_lf", "w_tf", "w_pos", "w_dmt", "w_dmc")
 satz_tulpe2 <- as_tibble(melt(satz_tulpe,
                               id.vars="tokenNum",
                               measure.vars=features_in_order))
@@ -394,10 +418,25 @@ ggplot(satz_tulpe3) +
 
 ```
 
-## Die Beispiele
+## Fazit I: Forderung nach Nachvollziehbarkeit
+
+- Die Ergebnisse maschineller Annotationen sollten nachvollziehbar
+  sein.
+- D.h. ein maschinelles Verfahren bzw. Algorithmus sollte eine
+  *Erklärungskomponente* haben [@Beierle2014a, S.18].
+- Hier basiert es auf gegebenen Merkmalen, deren Zustandekommen wieder
+  leicht nachvollziehbar ist
+  [zu Einschränkungen vgl. @Zinsmeister2015a].
+- Das Nachvollziehen einer maschinellen Annotation hat (hier) eine
+  andere epistemische Struktur als das einer manuellen.
+- klassischer Unterschied zwischen Erklären/Erkennen und Verstehen
+  [@Dilthey1927a, S.79--88]? Sinnvolle Unterscheidung?
+
+
+## Beispiel-Köpfe aus der *Kritik der Urteilskraft*
 
 \begingroup
-\fontsize{8pt}{10.2pt}\selectfont
+\fontsize{8pt}{9.6pt}\selectfont
 
 ```{r examples, echo  = FALSE, message = FALSE, warning = FALSE}
 
@@ -412,10 +451,10 @@ examples %>% print(n = 30)
 \endgroup
 
 
-## Die Beispiele im Satz
+## Serialisierung der Kopf-Annotationen
 
 \begingroup
-\fontsize{8pt}{10.2pt}\selectfont
+\fontsize{8pt}{9.6pt}\selectfont
 
 ```{r sentences, echo = FALSE, message = FALSE, warning = FALSE}
 sentences <- features %>%
@@ -433,7 +472,21 @@ sentences %>%
 
 \endgroup
 
+## Fazit II: Fehlerquote
+
+- Das Verfahren identifiziert nicht mehr als 90% der Beispielköpfe in
+  der *Kritik der Urteilskraft* in Sätzen mit dem eindeutigem
+  Beispielmarker *z.B.* richtig.
+- mindestens jeder 10te Kopf wird nicht richtig identifiziert
+- relativ hohe Fehlerquote
+- Verbesserungspotential:
+	- Merkmalskombinationen
+	- nicht nur isolierte Tokens, sondern auch Kontext auswerten,
+      z.B. POS-Tag-Muster
+	- ggf. Auswerten der Konstituenten-Struktur (aufgrund der
+      Fehlerbehaftung kommt ein Constituent-Parser nicht zentral zur
+      Anwendung)
+
 
 ## Literatur
-\fontsize{6pt}{7.2}\selectfont
-\nocite{Zinsmeister2015a,Bussm1990,Beierle2014a} 
+\fontsize{5pt}{6}\selectfont
