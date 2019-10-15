@@ -24,3 +24,10 @@ biblio.bib
 *.idv
 *.lg
 *.xref
+
+# De Gruyter Template and Manual
+AUTH*.zip
+AUTH_README.txt
+dgruyter*
+journal-article.tex
+book.tex
