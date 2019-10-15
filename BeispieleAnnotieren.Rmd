@@ -100,7 +100,7 @@ I.  intensive Lektüren einzelner Textstellen
 II.  datenbasierte historische Längsschnitte
 	- Häufigkeit/Frequenz bestimmter Beispiele
 	- Auftreten, Konjunktur, Verschwinden
-	- Korreliertheit der Frequenz von Beispielen untereinander …
+	- Korrelation der Frequenz von Beispielen untereinander …
 	- … oder mit anderen Diskursen
 	- Welche überhaupt?
 
@@ -302,7 +302,7 @@ Texten. (Hypothese)
 Herausforderung:
 
 Im unteren und mittleren Frequenzbereich finden sich die Tokens und
-Zitierformen von Beispielen alles anderer als dicht nebeneinander,
+Zitierformen von Beispielen alles andere als dicht nebeneinander,
 sondern nach dem Zipfschen Gesetz *verstreut*.
 
 ## Zipfsches Gesetz
@@ -363,16 +363,19 @@ Zur Bestimmung des Kopfes werden folgende Merkmale ausgewertet:
 - jedes Merkmal $f_i$ wird mit einem Gewicht $w_i$ multipliziert
 - Bildung der Summe $f_K(t) = \sum_{i=1}^n w_i \cdot f_i(t)$
 - Beispiel-Kopf ist dasjenige Token $t$ im Satz des Beispielmarkers, für das
-  $f_K$ maximal
+  $f_K$ maximal ist.
 
 
 
 ## Datengrundlage und Architektur
 
+\begin{figure}
 \begingroup
-\fontsize{6pt}{8pt}\selectfont
+\fontsize{5pt}{6pt}\selectfont
 \input{datengrundlage}
 \endgroup
+\caption{Architektur}
+\end{figure}
 
 
 ## Eine Blume hingegen, z.B. … -- Datengrundlage
