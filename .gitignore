@@ -7,9 +7,12 @@ Slides.pdf
 Slides_files
 
 Datengrundlage.pdf
+Beitrag.pdf
 
 CFP_*.pdf
 biblio.bib
+Beitrag.zip
+
 
 *.aux
 *.dvi
@@ -24,6 +27,8 @@ biblio.bib
 *.idv
 *.lg
 *.xref
+*.idx
+*.out
 
 # De Gruyter Template and Manual
 AUTH*.zip
