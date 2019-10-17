@@ -29,6 +29,10 @@ Beitrag.zip
 *.xref
 *.idx
 *.out
+*.fls
+*.ilg
+*.ind
+*.fdb_latexmk
 
 # De Gruyter Template and Manual
 AUTH*.zip
