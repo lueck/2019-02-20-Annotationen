@@ -76,18 +76,18 @@ backend=biber]{biblatex}
   Formalisierung und maschinellen Verfahren}%
 \abstract{Dieser Beitrag behandelt Annotationen von Beispielen in
   Texten zur philosophischen Ästhetik. Der Zweck der Annotationen ist
-  die Erzeugung eines größeren Datensatzes, mit dem Trends des
-  Beispielgebrauchs in der philosophischen Fachdisziplin auf einer
-  Zeitleiste darstellbar sind. Es werden zwei verschiedene Ideen
-  bezüglich Annotationen vorgestellt. Die eine sieht das Annotieren im
-  engen Zusammenhang mit der interpretativen Arbeit am philosophischen
-  Text und lässt es zu einer aufwendigen Übung im \englisch{close
-    reading} werden. Die andere löst sich davon, die Einbettung von
-  Beispielen in den Begriffs- und Argumentationszusammenhang eines
-  Textes zu annotieren, und setzt stattdessen auf ein linguistisches
-  Modell des Beispiels. Dadurch werden Annotationsaufgaben in
-  Algorithmen darstellbar, was im komplexeren ersten Modell lediglich
-  ein vages Versprechen gewesen ist.}%
+  die Erzeugung eines größeren Datensatzes, mit dem diskursive Trends
+  auf einer Zeitleiste darstellbar sind. Es werden zwei verschiedene
+  Ideen bezüglich Annotationen vorgestellt. Die eine sieht das
+  Annotieren im engen Zusammenhang mit der interpretativen Arbeit am
+  philosophischen Text und lässt es zu einer aufwendigen Übung im
+  \englisch{close reading} werden. Die andere löst sich davon, die
+  Einbettung von Beispielen in den Begriffs- und
+  Argumentationszusammenhang eines Textes zu annotieren, und setzt
+  stattdessen auf ein linguistisches Modell des Beispiels. Dadurch
+  werden Annotationsaufgaben in Algorithmen darstellbar, was im
+  komplexeren ersten Modell lediglich ein vages Versprechen gewesen
+  ist.}%
 \keywords{Annotationen, Literaturwissenschaft, Philosophie, ML}%
 \classification[PACS]{...}%
 \communicated{...}%
@@ -178,8 +178,10 @@ sollen zunächst die Schwierigkeiten beschrieben werden, die bei der
 ersten Art auftreten, um dann das Potential von Annotationen der
 zweiten Art zu untersuchen.
 
-\section{Beispiele in der propositionalen Struktur annotieren}
-% FIXME: formulierung Analog zu 3
+\section{Beispiele und Argumentation annotieren}
+% FIXME: Formulierung Analog zu 3
+%  in der propositionalen Struktur annotieren
+
 
 In einem literaturwissenschaftlichen Projekt mit einem philosophischen
 Gegenstand wie der Ästhetik liegt es zunächst näher, die
@@ -196,23 +198,24 @@ einen allgemeinen Satz lediglich widerlegen, aber nicht beweisen, hat
 jedoch gleichzeitig einen epistemologischen Wert bei der Induktion. %
 (Aristoteles, \emph{Anal. pr.} II\,24; \cite[\see][]{Willer2007a}) %
 Dieser epistemologischen Dimension des Beispiels muss man sicher noch
-andere Dimensionen an die Seite stellen \parencite{CL2013b}: etwa eine
-rhetorische Dimension, die auf den Beitrag zielt, den Beispiele im
-Hinblick darauf leisten, dass ein Text zu seinem Ziel kommt und seine
-Leser*innen überzeugt; oder eine konzeptuelle Dimension, nach der
-Beispiele verwendete Begriffe klar machen (was nicht das Gleiche ist
-wie widerlegen oder belegen); oder eine normative Dimension, denn
-Beispiele vermitteln -- gerade in der Ästhetik -- auch Konzepte, wie
-etwas \emph{sein sollte} oder was man angesichts eines Gegenstandes
-der Natur oder Kunst \emph{empfinden sollte}. -- Im Hinblick auf die
-Annotationen bewirken solche theoretischen Überlegungen erst einmal,
-dass die Idee, semantische und argumentative Strukturen auszuzeichnen,
-umso notwendiger erscheint, sich aber gleichzeitig ein sehr komplexes
-Annotationsunterfangen ankündigt. Die Annotationen sollen dann
-Beispiele so erfassen, dass sie dem mit Theorie armierten Blick
-möglichst gerecht werden, wozu die \emph{formalisierte Beschreibung}
-eines Phänomens~-- die eine Annotation ihrer eigenen Idee nach
-schließlich ist~-- ein Maximum an Expressivität haben muss.
+andere \emph{Dimensionen} an die Seite stellen \parencite{CL2013b}:
+etwa eine rhetorische Dimension, die auf den Beitrag zielt, den
+Beispiele im Hinblick darauf leisten, dass ein Text zu seinem Ziel
+kommt und seine Leser*innen überzeugt; oder eine konzeptuelle
+Dimension, nach der Beispiele verwendete Begriffe klar machen (was
+nicht das Gleiche ist wie widerlegen oder belegen); oder eine
+normative Dimension, denn Beispiele vermitteln -- gerade in der
+Ästhetik -- auch Konzepte, wie etwas \emph{sein sollte} oder was man
+angesichts eines Gegenstandes der Natur oder Kunst \emph{empfinden
+  sollte}. -- Im Hinblick auf die Annotationen bewirken solche
+theoretischen Überlegungen erst einmal, dass die Idee, semantische und
+argumentative Strukturen auszuzeichnen, umso notwendiger erscheint,
+sich aber gleichzeitig ein sehr komplexes Annotationsunterfangen
+ankündigt. Die Annotationen sollen dann Beispiele so erfassen, dass
+sie dem mit Theorie armierten Blick möglichst gerecht werden, wozu die
+\emph{formalisierte Beschreibung} eines Phänomens~-- die eine
+Annotation ihrer eigenen Idee nach schließlich ist~-- ein Maximum an
+Expressivität haben muss.
 
 Eines der technischen Mittel mit der höchsten Experssivität für die
 Formulierung von Vokabularen ist die \englisch{Web Ontology Language}
@@ -649,7 +652,7 @@ gehört also auch zum Merkmalsraum.
 \begin{figure}[t]
   \ttfamily
   \includegraphics[width=.8\textwidth]{datengrundlage}
-  \caption{Die digitale Architektur des Projekts}
+  \caption{Die digitale Architektur für das zweistufige Verfahren}
   \label{fig:Architektur}
 \end{figure}
 
@@ -869,7 +872,7 @@ oder »Formen« etwa. Jedoch sind »Substanz«, »Körper« und »Affekten«
 korrekt. »Formen« ist nicht korrekt und der Fehler kann auch
 identifiziert werden: Er besteht darin, in $f_{dc}$ einen Doppelpunkt
 nicht als Satzzeichen, nicht als Komma, gezählt zu haben. Obwohl
-»Tiere« korrekt erscheint, hätte besser ein Adjekt im selben Satz
+»Tiere« korrekt erscheint, hätte besser ein Adjektiv im selben Satz
 ausgewählt werden sollen. »Schönheit« ist nicht korrekt, vielmehr
 handelt es sich um das Thema der Passage -- und der halben dritten
 \lit{Kritik}. Dieses Token kommt 112 Mal vor. Auch hier kann aber die
@@ -885,7 +888,7 @@ Insgesamt handelt es sich um 5 Fehler in 51 Annotationen. Für einen
 Anfang mit derart grob geschätzten Gewichten ist diese Genauigkeit
 (\englisch{precision}) ganz akzeptabel; bei der Trefferquote
 (\englisch{recall}) kann man davon ausgehen, dass alle Bigramme
-»z.\,B.« gefunden und zu jedem ein Satz mit einem solchen ein Kopf
+»z.\,B.« gefunden und zu jedem ein Kopf
 bestimmt worden ist. Aber es ist klar, dass eine bessere Bestimmung
 der Gewichte durch ein Regressionsverfahren wünschenswert
 wäre. Allerdings wird in der Analyse der Fehler auch deutlich, wie
@@ -921,14 +924,17 @@ ausgewählten Köpfe: (Aus druck-technischen Gründen ist das lange S
   Hauptstelle, Erdbeben, Architektur, Schenke, Unzahl, Posse, Cain.
 \end{quote}
 
+An beiden Listen wird klar, wie wünschenswert es wäre, nach der
+Bestimmung des Kopfes eine Ausweitung auf eine Phrase zu berechnen.
+
 \subsection{Phase 2: Entscheiden über weitere Vorkommen}
 
 Die Ergebnisse aus Phase 1 unterstreichen, dass die Aufgabe in Phase 2
 nicht trivial ist. Besonders die Tokens mittlerer Frequenz stellen
-eine Herausforderung dar: Ein Begriff wie »Körper«, der einmal korrekt
-als Beispielkopf ausgewählt worden ist, kommt 33 Mal in der dritten
-Kritik vor. Ein Begriff wie »Größe« sogar 48 Mal. Nur ein Bruchteil
-der weiteren Vorkommen stehen im Zusammenhang mit Beispielen.
+eine Herausforderung dar: Der Begriff »Körper«, der einmal korrekt als
+Beispielkopf ausgewählt worden ist, kommt 33 Mal in der dritten Kritik
+vor. »Größe« sogar 48 Mal. Nur ein Bruchteil der weiteren Vorkommen
+stehen im Zusammenhang mit Beispielen.
 
 Manuelle Annotationen lassen sich für die zweite Phase schnell und
 ohne viel Aufwand erstellen. Auch ist das \englisch{decision tree
@@ -939,13 +945,13 @@ der Definition hinreichend diskriminierender Merkmale. Die Frequenz,
 die in Phase 1 besonders relevant gewesen ist, reicht hier höchstens
 dazu aus, einen Schwellenwert zu definieren, bei dessen Überschreitung
 gleich alle Vorkommen nicht annotiert werden, um im Resultat nicht so
-viele falschpositive Annotationen zu haben. Hier seien lediglich ein
-Ideen zu einem Merkmalsraum skizziert, deren Implementierung noch auf
-sich wartet. Es sei das Dokument, in dem ein Token als Beispielkopf
-ausgewählt worden ist, das Quelldokument, und der Satz der Quellsatz;
-und es sei das Dokument, in dem ein weiteres Vorkommen dieses Tokens
-vorliegt, das Zieldokument, und der dieses Token enthaltende Satz der
-Zielsatz. Merkmale könnten dann sein:
+viele falschpositive Annotationen zu haben. Hier seien lediglich
+einige Ideen zu einem Merkmalsraum skizziert, deren Implementierung
+noch auf sich wartet. Es sei das Dokument, in dem ein Token als
+Beispielkopf ausgewählt worden ist, das Quelldokument, und der Satz
+der Quellsatz; und es sei das Dokument, in dem ein weiteres Vorkommen
+dieses Tokens vorliegt, das Zieldokument, und der dieses Token
+enthaltende Satz der Zielsatz. Merkmale könnten dann sein:
 \begin{itemize}
 \item die Ähnlichkeit zwischen Quell- und Zielsatz, wobei als
   Ähnlichkeitsmaß das Vorkommen gleicher Tokens in Frage kommt;
@@ -983,14 +989,14 @@ weitgehend verschwunden und es rücken Maße wie \englisch{precision}
 und \englisch{recall} für die Genauigkeit maschineller Annotationen an
 ihre Stelle. Entsprechend sind auch die manuellen Annotationen nicht
 mehr mit großen hermeneutischen Investitionen verbunden; Annotieren
-ist kein \englisch{close reading} mehr, sondern eher ein technischer
-Vorgang. In dem beschriebenen hybriden Aufbau, in welchem die Liste
-der Beispiel-Köpfe, die das regelbasierte Verfahren geliefert hat,
-einer Revision unterzogen wird, um dann die Gewichte mittels
-Regression besser zu bestimmen, haben die Annotationen keinerlei
-Ähnlichkeit mehr mit dem Markup eines TEI-Dokuments. Sie bleiben aber
-dennoch deutlich eine Form des Informationsaustauschs in der
-Mensch-Maschine-Kommunikation über einen Text.
+ist hier kein \englisch{close reading} mehr, sondern tendenziell ein
+technischer Vorgang. In dem beschriebenen hybriden Aufbau, in welchem
+die Liste der Beispiel-Köpfe, die das regelbasierte Verfahren
+geliefert hat, einer Revision unterzogen wird, um dann die Gewichte
+mittels Regression besser zu bestimmen, haben die Annotationen
+keinerlei Ähnlichkeit mehr mit dem Markup eines TEI-Dokuments. Sie
+bleiben aber dennoch deutlich eine Form des Informationsaustauschs in
+der Mensch-Maschine-Kommunikation über einen Text.
 
 
 \printbibliography

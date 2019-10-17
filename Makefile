@@ -5,6 +5,9 @@ referatory = $(shell kpsewhich referatory.bib)
 LTX = latexmk -pdf -pdflatex="pdflatex " -use-make
 
 
+all: Beitrag.pdf Beitrag.zip
+
+
 Beitrag.pdf: Beitrag.tex datengrundlage.tex
 	$(LTX) $<
 
