@@ -1,0 +1,1030 @@
+\documentclass{article}
+
+%\usepackage[utf8]{inputenc}%(only for the pdftex engine)
+\RequirePackage[no-math]{fontspec}[2017/03/31]%(only for the luatex or the xetex engine)
+\usepackage[polutonikogreek,english,ngerman]{babel}
+\usepackage[small]{dgruyter}
+\usepackage{microtype}
+
+\setmonofont[
+  AutoFakeSlant,
+  BoldItalicFeatures={FakeSlant},
+]{Inconsolatazi4}
+
+\usepackage{xfrac}
+%\usepackage{afterpage}
+\usepackage{tikz}
+\usepackage[export]{adjustbox}
+
+\usepackage[%
+style=authoryear,%
+autolang=other,%
+sorting=nty,%
+sortlocale=de_DE,%
+autopunct=true,%
+uniquename=init,%
+eprint=false,%
+isbn=false,%
+hyperref=false,%
+backend=biber]{biblatex}
+%% TODO
+%\bibliography{Beitrag.bib}
+\bibliography{referatory,meine}
+%\input{Beitrag.bbl}
+
+
+
+%  Was in bibliographischen Angaben nicht angezeigt werden soll:
+\newcommand*{\CleanUpReferatory}{%
+  \iffieldequalstr{eprinttype}{googlebooks}{%
+    \clearfield{eprint}%
+    \clearfield{eprinttype}}{}}%
+\newcommand*{\CLclean}{%
+  \ifkeyword{CL}{%
+    \clearfield{addendum}}{}}%
+\AtEveryCitekey{\CleanUpReferatory\CLclean}
+\AtEveryBibitem{\CleanUpReferatory\CLclean}%
+
+% Bibliographischer Stil:
+\renewcommand*{\labelnamepunct}{\adddot\space}%
+\renewbibmacro*{publisher+location+date}{%
+  \printlist{publisher}%
+  \setunit*{\addcomma\space}%
+  \printlist{location}%
+  \setunit*{\addspace}%
+  \usebibmacro{date}%
+  \newunit}%
+\DeclareFieldFormat[article]{title}{#1}%
+\DeclareFieldFormat[incollection]{title}{#1}%
+\DeclareFieldFormat*{pages}{#1}%
+\renewcommand*{\bibpagespunct}{\addcolon}%
+\renewbibmacro{in:}{}%
+\usepackage{xpatch}
+\xpatchbibmacro{date+extradate}{%
+  \printtext[parens]%
+}{%
+  \setunit*{\adddot\space}%
+  \printtext%
+}{}{} 
+
+%% spezielle Macros fuer diesen Text
+\newcommand*{\lit}{\textit}%
+\newcommand*{\vokabular}{\texttt}%
+\newcommand*{\englisch}[1]{\foreignlanguage{english}{\textit{#1}}}%
+\newcommand*{\latein}{\textit}%
+\newcommand*{\som}{\texttt{standoff-mode}}%
+\renewcommand*{\see}{\autocap{v}gl\adddot}%
+
+\begin{document}
+
+  %\articletype{...}% FIXME
+
+\author[1]{Christian Lück}%
+\runningauthor{Christian Lück}%
+\affil[1]{FernUniversität in Hagen}%
+\title{Beispiele Annotieren}%
+\runningtitle{Beispiele Annotieren}%
+\subtitle{Zwischen interpretativer Arbeit am philosophischen Text,
+  Formalisierung und maschinellen Verfahren}%
+\abstract{Dieser Beitrag behandelt Annotationen von Beispielen in
+  Texten zur philosophischen Ästhetik. Der Zweck der Annotationen ist
+  die Erzeugung eines größeren Datensatzes, mit dem diskursive Trends
+  auf einer Zeitleiste darstellbar sind. Es werden zwei verschiedene
+  Ideen bezüglich Annotationen vorgestellt. Die eine sieht das
+  Annotieren im engen Zusammenhang mit der interpretativen Arbeit am
+  philosophischen Text und lässt es zu einer aufwendigen Übung im
+  \englisch{close reading} werden. Die andere löst sich davon, die
+  Einbettung von Beispielen in den Begriffs- und
+  Argumentationszusammenhang eines Textes zu annotieren, und setzt
+  stattdessen auf ein linguistisches Modell des Beispiels. Dadurch
+  werden Annotationsaufgaben in Algorithmen darstellbar, was im
+  komplexeren ersten Modell lediglich ein vages Versprechen gewesen
+  ist.}%
+\keywords{Annotationen, Literaturwissenschaft, Philosophie, ML}%
+%\classification[PACS]{...}%
+%\communicated{...}%
+%\dedication{...}%
+%\received{...}%
+%\accepted{...}%
+%\journalname{...}%
+%\journalyear{...}%
+%\journalvolume{..}%
+%\journalissue{..}%
+%\startpage{1}%
+%\aop%
+%\DOI{...}%
+
+\maketitle
+
+
+
+\section{Beispiele}
+
+Die jüngere Forschung hat wiederholt die Rolle von Beispielen für die
+Formierung von Wissen
+unterstrichen \parencite{Ruchatz2007a,Schaub2010a,CL2013a,ZB}. Bislang
+jedoch ist die Untersuchung von Beispielen stets selbst in einem
+exemplarischen Modus geblieben: Einzelne Beispiele, von denen mehr
+oder weniger plausibel ist, dass sie zentral für eine diskursive
+Formation sind, sind detailliert und mit hermeneutischen Methoden oder
+in dekonstruktionistischen Lektüren kommentiert worden. Für eine
+Forschung, die auf einer größeren Menge von Beispielen basiert,
+existiert schlicht keine strukturierte Datengrundlage.
+
+Das DFG-Projekt \textit{Das Beispiel im Wissen der Ästhetik
+  (1750--1850)} (Fern\-Uni\-versi\-tät in Hagen, Leitung Michael Niehaus)
+hat sich einerseits das Ziel gesetzt, die Problemgeschichte der
+Ästhetik von ihren Beispielen her neu zu beleuchten. Wie das
+funktionieren kann, hat Derrida für Immanuel Kants \lit{Kritik der
+  Urteilskraft} vorgemacht, der im Zuge einer die Beispiele
+würdigenden Analyse von Kants Begriffssystem konstatiert: »Eine
+Paradigmatik der Blume lenkt die dritte
+\emph{Kritik}« \Parencite[107]{Derrida1992}. Neben ins Detail von
+philosophischen Systemen und Argumentationen gehenden Analysen will
+das Hagener Projekt jedoch auch die diskursive Praxis des
+Beispielgebens archivieren. Ein Ziel ist die Gewinnung eines
+Datensatzes aus einem Korpus von Schriften zur philosophischen
+Ästhetik. Ein solcher hätte einen erheblichen Mehrwert für die
+diskurstheoretische Erforschung des Beispiels im Sinne einer
+Archäologie des Wissens nach \textcite{Fouc1997a}: Er würde die
+Forschung in die Lage versetzen, i) ein Verzeichnis der Beispiele zu
+präsentieren, ii) historische Längsschnitte zu tätigen, die Einblick
+in die Häufigkeit einzelner Beispiele im Untersuchungszeitraum
+gewähren -- ihre Emergenz, ihren Boom, ihr Verschwinden~-- und so iii)
+gegebenenfalls Trends im philosophischen Diskurs mit anderen Diskursen
+zu korrelieren, z.\,B. mit der Reiseliteratur des 18., mit dem
+Kolonialdiskurs des 19. Jahrhunderts oder mit der Botanik und
+Biologie.
+
+% \section{Kollektaneen, Annotationen und die Perspektive maschinellen Lernens}
+
+Für das Erarbeiten eines Beispieldatensatzes gibt es verschiedene
+Ansätze. Bereits vor einigen Jahren wurde begonnen, Beispiele durch
+ein Webformular in einer Datenbank aufzunehmen.%
+\footnote{\url{http://beispiel.germanistik.rub.de}} %
+Neben der Textstelle, in der das Beispiel gegeben wird, und Metadaten
+über das Schriftstück ist dabei Folgendes erfasst worden: das Beispiel
+selbst, also das eher Konkrete, was als Beispiel angeführt wird;
+dasjenige, für das das Beispiel angeführt wird, also das eher
+allgemeine Konzept, das mit dem Beispiel illustriert, belegt oder
+verständlich gemacht wird; und ein optional vorhandener Marker auf der
+Textoberfläche wie »z.\,B.«. Allerdings ist klar, dass die Beispiele
+in solch einer Datenbank weitgehend ohne Kontext erfasst werden:
+weitgehend ohne den begrifflich-argumentativen Kontext und auch ohne
+den Kontext anderer Beispiele. Der Vorteil, dass man auf diese Weise
+hinsichtlich der Textauswahl vom Urheberrecht weitgehend
+uneingeschränkt bleibt, kann den Nachteil nicht aufwiegen, dass man am
+Ende mit bloßen Kollektaneen dasteht. Die Exzerpte werden kaum als
+Datensatz dienen, auf dessen Grundlage durch maschinelles Lernen
+weitere Beispiele in einem Korpus von Schriften gefunden werden
+können.
+
+Aus diesen Gründen setzt das DFG-Projekt \textit{Das Beispiel im
+  Wissen der Ästhetik} auf die Annotation von Beispielen in
+Volltexten. Allerdings gibt es sehr unterschiedliche Arten und Weisen,
+Beispiele zu annotieren: Annotationen, die eher die propositionale
+Struktur, in der ein Beispiel gegeben wird, erfassen wollen, und
+Annotationen, die eher im Zusammenhang mit linguistischen Kategorien
+und mit in Algorithmen darstellbaren Verfahren stehen. Im Folgenden
+sollen zunächst die Schwierigkeiten beschrieben werden, die bei der
+ersten Art auftreten, um dann das Potential von Annotationen der
+zweiten Art zu untersuchen.
+
+\section{Beispiele und Argumentation annotieren}
+% FIXME: Formulierung Analog zu 3
+%  in der propositionalen Struktur annotieren
+
+
+In einem literaturwissenschaftlichen Projekt mit einem philosophischen
+Gegenstand wie der Ästhetik liegt es zunächst näher, die
+begrifflich-propositionale Struktur, in der Beispiele angeführt
+werden, in den Blick zu nehmen und zu annotieren. Die Schwerkraft,
+welche die Idee der Annotationen in diese Richtung zieht, hat ihren
+Grund in theoretischen Auffassungen über das Beispiel. Sie gehen
+zurück auf einen älteren philosophischen Diskurs, werden teilweise
+durch Definitionen im untersuchten Korpus wiederaufgenommen und
+bestätigt und werden in der aktuellen Forschung einer Revision
+unterzogen. So steht das Beispiel klassischerweise im Zusammenhang mit
+der Beziehung zwischen dem Allgemeinen und dem Besonderen; es kann
+einen allgemeinen Satz lediglich widerlegen, aber nicht beweisen, hat
+jedoch gleichzeitig einen epistemologischen Wert bei der Induktion %
+(Aristoteles, \emph{Anal. pr.} II\,24; \cite[\see][]{Willer2007a}). %
+Dieser epistemologischen Dimension des Beispiels muss man sicher noch
+andere \emph{Dimensionen} an die Seite stellen \parencite{CL2013b}:
+etwa eine rhetorische Dimension, die auf den Beitrag zielt, den
+Beispiele im Hinblick darauf leisten, dass ein Text zu seinem Ziel
+kommt und seine Leser*innen überzeugt; oder eine konzeptuelle
+Dimension, nach der Beispiele verwendete Begriffe klar machen (was
+nicht das Gleiche ist wie widerlegen oder belegen); oder eine
+normative Dimension, denn Beispiele vermitteln -- gerade in der
+Ästhetik -- auch Konzepte, wie etwas \emph{sein sollte} oder was man
+angesichts eines Gegenstandes der Natur oder Kunst \emph{empfinden
+  sollte}. -- Im Hinblick auf die Annotationen bewirken solche
+theoretischen Überlegungen erst einmal, dass die Idee, semantische und
+argumentative Strukturen auszuzeichnen, umso notwendiger erscheint,
+sich aber gleichzeitig ein sehr komplexes Annotationsunterfangen
+ankündigt. Die Annotationen sollen dann Beispiele so erfassen, dass
+sie dem mit Theorie armierten Blick möglichst gerecht werden, wozu die
+\emph{formalisierte Beschreibung} eines Phänomens~-- die eine
+Annotation ihrer eigenen Idee nach schließlich ist~-- ein Maximum an
+Expressivität haben muss.
+
+Eines der technischen Mittel mit der höchsten Experssivität für die
+Formulierung von Vokabularen ist die \englisch{Web Ontology Language}
+(OWL). Das Vokabular zur Annotation von Beispielen ist in der OWL
+realisiert \parencite{CL2018a}: Zur Auszeichnung von Textpassagen
+dienen OWL-Klassen (owl:Class), von denen es im wesentlichen vier
+gibt: \vokabular{Beispiel}, \vokabular{Marker}, \vokabular{Konzept}
+und \vokabular{Kontext}. Um Relationen zwischen ausgezeichneten
+Textpassagen zu beschreiben, stehen OWL-Objekteigenschaften
+(owl:ObjectProperty) zur Verfügung. So kann in den Annotationen über
+einen Marker ausgesagt werden, welches Beispiel er markiert, oder über
+ein Beispiel, für welches generellere Konzept es als Beispiel
+angeführt wird, oder über ein Beispiel, in welchem begrifflichen,
+argumentativen oder theoretischen Kontext es angeführt wird. Solche
+der Prädikatenlogik ähnliche Aussagen werden immer als Relation
+zwischen zwei ausgezeichneten Textpassagen annotiert, wobei die
+Objekteigenschaft die Art der Relation, die zwischen den beiden
+Passagen besteht, beschreibt, d.\,h. das Prädikat eines RDF-Tripels
+darstellt. Die OWL-Objekteigenschaften des Vokabulars sind in einem
+Vererbungsbaum so organisiert, dass z.\,B. alle Eigenschaften, mit
+denen eine Relation zwischen einem Beispiel und einem Konzept
+beschrieben werden kann, von dem Grund-Prädikat
+\vokabular{istBeispielFuer} abgeleitet sind. Dieses Prädikat
+implizieren per Vererbung (owl:subPropertyOf) insgesamt 24 weitere
+Prädikate zur Beschreibung der Relation zwischen Beispiel und Konzept,
+welche wiederum in Teilbäumen organisiert sind. Mit diesem
+differenzierten Vokabular an Prädikaten lassen sich die oben
+skizzierten Dimensionen des Beispiels (epistemologisch, rhetorisch,
+konzeptuell, normativ) einerseits auf formalisierte Art und Weise
+beschreiben und andererseits bleibt dabei die elementare Relation
+zwischen einem Beispiel und einem generellen Konzept, für das es
+angeführt wird, aufgrund der Ableitung vom Grund-Prädikat
+\vokabular{istBeispielFuer} stets impliziert. Das ist im Hinblick auf
+Abfragen auf dem späteren Datensatz von besonderem Interesse. Darüber
+hinaus definiert das Vokabular OWL-Dateneigenschaften
+(owl:DatatypeProperty), mit welchen zu einer Textpassage freie
+Literale angegeben werden können.
+
+Als Annotationswerkzeug kommt ein im Jahr 2015 selbst entwickeltes
+Tool zum Einsatz, das mit dem in OWL definierten Vokabular umgehen
+kann. Es basiert auf GNU Emacs, speichert die Annotationen als
+Stand-Off-Markup und ermöglicht diskontinuierliches Markup.%
+\footnote{\url{http://github.com/lueck/standoff-mode}. Zur Zeit der
+  Entwicklung von \som\ standen noch keine Werkzeuge zur Verfügung,
+  die diskontinuierliches Markup zusammen mit Relationen zwischen
+  ausgezeichneten Textpassagen und eine Annotation in XML-
+  bzw. TEI-Dokumenten ermöglicht haben. Das \englisch{BRAT Rapid
+    Annotation Tool} kam den Anforderungen am nächsten, verarbeitet
+  aber nur schlichte Text-Dateien. Das Datenmodell von CATMA hat
+  Relationen noch nicht zugelassen und WebAnno war noch in der
+  Entwicklungsphase, genau wie Funktionselemente von TextGrid.\par
+  Zur Internalisierung des mit \som\ produzierten externen Markup in
+  ein TEI-Dokument kommt ein in Haskell geschriebenes Programm zur
+  Anwendung: \url{http://github.com/lueck/standoff-tools}.\par
+  Das Vokabular zur Beschreibung von Beispielen ist online unter
+  \url{http://github.com/lueck/standoff-mode/arb/arb.owl}.} %
+
+Mit den der Prädikatenlogik ähnlichen Aussagen, die mit solch einem
+Vokabular darstellbar sind, kann man die semantisch-propositionale
+Struktur von Beispielen schon recht gut annotieren. Wie schnell diese
+komplex werden kann, sei an einer Stelle aus Kants dritter
+\lit{Kritik} \parencite[\pno\,77\psq\ (§\,17)]{KantKdU} demonstriert:
+
+\begin{quote}
+  Schönheit ist die Form der Zweckmäßigkeit eines Gegenstandes, sofern
+  sie ohne Vorstellung eines Zweckes an ihm wahrgenommen
+  wird. [Fußnote:] Man könnte wider diese Erklärung als Instanz
+  anführen, daß es Dinge gibt, an denen man eine zweckmäßige Form
+  sieht, ohne an ihnen einen Zweck zu erkennen, z.\,B. die öfter aus
+  alten Grabhügeln gezogenen, mit einem Loche als zu einem Hefte,
+  versehenen steinernen Geräte; die, ob sie zwar in ihrer Gestalt
+  deutlich eine Zweckmäßigkeit verraten, für die man den Zweck nicht
+  kennt, darum gleichwohl nicht für schön erklärt werden. Allein, daß
+  man sie für ein Kunstwerk ansieht, ist schon genug, um gestehen zu
+  müssen, daß man ihre Figur auf irgend eine Absicht und einen
+  bestimmten Zweck bezieht. Daher auch gar kein unmittelbares
+  Wohlgefallen an ihrer Anschauung. Eine Blume hingegen, z.\,B. eine
+  Tulpe, wird für schön gehalten, weil eine gewisse Zweckmäßigkeit,
+  die so, wie wir sie beurteilen, auf gar keinen Zweck bezogen wird,
+  in ihrer Wahrnehmung angetroffen wird.
+\end{quote}
+
+Man sieht sogleich, dass das Annotieren von Beispielen keine leichte
+Aufgabe ist. Es gibt in der zitierten Passage zwei Beispiel-Marker
+»z.\,B.« an der Text-Oberfläche, aber das ist auch schon alles, was
+klar ist. Es ist ein erhebliches Maß an hermeneutischem Aufwand
+erforderlich, um eine solche Passage zu annotieren; man muss also
+schon ziemlich viel von Kants Argumentation und Begriffsystem
+verstehen, um überhaupt sinnvoll etwas zu annotieren. So ist es zwar
+klar, dass jeweils hinter den Beispielmarkern »z.\,B.« das Beispiel
+folgt. Im zweiten Fall ist das Beispiel »ein Tulpe«, im ersten Fall
+»die öfter aus alten Grabhügeln gezogenen, mit einem Loche als zu
+einem Hefte, versehenen steinernen Geräte; die, ob sie zwar in ihrer
+Gestalt deutlich eine Zweckmäßigkeit verraten, für die man den Zweck
+nicht kennt, darum gleichwohl nicht für schön erklärt werden«. Hier
+bekommt man gleich einen Eindruck davon, dass selbst die Bestimmung
+des Umfangs eines Beispiels Schwierigkeiten machen kann. Die lange
+Nominalphrase »die öfter aus alten Grabhügeln gezogenen, mit einem
+Loche als zu einem Hefte, versehenen steinernen Geräte« gehört ganz
+sicher \emph{ganz} zum Beispiel, denn kein Teil dieser Phrase würden
+der intensionalen Bestimmung des Beispiels gerecht: Es geht nicht um
+›steinerne Geräte‹, sondern um diejenigen ›steinernen Geräte‹, die man
+›in alten Grabhügeln‹ findet und die ›mit einem Loche als zu einem
+Hefte versehen sind‹. Ohne diese Bestimmungen spricht man über eine
+viel größere Klasse von Gegenständen. Aber man sieht auch gleich, dass
+man die Nominalkonstruktion in Relativsätze umformen kann, und dann
+entsteht die Frage, ob man den mit einem Semikolon abgetrennten
+Relativsatz nicht auch zum Beispiel rechnen will. Andererseits wird in
+ihm das Besondere des Beispiels mit dem Allgemeinen des Verhältnisses
+zweier Begriffe, um die es geht, nämlich Zweckmäßigkeit und Schönheit,
+verworben. Das wäre ein Argument, diesen Relativsatz, nicht mehr zum
+Beispiel zu zählen. Im Gegensatz zu den Relativsätzen, die man durch
+Auflösung der vorhergehenden Nominalkonstruktion erhält, handelt es
+sich um einen nicht-restriktiven Relativsatz, und man hätte gute
+Gründe für die Regel, dass nicht-restriktive Relativsätze nicht mehr
+zum Beispiel gehören sollen. Wenn man sie dennoch als Beispiel
+annotiert, dann müsste man eigentlich auch noch den nächsten Satz zum
+Beispiel hinzurechnen, da dort auch noch von den Grabbeigaben die Rede
+ist.
+
+Im zweiten Fall von »eine Tulpe« ist die Lage nur auf den ersten Blick
+klar. Auf den zweiten Blick bemerkt man, dass bereits »eine Blume« ein
+Beispiel ist, das durch »z.\,B. eine Tulpe« noch einmal weiter
+konkretisiert wird. Hier bilden also zwei Beispiele eine Art Kaskade
+der Konkretisierung. Und man bemerkt weiter, dass es in der gesamten
+Fußnote (die bis zum Ende des Zitats reicht) um Beispiele geht, denn
+im ersten Satz der Fußnote heißt es, dass man gegen den allgemeinen
+Obersatz »als Instanz« existierende Dinge mit bestimmten Eigenschaften
+anführen könnte. Eine Instanz gegen etwas anzuführen, ist eine
+Beispielpraxis, nämlich die des Gegenbeispiels, also des Widerlegens
+einer allgemeinen Aussage mittels Beispielen. Ist dann aber »Dinge
+[…], an denen man eine zweckmäßige Form sieht, ohne an ihnen einen
+Zweck zu erkennen« bereits ein Gegenbeispiel in seiner allgemeinsten,
+abstraktesten Form, die dann in den mit »z.\,B.« markierten Beispielen
+konkretisiert wird? Oder handelt es sich um einen Begriff, welcher in
+den dann folgenden Beispielen konkretisiert wird?
+
+Um die Relationen zwischen den Beispielen und dem allgemeinen Obersatz
+annotieren zu können, muss man noch mehr von der Kantischen
+Philosophie verstehen. Es geht hier um die Relation zwischen dem
+Geschmacksurteil und der Wahrnehmung von Zwecken.%
+\footnote{Zentral für das Begriffssystem und auch für die beiden hier
+  besprochenen Beispiele ist die Unterscheidung zwischen freier und
+  anhängender Schönheit. Vgl. dazu \textcite{Guesken2018a}.} %
+Und in der Fußnote wird der Einwand erhoben (und nach Prüfung
+verworfen), dass am Schönen Zwecke nicht
+nicht % wichtig: doppeltes nicht
+wahrgenommen, sondern nicht erkannt würden. -- Das ist ein großer
+Unterschied in der Intentionalität, mit der man sich auf einen
+Gegenstand bezieht, und somit im Modus der Wahrnehmung. -- Das erste
+Beispiel soll als Beleg für diese Gegenthese herhalten und wird dann
+im Satz »Allein …« zurückgewiesen. Das Beispiel der Blume Tulpe ist
+nicht ebenfalls ein Gegenbeispiel, sondern ein Beispiel, das gegen die
+Gegenthese gerichtet ist, einen Unterschied (in der Intentionalität)
+zu dem vorherigen Beispiel markiert und den allgemeinen Obersatz
+unterstützt. Es soll noch einmal klar machen, wie die Begriffe gemeint
+sind. Das Vokabular zur Annotation nennt das die konzeptuelle
+Dimension eines Beispiels. \Parencite[\see\ auch][]{CL2013b} Hier geht
+es darum, dass die Blume Tulpe klar machen soll, wie es gemeint ist,
+dass sich das Urteil, dass etwas schön sei, nicht auf den Zweck dieses
+Gegenstandes bezieht. -- Derridas Verdikt, dass eine »Paradigmatik der
+Blume« Kants Analytik des Schönen lenke, erweist sich schon als sehr
+instruktiv.
+
+Solche Annotationen der propositionalen Struktur, in der Beispiele
+gegeben werden, werden ziemlich komplex. Sie zu erstellen gleicht
+einem \englisch{close reading} mit einem formalisierten
+Beschreibungsvokabular. Mit der Komplexität steigt noch einmal der
+zeitliche Aufwand, den manuelle Annotationen ohnehin schon
+erfordern. Bei derartigen Investitionen stellt sich die Frage, was man
+überhaupt mit solchen Annotationen hinterher anfangen will -- und
+kann. Weil man kaum ein ganzes Korpus ästhetischer Schriften wird
+annotieren können, ist die Verwendung als Datensatz, an dem
+historische Längsschnitte getätigt werden können, nicht oder nur sehr
+eingeschränkt gegeben. Die Abfragemöglichkeiten, die aus einer
+Annotation entstehen, wären aber sicher ein wichtiger Grund, den
+Aufwand zu betreiben. Wenn dies dann jedoch nur in einem ganz
+eingeschränkten Umfang realisiert wird, bleiben die Investitionen
+zweifelhaft.
+
+Die zweite wichtige Verwendung wäre die als Datensatz für maschinelles
+Lernen, aus dem mittels Regression die Parameter eines Algorithmus
+gewonnen werden. Der Algorithmus wäre dann anschließend in der Lage,
+selbstständig weitere Beispiele zu identifizieren. Das ist natürlich
+immer eine Perspektive, die beim Annotieren eine Rolle spielt und
+wegen der man sich um mehrere parallele Annotationen eines Werks und
+ihre Deckungsgleichheit bemüht.%
+\footnote{Vgl. den Beitrag von Evelyn Gius und Nils Reiter im
+  vorliegenden Band.} %
+Allerdings zeigt die Projekterfahrung, dass bei Annotationen, die so
+komplex sind und in die so viel Verständnis des Begriffssystems
+einfließen muss, Deckungsgleichheit kaum herzustellen ist. Das
+betrifft nicht nur zwei unterschiedliche Annotator*innen, sondern auch
+die Annotationen ein und derselben Person mit einer zeitlichen
+Differenz von einer Woche, einem Monat oder einem Jahr.%
+\footnote{Über ähnliche Erfahrungen mit eigenen Annotationen berichtet
+  auch Willard McCarty in seinem Beitrag im vorliegenden Band.} %
+Das ist aber nicht der einzige Punkt, der die Tauglichkeit der
+Annotationen für \englisch{machine learning} infrage stellt. Es ist
+auch kaum zu erwarten, dass in den überaus komplexen Strukturen, die
+man auf diese Art und Weise annotiert, Muster stecken, die so an
+anderen Stellen wiedergefunden werden können und dann auch noch
+tatsächlich Beispiele sind.
+
+Dies und die Erfahrung, wie schwer übereinstimmende Annotationen zu
+erreichen sind, gibt zu bedenken, ob Annotationen überhaupt Daten
+sind. Reicht ihre formale Homogenität, die sie aufgrund der Verwendung
+digitaler Tools haben, schon aus, um ihnen diesen Status zu
+verleihen? %
+Vielleicht sollte man Annotationen so handhaben, wie
+\emph{Experimentalsysteme} in anderen Wissenschaften gehandhabt
+werden, und die Frage ›Sind Annotationen Daten?‹ analog zur Frage, ob
+ein experimenteller Aufbau, sobald er überhaupt irgendeinen Output
+liefert, von Anfang an und jederzeit schon Daten produziert. Es ist
+nämlich doch in anderen Wissenschaften nicht so:
+\textcite{Rheinberger2001a} hat den Begriff des Experimentalsystems ja
+eingeführt, um zu beschreiben, wie lange es dauert und welche in den
+Ergebnissen meist ausgeblendeten Abwege länger verfolgt werden
+und welche kaum jemals beschriebene Praxis in einem wissenschaftlichen
+Labor in den Experimentalaufbau einfließt und welches Begehren das
+Laborhandeln trägt, bis ein Experiment endlich Daten produziert, die
+etwas zu einer wissenschaftlich relevanten Frage beitragen. Damit ist
+natürlich auch der Begriff der Daten als schlicht Gegebenes infrage
+gestellt, denn an Stelle des Gegebenseins rückt mit solch einer
+Beschreibung eine Labor-Praxis der Zurichtung in den Blick. Deswegen
+ist es womöglich verfrüht, bereits bei der übereinstimmenden
+Auszeichnung durch zwei oder mehrere Annotator*innen von Daten zu
+sprechen. Ob der Experimentalaufbau funktioniert, entscheidet sich ja
+erst dann, wenn die Annotationen mit einem Algorithmus
+zusammentreffen. Das soll den Wert von Annotationen nicht in Abrede
+stellen. Ohne Experimentalsysteme gäbe es ja schließlich gar keine
+Daten. Allerdings scheint als Beschreibung des gegenwärtigen Standes
+von auf Annotationen bauenden Projekten in den
+literaturwissenschaftlichen Digital Humanities der Begriff der Daten
+meist nicht passend: Es handelt sich doch eher um Laborarbeit an
+Experimentalsystemen in einem frühen Stadium.
+
+\section{Re-Modellierung: Linguistik des Beispiels}
+
+Der Mehrwert eines größeren Datensatzes wäre, wie eingangs skizziert,
+z.\,B. die Möglichkeit historischer Längsschnitte. Für solche ist es
+gar nicht so interessant, in welcher propositionalen Struktur ein
+Beispiel angeführt wird. Wichtiger ist die Verwendung gleicher
+Beispiele, also gleicher Wörter. Ein historischer Längsschnitt wird ja
+realisiert durch eine Abbildung der Häufigkeit von Beispielen (Wörtern
+oder Wortgruppen) auf einer Zeitleiste.
+
+Das eröffnet die Perspektive für eine Re-Modellierung und drastische
+Vereinfachung. Wenn einzelne Wörter oder Wortgruppen, die den
+zentralen Teil eines Beispiels ausmachen, in den Blick genommen werden
+sollen, dann kann das Annotations- bzw. Beschreibungsvokabular
+drastisch vereinfacht werden. Allerdings muss auch ein neuer Term in
+das Vokabular eingeführt werden, nämlich der \vokabular{Kopf} eines
+Beispiels. Während die Nominalphrase »ein Tulpe« das
+\vokabular{Beispiel} ist, ist das Nomen »Tulpe« der \vokabular{Kopf}
+dieses Beispiels. Im ersten Beispiel des langen Kant-Zitats sieht man
+aber gleich die Schwierigkeit, dass es oft nicht ganz leicht ist, den
+Kopf zu bestimmen: »Geräte«, »Hefte«, »Loche« oder »Grabhügeln«? Wenn
+der Kopf eine ganze Nominalphrase sein darf, dann könnte man die ganze
+Nominalkonstruktion »die öfter aus alten Grabhügeln gezogenen, mit
+einem Loche als zu einem Hefte, versehenen steinernen Geräte« als Kopf
+ansehen. Aber dies zeigt deutlich die sogleich eintretende
+Komplexität, wenn man als Kopf mehr als ein Unigram (N-Gram mit N=1)
+zulässt: Aufgrund der Produktionsregeln der Chomsky-Grammatik werden
+die Köpfe dann potentiell unendlich lang bzw. komplex. Deswegen soll
+zunächst versucht werden, bei der Re-Modellierung mit Unigram-Köpfen
+auszukommen. Sollte sich herausstellen, dass dies nicht ausreicht,
+dann könnte man ausgehend von einem Unigram die größte Nominalphrase,
+in der es steht, zu bestimmen versuchen. Dies allerdings setzt gute
+Resultate beim Parsen der Phrasenstruktur voraus, wovon bei
+historischen Texten des 18. und 19. Jahrhunderts nicht immer
+ausgegangen werden kann.
+
+Also sei der \vokabular{Kopf} eines Beispiels definiert als dasjenige
+einzelne Token (Unigram), das für das Beispiel signifikant ist. Es
+sollte zu den Tokens gehören, die man mit dem oben beschriebenen
+Vokabular (das auf die propositionelle Struktur, in der Beispiele
+gegeben werden, zielt) als Beispiel annotiert hätte. Diese Definition
+mag zu vage und deshalb unbefriedigend erscheinen. Sie ist aber nur so
+unbefriedigend, wie es ebenfalls unbefriedigend ist, im ersten
+zitierten Beispiel nur eines der Tokens »Geräte«, »Hefte«, »Loche« und
+»Grabhügeln« als Kopf zu annotieren.
+
+
+\section{Manuelle und maschinelle Annotationen}
+
+Durch ein so reformuliertes und vereinfachtes Modell stellt sich auch
+gleich die Frage nach Algorithmen neu, die die Annotation übernehmen
+können. Verschiedene Ansätze lassen sich denken. So bekommt man beim
+Lesen von Schriften der philosophischen Ästhetik schnell den Eindruck,
+dass ein ganzes Arsenal von Tieren und Pflanzen in ihnen als Beispiele
+vorkommt: Pferde, Affen, Lerchen, Fledermäuse, Nashörner usw. oder
+Rosen, Tulpen, Lilien usw. Man kann davon ausgehen, dass Tiere fast
+immer als Beispiele angeführt werden. Die Schriften sind schließlich
+keine botanischen Abhandlungen, sondern philosophische Schriften zur
+Frage der sinnlichen Wahrnehmung, die sich aus der Alltagswelt und den
+Schriften ihrer Zeit an Beispielen bedienen. Aber man wäre ein Esel,
+wenn man sagen würde, das Tiere immer Beispiele sind, denn manchmal
+kommen Tiere auch in Wendungen uneigentlichen Sprechens vor. Man
+könnte also eine Tier- oder Pflanzen-Ontologie verwenden, um Tier- und
+Pflanzennamen im Korpus zu suchen. Die Vollständigkeit dieser
+Ontologien würde über die Genauigkeit (\englisch{precision}), der
+Gebrauch metaphorischer Wendungen in den Texten über die Trefferquote
+(\englisch{recall}) entscheiden. Bei einem solchen Verfahren würde man
+ein äußeres Wissen, die Ontologie, an den Text anlegen.
+
+Lassen sich auch Verfahren konstruieren, die das Beispielwissen der
+Texte selber erheben? Verfahren, die nicht mit einem vorgefertigten,
+geschlossenen Wissen lediglich eine bestimmte semantische Teilmenge
+(alle Tierbeispiele, alle Pflanzenbeispiele) identifizieren? Im
+folgenden soll ein zweistufiges Verfahren vorgestellt
+werden. \Parencite[\see\ jetzt auch][]{CL2019d} Es tritt nicht an, um
+alle Beispiele in einem Korpus zu identifizieren. Aber es soll
+möglichst viele mindestens einmal als Beispiel markierte Beispiele
+identifizieren.
+
+In der ersten Phase macht sich das Verfahren zu nutze, dass das
+Beispiel eine sprachliche Figur ist, die einen Marker an der
+Textoberfläche haben kann. Es ist eine der wenigen Figuren mit einer
+Standard-Abkürzung als Oberflächenmarker. Das lateinische »e.\,g.«,
+\latein{exempli gratia}, wörtlich \emph{um eines Beispiels willen}
+oder \emph{aus Gunst des Beispiels}, ist in viele europäische Sprachen
+übersetzt worden;%
+\footnote{\Textcite[118]{Cappelli1990a} datiert die Entstehung der
+  lateinische Abkürzung auf das 17. Jahrhundert und damit deutlich zu
+  spät.} %
+im Deutschen war im 18. Jahrhundert noch das »z.\,E.«, zum Exempel,
+verbreitet, bevor es durch »z.\,B.« verdrängt worden ist. %
+% \footnote{ Die Standard-Abkürzung weist nicht nur eine formale
+%   Ähnlichkeit mit der Standard-Abkürzung »i.\,e.« auf, sondern auch
+%   eine Ähnlichkeit in der Verwendung, denn beide werden dazu
+%   verwendet, Begriff klar und deutlich zu
+%   machen. \Parencite[\see][78--80]{CL2018a}} %
+Die Standard-Abkürzung hat den schönen Effekt, dass man sich sicher
+sein kann, dass, wann immer sie auftaucht, ein Beispiel gegeben
+wird. -- Das ist zumindest in Schriften zur Ästhetik so, denn in ihnen
+werden zwar Reflexionen über Beispiele und auch über das Geben und den
+Gebrauch von Beispielen angestellt, aber keine metasprachlichen
+Reflexionen über die sprachliche Form von Beispielen, geschweige denn
+über die Verwendung dieses Markers. Das Auftauchen des Markers
+»z.\,B.« kann als eindeutiger Indikator für das Vorhandensein eines
+Beispiels angenommen werden. Auch andere Marker wie »bspw.« können als
+eindeutig angesehen werden; andere hingegen nicht, so etwa »wie«, das
+nur gelegentlich ein Beispiel markiert, meist aber als
+Vergleichspartikel eingesetzt wird; Ähnliches gilt für »etwa«. Das
+Wort »Beispiel« kommt auch in Reflexionen über die eigene oder eine
+fremde Beispielpraxis vor.
+
+Die eindeutige Markierung ausnutzend soll in der ersten Phase des
+Verfahrens der Kopf des Beispiels zu einem Marker identifiziert
+werden. Es soll der Einfachheit halber davon ausgegangen werden, dass
+der Kopf im selben Satz steht, wie der Marker. Das in dieser ersten
+Phase zu lösende Problem ist ein \emph{Auswahlproblem}: Es stehen
+mehrere Tokens als Kandidaten für einen Kopf zur Auswahl; die Auswahl
+muss akzeptabel sein.
+
+In der zweiten Phase des Verfahrens sollen anhand der in der ersten
+Phase gefundenen Beispiel-Köpfe weitere, nicht markierte Beispiele
+identifiziert werden. Für jedes weitere Vorkommen derselben Tokens im
+Korpus ist also zu entscheiden, ob es sich um ein Beispiel handelt
+oder nicht. Das in dieser zweiten Phase zu lösende Problem ist also
+ein \emph{Entscheidungsproblem}.
+
+Mit diesem Verfahren wird man natürlich nicht alle Beispiele
+erwischen, sondern höchstens diejenigen, die wenigstens einmal mit
+einem eindeutigen Marker an der Textoberfläche markiert sind. Es ist
+zu erwarten, dass mit steigender Größe des Korpus, mehr Beispiele und
+auch mehr voneinander verschiedene Beispiele gefunden werden, die
+absolute Anzahl an gefundenen Beispielen also steigt; aber es ist
+nicht unbedingt davon auszugehen, dass der Quotient der gefundenen und
+der tatsächlich vorhandenen Beispiele sich mit steigender Korpusgröße
+verbessert.
+
+Dass man sich von dem Ziel, alle Beispiele zu finden, verabschiedet,
+ist zwar ein gravierender Abstrich. Dafür verspricht aber das
+Experimentalsystem mit diesem Verfahren viel eher Daten zu liefern als
+bei der Annotation der propositionalen Struktur, in der Beispiele
+gegeben werden. Denn nun können für jede Phase des Verfahrens zwei
+sehr klare und einfache Annotationsaufgaben gestellt werden:
+\begin{description}
+\item[Phase 1:] Annotiere in jedem Satz, in dem ein eindeutiger
+  Beispiel-Marker vorkommt, den Kopf des Beispiels.
+\item[Phase 2:] Annotiere zu jedem Vorkommen der Tokens, die zur Menge
+  der Beispiel-Köpfe gehören, ob es sich um ein Beispiel handelt oder
+  nicht.
+\end{description}
+Die Chance ist jetzt viel größer, dass die Annotationen der zwei
+Phasen zum Trainieren von jeweils einem ML-Algorithmus geeignet
+sind. Für die zweite Phase kann das z.\,B. das
+Entscheidungsbaum-Lernen sein \parencite[105--120]{Beierle2014a}, für
+die erste Phase ein Algorithmus wie der im Folgenden vorgestellte. In
+beiden Fällen ist es dann noch von entscheidender Bedeutung, geeignete
+Merkmale zu definieren und bereitzustellen, die für die Unterscheidung
+in Phase 1 der Kandidaten und in Phase 2 zwischen Ja und Nein relevant
+sind.
+
+\subsection{Phase 1: Auswahl des Kopfes}
+
+Wenn man Annotationen, Merkmale und Algorithmen gleich zusammen
+konzipiert, lässt sich während des gesamten Prozesses der Modellierung
+abschätzen, wie groß die Erfolgsaussichten sind, also die Aussichten
+auf ein funktionierendes Experimentalsystem, in dem ein Algorithmus
+brauchbare Daten produziert. Wenn man hingegen weder von einem
+geeigneten Merkmalsraum noch von einem Algorithmus eine Vorstellung
+hat, dann bleibt die Brauchbarkeit der Annotationen ein vages
+Versprechen.
+
+\subsubsection{Merkmalsraum}
+
+In die Definition des Merkmalsraums werden \emph{Beobachtungen und
+  Hypothesen} einfließen, die man beim Annotieren machen
+bzw. aufstellen kann. Unserer Beobachtung zufolge sind Beispiel-Köpfe
+meistens Nomen, seltener Vollverben, manchmal Adjektive, aber nie
+Hilfverben, Artikel, Präpositionen usw. Die Wortart wird also schon
+einmal zum Merkmalsraum gehören.
+
+Relevant ist auch, wie weit ein Token vom Marker entfernt ist: Ein
+näher am Marker stehendes Token ist häufiger ein akzeptabler
+Beispiel-Kopf als weiter weg stehende. Man kann die Distanz in Tokens,
+die zwischen dem Marker und einem Kandidaten stehen, zählen oder auch
+in dazwischen liegenden Kommata. Allerdings sieht man an Kants
+verschachtelten Sätzen und Nominalkonstruktionen, dass diese einfachen
+Distanzmaße auch trügerisch sein können und eine in Satzkonstituenten
+gemessene Distanz noch besser wäre: In einer solchen wäre »Geräte«
+genauso weit vom Marker entfernt wie »Grabhügeln«. Die Verwendung
+eines solchen Maßes würde allerdings erneut gute Resultate beim Parsen
+der Phrasenstruktur voraussetzen, wovon bei historischen Texten des
+18. und 19. Jahrhunderts nicht immer ausgegangen werden kann.  
+
+Des Weiteren kann man beim Annotieren beobachten, dass der Marker dem
+Beispiel meist, aber nicht immer vorangeht. Die Richtung zum Marker
+gehört also auch zum Merkmalsraum.
+
+Eine weitere Beobachtung ist, dass die Beispiel-Köpfe Wortformen
+(Tokens) sind, die eher selten im Text vorkommen. Auch die zugehörigen
+Zitierformen kommen eher selten vor. Diese Beobachtung kann man
+machen, wenn man nach Häufigkeit geordnete Frequenztabellen der Tokens
+eines Textes studiert. Die Beispielköpfe, die Nomen sind, kommen unter
+den Nomen mit geringer bis mittlerer Häufigkeit vor, aber nicht unter
+den häufigen Nomen. Die häufigsten Nomen in Kants dritter Kritik sind
+philosophische Begriffe: Natur (849 Mal), Begriff (746), Prinzip
+(485), Zweck (438), Vernunft (404). Anhand dieser häufigen Wörter
+werden Dokumente durch automatische Klassifikation vorgegebenen
+Kategorien (Themenfeldern) zugeordnet \parencite{Sebastiani2002a} oder
+durch Clustering gruppiert \parencite[195--209]{Heyer2006a}. Die Tier-
+oder Pflanzen-Beispiele in Texten der philosophischen Ästhetik führen
+nicht dazu, dass ein Text z.\,B. der Botanik zugeordnet wird oder mit
+Linnés oder Okens Werken in einem Cluster auftaucht. Ein
+linguistischer Grund dafür, dass Beispiele unter den Wörtern mit
+geringer bis mittlerer Frequenz auftauchen, könnte in der
+Thema-Rhema-Gliederung eines Textes gesucht
+werden. \Parencite[784-786]{Bussm1990} An dieser Stelle interessiert
+allerdings eher, dass die Frequenz ein relevantes Merkmal darstellt.
+
+\begin{figure}
+  \centering
+  %\ttfamily
+  \includegraphics[max width=.8\textwidth]{abb/datengrundlage.pdf}
+  \caption{Die digitale Architektur für das zweistufige Verfahren}
+  \label{fig:Architektur}
+\end{figure}
+
+Die Merkmale werden im \englisch{pre-processing} des Korpus
+generiert. Dafür kommt WebLicht%
+\footnote{\url{https://weblicht.sfs.uni-tuebingen.de}} %
+zum Einsatz (vgl. Abb.\,\ref{fig:Architektur}). Dieser Webservice
+segmentiert einen Text nach Sätzen und Tokens, bestimmt zu jedem Token
+eine Zitierform (Lemma) und die Wortart
+(\englisch{Part-of-Speech-tag}, kurz PoS-tag). Die vorbereiteten Daten
+werden in einer relationalen Datenbank abgelegt, deren Herzstück eine
+Tabelle ist, in der jedes einzelne Token des Korpus in einer Zeile
+repräsentiert wird, wobei die Spalten dieser Zeile die durch das
+\englisch{pre-processing} gewonnenen Daten darstellen: die ID des
+Tokens, die ID des Satzes, das Lemma, das PoS-tag und dann noch die ID
+des Dokuments, mittels derer ein Token -- und damit auch die Beispiele
+-- auf Metadaten wie die Autor*in oder das Entstehungsjahr beziehbar
+wird. Merkmale aus dem Merkmalsraum, die noch nicht durch das
+\englisch{pre-processing} generiert worden sind, werden durch
+elementare Abfragen dieser Tabelle gewonnen, etwa die Frequenzen oder
+die Distanzen zum Marker.
+
+
+\subsubsection{Eine Funktion zur Bestimmung des Kopfes}
+
+Formal kann die Aufgabe in Phase 1 folgendermaßen beschrieben
+werden. Es ist eine Funktion $k$ zu bestimmen, die den Merkmalsvektor
+$v_t\in V$ eines jeden Tokens eines Satzes mit einem eindeutigen
+Beispielmarker auf das Interval der reellen Zahl zwischen 0 und 1
+abbildet: $k:V \mapsto [0,1]$, wobei $V$ der Merkmalsraum
+sei. \emph{Dasjenige Token eines Satzes, für das $k(v_t)$ maximal ist,
+  soll der Kopf sein.} Das ist die Form, in der das Auswahlproblem,
+das sich in Phase 1 stellt, gelöst werden soll.
+
+In der einfachsten Gestalt könnte $k$ die normierte Summe der
+gewichteten Merkmale sein bzw. die Summe von gewichteten Funktionen,
+die den Merkmalsvektor auswerten:
+\begin{equation}
+\label{eq:EinfacheGewichteteSumme}
+k(v_t) = \sigma \left( \sum\limits_iw_if_i(v_t) \right)
+\end{equation}
+wobei $w_i$ die Gewichte und $f_i$ die Auswertfunktionen der Merkmale
+seien und $\sigma:\mathbb{R}\mapsto [0,1]$ eine Normierungsfunktion sei
+z.\,B. eine Schwanenhalsfunktion. Die Auswertfunktionen der Merkmale
+müssen normalisierte Werte liefern, also gelte $f_i:V\mapsto [0,1]$.
+
+Will man nicht nur die einzelnen Merkmale auswerten, sondern
+Merkmalskombinationen, dann würde man $k$ als Summe solcher Summen
+definieren:
+\begin{equation}
+  k(v_t) = \sigma\left[ \sum\limits_jw_j\sigma \left( \sum\limits_iw_{ji}f_i(v_t) +b_j\right)\right]
+\end{equation}
+Dann allerdings ist ein Vielfaches an Gewichten zu bestimmen und noch
+zu jeder inneren Summe ein Schwellenwert $b_j$. Deshalb soll die
+Definition nach Gleichung \ref{eq:EinfacheGewichteteSumme} ausreichen,
+bei der man dann freilich die Normierungsfunktion zur Bestimmung des
+Maximums weglassen kann.%
+\footnote{Es gibt natürlich alternative Formen für $k$. Eine wäre ein
+  Inferenznetzwerk mit
+  Sicherheitsfaktoren \parencite[\see][90--96]{Beierle2014a}. Allerdings
+  ist es dort schwieriger, Gewichte zu bestimmen.}
+
+Die Gewichte können bei vorliegenden manuellen Annotationen durch
+Regression gewonnen werden. Alternativ kann man versuchen, sie grob zu
+schätzen, indem man überlegt, welches Merkmal wohl am wichtigsten ist,
+welches am zweitwichtigsten usw. und dann noch versucht zu bestimmen,
+wievielmal wichtiger das wichtigste Merkmal als die anderen Merkmale
+ist. Das läuft dann auf ein hybrides Verfahren für die erste Phase
+hinaus:
+\begin{enumerate}%[a)]
+\item Mit den geschätzten Gewichten generiert man eine Liste von
+  Beispielköpfen wie in einem regelbasierten Verfahren.
+\item Diese unterzieht man einer Revision
+  und ersetzt diejenigen Köpfe, die nicht richtig annotiert worden
+  sind.
+\item Diese manuell korrigierte Liste verwendet man dann als Zielliste
+  anstelle der manuellen Annotationen im Volltext und versucht,
+  bessere Gewichte durch Regression zu bestimmen.
+\end{enumerate}
+Die Liste besteht aus Tupeln aus der ID des Satzes und der ID des
+Tokens, welches als Kopf bestimmt worden ist. -- Auch dies würde ich
+eine Form von Annotationen nennen; sie weist eine Ähnlichkeit mit
+Stand-Off-Markup%
+\footnote{\Cite[\see\ z.\,B.][575--579]{TEIP5}, und insbesondere das
+  Text Corpus Format (TCF) von WebLicht:
+  \url{https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format}.} %
+auf.
+
+
+\subsubsection{Wortart}
+
+Nicht nur die Merkmalsgewichte, sondern auch die Auswertfunktionen der
+Merkmale enthalten Parameter, die bestimmt werden müssen. So auch die
+Auswertfunktion für das PoS-tag. Auch hier werde mit geschätzten
+Parametern begonnen.  Sei $p$ die Komponente des Merkmalsvektors, in
+der das PoS-tag gegeben ist, wobei das STTS \parencite{Schiller1999a}
+verwendet wird, dann sei $f_{PoS}:V\mapsto [0,1]$ definiert durch:
+\begin{equation}
+  \label{eq:pos}
+  f_{PoS}((\dots,p,\dots)) := \left\{
+    \begin{array}{ll}
+      1 & \mathrm{falls~} p \in \{\mathtt{NE,FM}\} \\
+      0,8 & \mathrm{falls~} p \in \{\mathtt{NN}\} \\
+      0,5 & \mathrm{falls~} p \in \{\mathtt{VVINF,}\\ ~ & \mathtt{VVIZU,VVPP}\} \\
+      0,4 & \mathrm{falls~} p \in \{\mathtt{VVFIN}\} \\
+      0,2 & \mathrm{falls~} p \in \{\mathtt{VMINF}\} \\
+      0,1 & \mathrm{falls~} p \in \{\mathtt{VAINF}\} \\
+      0 & \mathrm{sonst} \\
+    \end{array}\right.
+\end{equation}
+
+
+\subsubsection{Distanz zum Marker}
+
+Sei $d_t$ die Distanz zwischen dem untersuchten Token und dem Marker,
+gemessen in dazwischenliegenden Tokens, und $l_t$ die Länge des
+Satzes, in dem beide vorkommen, wieder gemessen in Tokens. Sowohl
+$d_t$ als auch $l_S$ ist eine Komponente des Merkmalsvektors. Dann sei
+die normierte Auswertfunktion $f_{dt}:V\mapsto [0,1]$ definiert durch:
+\begin{equation}
+  \label{eq:tokendistance}
+  f_{dt}((\dots,d_t,l_t,\dots)):=1-\frac{d_t}{l_t} 
+\end{equation}
+
+Die Distanz in Kommata $f_{dc}$ werde analog aus $d_c$ und $l_c$
+errechnet.
+
+
+\subsubsection{Richtung}
+
+Auch die Richtung enthält einen Schätzwert. Seien $p_m$ und $p_t$ die
+Positionsnummer des Markers bzw. des untersuchten Tokens im Satz und
+beides im Merkmalsvektor gegeben. Dann sei $f_{dir}:V\mapsto [0,1]$
+definiert durch:
+
+\begin{equation}
+  \label{eq:direction}
+  f_{dir}((\dots,p_m,p_t,\dots)):= \left\{
+    \begin{array}{ll}
+      \sfrac{1}{4} & \textrm{~falls~} p_t < p_m\\
+      \sfrac{3}{4} & \mathrm{~sonst} \\
+    \end{array}\right.
+\end{equation}
+
+\subsubsection{Frequenz}
+
+Die im Merkmalsvektor als $h_t$ gegebene absolute Häufigkeit des
+Tokens im Dokument soll derart auf das Intervall $[0,1]$ abgebildet
+werden, dass ein \latein{hapax legomenon} auf $1$ und häufigere Tokens
+auf kleinere Werte abgebildet werden. Die Auswertfunktion für die
+Token-Frequenz $f_{tf}:V\mapsto [0,1]$ sei definiert durch:
+\begin{equation}
+  \label{eq:tokenfreq}
+  f_{tf}((\dots,p,\dots,h_t,H,\dots)) := \left\{
+    \begin{array}{ll}
+      1-c\frac{h_t-1}{H_t-1} & \textrm{falls } f_{PoS}((\dots,p,\dots)) > 0\\
+      0 & \mathrm{sonst} \\
+    \end{array}\right.
+\end{equation}
+wobei $H_t$ das Maximum der absoluten Frequenzen all der Tokens im
+Dokument sei, für die $f_{PoS}>0$ gilt, die also zur offenen
+Wortklasse und nicht zu den Stopp-Wörtern gehören. $H_t$ sei ebenfalls
+im Merkmalsvektor gegeben. Die Funktion entspricht damit der
+\englisch{augmented normalized term frequency} nach
+\textcite[518]{Salton1988a}. $c$ ist dabei ein Parameter, der den
+Abfall des Funktionswerts bei steigender Frequenz adjustiert.
+
+Die Auswertfunktion für die Lemma-Frequenz $f_{fl}$ sei analog
+definiert.
+
+\subsubsection{Ergebnisse aus Phase 1}
+
+Für die Phase 1 des zweistufigen Verfahrens ist ein Prototyp in der
+Programmiersprache R implementiert. Als Gewichte werden $w_{PoS}=3$,
+$w_{dt}=2$, $w_{dc}=6$, $w_{tf}=0$ und $w_{lf}=4$ verwendet.
+
+In Immanuel Kants dritter \lit{Kritik} gibt es 51 eindeutige Marker
+»z.\,B.«. Das Verfahren liefert dazu folgende Beispiel-Köpfe:%
+\footnote{Datengrundlage ist hier die von Gutenberg-DE gescrapte
+  Fassung.} %
+\begin{quote}
+  mihi, Substanz, Bergkristall, Körper, Geister, Rose, Rasenplatzes,
+  Walde, Schönheit, Grabhügeln, Tulpe, Größe, Tiere, Kunstprodukten,
+  Fuß, Affekten, Gebäude, Zorn, Formen, Tulpen, Farben, Lohn,
+  Dichtkunst, Kenntnis, Pferdes, Weib, Genius, Tod, Dichter, Haß,
+  Leuten, Linie, Bau, tun, Parabel, Garten, Zirkels, Eigenschaft,
+  Flüsse, Haus, Körper, Ungeziefer, Winde, Prädikate, Ursache, Made,
+  Wassertiere, Erden, Seele, Ewigkeit, Ewigkeit
+\end{quote}
+
+Darunter sind einige Wörter, die man nicht erwarten würde, weil es
+sich um allgemeine Konzepte handelt: »Substanz«, »Körper«, »Affekten«
+oder »Formen« etwa. Jedoch sind »Substanz«, »Körper« und »Affekten«
+korrekt. »Formen« ist nicht korrekt und der Fehler kann auch
+identifiziert werden: Er besteht darin, in $f_{dc}$ einen Doppelpunkt
+nicht als Satzzeichen, nicht als Komma, gezählt zu haben. Obwohl
+»Tiere« korrekt erscheint, hätte besser ein Adjektiv im selben Satz
+ausgewählt werden sollen. »Schönheit« ist nicht korrekt, vielmehr
+handelt es sich um das Thema der Passage -- und der halben dritten
+\lit{Kritik}. Dieses Token kommt 112 Mal vor. Auch hier kann aber die
+Ursache des Fehlers identifiziert werden: Ein korrekter Kandidat in
+diesem Satz wäre »Wohnhause« gewesen, aber die Lemmatisierung durch
+WebLicht funktioniert bei Komposita nicht richtig, sondern gibt dann
+stets »unkown« aus. Weil es viele Komposita gibt, ist die Häufigkeit
+dieses Lemmas entsprechend hoch und das stark gewichtete Merkmal
+$f_{fl}$ niedrig. So hat »Schönheit« das Rennen um das Maximum
+gewinnen können und ist als Beispiel-Kopf annotiert worden.
+
+Insgesamt handelt es sich um 5 Fehler in 51 Annotationen. Für einen
+Anfang mit derart grob geschätzten Gewichten ist diese Genauigkeit
+(\englisch{precision}) ganz akzeptabel; bei der Trefferquote
+(\englisch{recall}) kann man davon ausgehen, dass alle Bigramme
+»z.\,B.« gefunden und zu jedem ein Kopf
+bestimmt worden ist. Aber es ist klar, dass eine bessere Bestimmung
+der Gewichte durch ein Regressionsverfahren wünschenswert
+wäre. Allerdings wird in der Analyse der Fehler auch deutlich, wie
+viel vom \englisch{pre-processing} abhängt.
+
+
+In Karl Rosenkranz' \lit{Ästhetik des
+  Häßlichen} \parencite{Rosenkranz1853a} gibt es 127 eindeutige
+Beispielmarker. Dies ist die Liste der durch den Algorithmus
+ausgewählten Köpfe: (Aus druck-technischen Gründen ist das lange S
+(U+017F) durch ein normales s ersetzt worden.)
+
+\begin{quote}
+  Holzschnitten, Künstlers, lyrirische, Immermann's, Schaukel, Typus,
+  Amphibien, Schaaf, Skropheln, Knochenauftreibungen, Danaë,
+  Iphigenia, Danzig, Nehmen, Raums, Landschaftsmaler, Stellen,
+  Betrachten, Quixote, Ornamentik, Aristophanes, Pedantismus, Stellen,
+  heißt, Bertram, Index, Sonaten, Wandmalerei, Prutz, Strepsiades,
+  Landschaftbilde, Platen, Architekturgemälde, Gestalten, Franzosen,
+  Schwert, Maria, Cleopatra, Adam, Büffel, Ode, Frazzen, China,
+  Wahrheit, Klenze's, Salzburg, Architektur, Physiognomie, Verwesung,
+  Unsymmetrische, Epilepsie, Größe, Leben, Buckligter, Leben, Verse,
+  Epik, Kirche, Kopperfield, Uebelmacht, Waldbrand, David, Museum,
+  Benjamin, Verhältniß, Tabacksasche, Lexikon, Sport, Vaudeville,
+  Reim, Romane, Hyäne, Fröschen, Menschen, Lingam, Held, Sue, Juan,
+  Halm's, Kindermord, Victor, Göttin, Statue, Marmorstatue,
+  Elephanten, Morolf, Bildung, sagen, Hohenbaum, Jerusalem, Koprolith,
+  Heine, beweisen, Elephantiasis, Aristophanes,
+  \foreignlanguage{polutonikogreek}{<arma}, %ἁϱμα, %
+  Tiberius, Scene, Lüge, Kleist, Banquo, Henriade, Lear, Familie,
+  Christi, Grabbe, Nase, Gregorius, Hähne, Molières, Töpfers, Sand,
+  Attellanen, Hindubettler, Besitznahme, Kotzebue's, Volksbuch,
+  Hauptstelle, Erdbeben, Architektur, Schenke, Unzahl, Posse, Cain.
+\end{quote}
+
+An beiden Listen wird klar, wie wünschenswert es wäre, nach der
+Bestimmung des Kopfes eine Ausweitung auf eine Phrase zu berechnen.
+
+\subsection{Phase 2: Entscheiden über weitere Vorkommen}
+
+Die Ergebnisse aus Phase 1 unterstreichen, dass die Aufgabe in Phase 2
+nicht trivial ist. Besonders die Tokens mittlerer Frequenz stellen
+eine Herausforderung dar: Der Begriff »Körper«, der einmal korrekt als
+Beispielkopf ausgewählt worden ist, kommt 33 Mal in der dritten Kritik
+vor. »Größe« sogar 48 Mal. Nur ein Bruchteil der weiteren Vorkommen
+stehen im Zusammenhang mit Beispielen.
+
+Manuelle Annotationen lassen sich für die zweite Phase schnell und
+ohne viel Aufwand erstellen. Auch ist das \englisch{decision tree
+  learning} ein wirklich guter Kandidat für einen ML-Algorithmus, der
+zudem vorteilhafterweise nicht so viele Trainingsdaten benötigt wie
+ein Perceptron. Die größte Herausforderung liegt in dieser Phase in
+der Definition hinreichend diskriminierender Merkmale. Die Frequenz,
+die in Phase 1 besonders relevant gewesen ist, reicht hier höchstens
+dazu aus, einen Schwellenwert zu definieren, bei dessen Überschreitung
+gleich alle Vorkommen nicht annotiert werden, um im Resultat nicht so
+viele falschpositive Annotationen zu haben. Hier seien lediglich
+einige Ideen zu einem Merkmalsraum skizziert, deren Implementierung
+noch auf sich wartet. Es sei das Dokument, in dem ein Token als
+Beispielkopf ausgewählt worden ist, das Quelldokument, und der Satz
+der Quellsatz; und es sei das Dokument, in dem ein weiteres Vorkommen
+dieses Tokens vorliegt, das Zieldokument, und der dieses Token
+enthaltende Satz der Zielsatz. Merkmale könnten dann sein:
+\begin{itemize}
+\item die Ähnlichkeit zwischen Quell- und Zielsatz, wobei als
+  Ähnlichkeitsmaß das Vorkommen gleicher Tokens in Frage kommt;
+\item die Ähnlichkeit zwischen Umgebungen, die über Quell- und
+  Zielsatz hinausgehen, etwa zwei Sätze davor und dahinter, der
+  gesamte Absatz oder das Kapitel;
+\item die Ähnlichkeit von Einheiten, die kleiner sind als der Quell-
+  und Zielsatz, etwa zwischen PoS-Tag-N-Grams, mit denen die
+  Phrasenstruktur approximiert werden kann. Dabei wäre besonders auf
+  ähnliche Modifizierer wie Adjektive zu achten;
+\item eine größere absolute Häufigkeit des Tokens sowohl im Quell- als
+  auch im Zieldokument muss ein Faktor sein, der die
+  Wahrscheinlichkeit einer positiven Entscheidung reduziert;
+\item gegebenenfalls sind Schwellenwerte für die relative Häufigkeit
+  festzulegen, bei deren Überschreitung die Entscheidung bei jedem
+  Vorkommen des Tokens negativ ausfällt;
+\item wenn das Token mehrmals als Kopf ausgewählt worden ist, kann
+  dies auch von Relevanz sein.
+\end{itemize}
+
+\section{Fazit}
+
+Auch wenn das reformulierte Modell für Beispiel-Annotationen noch
+nicht vollständig implementiert ist, zeichnet sich doch schon jetzt
+mit den akzeptablen Ergebnissen der ersten Phase ab, dass die Chance
+auf ein funktionierendes Experimentalsystem ungleich höher ist als mit
+den komplexen Annotationen der propositionalen Struktur, in der
+Beispiele gegeben werden. Der Grund ist, dass die Annotationen
+konzeptionell viel näher an einen Algorithmus rücken, während dieser
+bei den komplexen Annotationen ein vages Versprechen einer Zukunft
+bleibt. In dem reformulierten Modell sind die Spannungen zwischen der
+interpretativen Arbeit am philosophischen Text und dem Formalismus des
+Vokabulars, die für die komplexen Annotationen kennzeichnend waren,
+weitgehend verschwunden und es rücken Maße wie \englisch{precision}
+und \englisch{recall} für die Genauigkeit maschineller Annotationen an
+ihre Stelle. Entsprechend sind auch die manuellen Annotationen nicht
+mehr mit großen hermeneutischen Investitionen verbunden; Annotieren
+ist hier kein \englisch{close reading} mehr, sondern tendenziell ein
+technischer Vorgang. In dem beschriebenen hybriden Aufbau, in welchem
+die Liste der Beispiel-Köpfe, die das regelbasierte Verfahren
+geliefert hat, einer Revision unterzogen wird, um dann die Gewichte
+mittels Regression besser zu bestimmen, haben die Annotationen
+keinerlei Ähnlichkeit mehr mit dem Markup eines TEI-Dokuments. Sie
+bleiben aber dennoch deutlich eine Form des Informationsaustauschs in
+der Mensch-Maschine-Kommunikation über einen Text.
+
+\printbibliography
+
+% Definition von Baumgarten zeigt die Komplexität
+
+% mehrere Beispiele zu einem Marker, Beispielreihe.
+
+% Rheinberger
+
+\end{document}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-PDF-mode: t
+%%% End:
+
+%  LocalWords:  annotieren Humanities Schwellenwerte
