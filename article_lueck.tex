@@ -98,9 +98,8 @@ backend=biber]{biblatex}
   Argumentationszusammenhang eines Textes zu annotieren, und setzt
   stattdessen auf ein linguistisches Modell des Beispiels. Dadurch
   werden Annotationsaufgaben in Algorithmen darstellbar, was im
-  komplexeren ersten Modell lediglich ein vages Versprechen gewesen
-  ist.}%
-\keywords{Annotationen, Literaturwissenschaft, Philosophie, ML}%
+  komplexeren ersten Modell lediglich eine Hoffnung gewesen ist.}%
+\keywords{Modelling, Form, Segmentation, Literature, Philosophy, Automation}%
 %\classification[PACS]{...}%
 %\communicated{...}%
 %\dedication{...}%
@@ -226,10 +225,26 @@ sich aber gleichzeitig ein sehr komplexes Annotationsunterfangen
 ankündigt. Die Annotationen sollen dann Beispiele so erfassen, dass
 sie dem mit Theorie armierten Blick möglichst gerecht werden, wozu die
 \emph{formalisierte Beschreibung} eines Phänomens~-- die eine
-Annotation ihrer eigenen Idee nach schließlich ist~-- ein Maximum an
-Expressivität haben muss.
+Annotation ihrer eigenen Idee nach schließlich ist~-- eine hohe
+Expressivität haben muss.%
+\footnote{Expressivität ist ein Begriff aus der Theorie logischer
+  Systeme und bezeichnet ein Maß dafür, welche Ideen in einem
+  logischen System, z.\,B. der Prädikatenlogik erste Stufe,
+  dargestellt werden können; vgl. \cite{Beierle2014a}. Der Begriff ist
+  auf die Beschreibungen und den Vergleich von Programmiersprachen
+  übertragen worden und meint dort eher den praktischen Aspekt der
+  Kürze, Klarheit und Lesbarkeit einer Darstellung;
+  vgl. z.\,B. \cite[\pno\,308 u.\,ö.]{Sussman2001a} Übertragen auf
+  Annotationen meint der Begriff sowohl die Darstellbarkeit von Ideen
+  in einem formalisierten System als auch den praktischen Aspekt der
+  Klarheit und Lesbarkeit der Darstellung. Die Darstellbarkeit von
+  Ideen wird direkt beeinflusst durch (syntaktische) Arten von
+  Ausdrucksmitteln: Klassen für Textpassagen, Attribute für sie,
+  Relationen zwischen ihnen, deren Stelligkeit, die Möglichkeit,
+  Annotationen zum Gegenstand von Annotationen zu machen
+  (Reifikation).}
 
-Eines der technischen Mittel mit der höchsten Experssivität für die
+Eines der technischen Mittel mit hoher Expressivität für die
 Formulierung von Vokabularen ist die \englisch{Web Ontology Language}
 (OWL). Das Vokabular zur Annotation von Beispielen ist in der OWL
 realisiert \parencite{CL2018a}: Zur Auszeichnung von Textpassagen
@@ -275,10 +290,13 @@ Stand-Off-Markup und ermöglicht diskontinuierliches Markup.%
   die diskontinuierliches Markup zusammen mit Relationen zwischen
   ausgezeichneten Textpassagen und eine Annotation in XML-
   bzw. TEI-Dokumenten ermöglicht haben. Das \englisch{BRAT Rapid
-    Annotation Tool} kam den Anforderungen am nächsten, verarbeitet
-  aber nur schlichte Text-Dateien. Das Datenmodell von CATMA hat
-  Relationen noch nicht zugelassen und WebAnno war noch in der
-  Entwicklungsphase, genau wie Funktionselemente von TextGrid.\par
+    Annotation Tool}, \url{http://brat.nlplab.org}, kam den
+  Anforderungen am nächsten, verarbeitet aber nur schlichte
+  Text-Dateien. Das Datenmodell von CATMA, \url{http://catma.de}, hat
+  Relationen noch nicht zugelassen und WebAnno
+  \parencite{EckartDeCast2016a} war noch in der Entwicklungsphase,
+  genau wie Funktionselemente von TextGrid;
+  \url{http://textgrid.de}.\par
   Zur Internalisierung des mit \som\ produzierten externen Markup in
   ein TEI-Dokument kommt ein in Haskell geschriebenes Programm zur
   Anwendung: \url{http://github.com/lueck/standoff-tools}.\par
@@ -315,55 +333,55 @@ Aufgabe ist. Es gibt in der zitierten Passage zwei Beispiel-Marker
 »z.\,B.« an der Text-Oberfläche, aber das ist auch schon alles, was
 klar ist. Es ist ein erhebliches Maß an hermeneutischem Aufwand
 erforderlich, um eine solche Passage zu annotieren; man muss also
-schon ziemlich viel von Kants Argumentation und Begriffsystem
+Kants Argumentation und Begriffsystem %
 verstehen, um überhaupt sinnvoll etwas zu annotieren. So ist es zwar
 klar, dass jeweils hinter den Beispielmarkern »z.\,B.« das Beispiel
-folgt. Im zweiten Fall ist das Beispiel »ein Tulpe«, im ersten Fall
-»die öfter aus alten Grabhügeln gezogenen, mit einem Loche als zu
-einem Hefte, versehenen steinernen Geräte; die, ob sie zwar in ihrer
-Gestalt deutlich eine Zweckmäßigkeit verraten, für die man den Zweck
-nicht kennt, darum gleichwohl nicht für schön erklärt werden«. Hier
-bekommt man gleich einen Eindruck davon, dass selbst die Bestimmung
-des Umfangs eines Beispiels Schwierigkeiten machen kann. Die lange
-Nominalphrase »die öfter aus alten Grabhügeln gezogenen, mit einem
-Loche als zu einem Hefte, versehenen steinernen Geräte« gehört ganz
-sicher \emph{ganz} zum Beispiel, denn kein Teil dieser Phrase würden
-der intensionalen Bestimmung des Beispiels gerecht: Es geht nicht um
-›steinerne Geräte‹, sondern um diejenigen ›steinernen Geräte‹, die man
-›in alten Grabhügeln‹ findet und die ›mit einem Loche als zu einem
-Hefte versehen sind‹. Ohne diese Bestimmungen spricht man über eine
-viel größere Klasse von Gegenständen. Aber man sieht auch gleich, dass
-man die Nominalkonstruktion in Relativsätze umformen kann, und dann
-entsteht die Frage, ob man den mit einem Semikolon abgetrennten
-Relativsatz nicht auch zum Beispiel rechnen will. Andererseits wird in
-ihm das Besondere des Beispiels mit dem Allgemeinen des Verhältnisses
-zweier Begriffe, um die es geht, nämlich Zweckmäßigkeit und Schönheit,
-verworben. Das wäre ein Argument, diesen Relativsatz, nicht mehr zum
-Beispiel zu zählen. Im Gegensatz zu den Relativsätzen, die man durch
-Auflösung der vorhergehenden Nominalkonstruktion erhält, handelt es
-sich um einen nicht-restriktiven Relativsatz, und man hätte gute
-Gründe für die Regel, dass nicht-restriktive Relativsätze nicht mehr
-zum Beispiel gehören sollen. Wenn man sie dennoch als Beispiel
-annotiert, dann müsste man eigentlich auch noch den nächsten Satz zum
-Beispiel hinzurechnen, da dort auch noch von den Grabbeigaben die Rede
-ist.
+folgt, aber bereits die Bestimmung seines Umfanges bereitet
+Schwierigkeiten. Im zweiten Fall ist das Beispiel »ein Tulpe«, im
+ersten Fall »die öfter aus alten Grabhügeln gezogenen, mit einem Loche
+als zu einem Hefte, versehenen steinernen Geräte; die, ob sie zwar in
+ihrer Gestalt deutlich eine Zweckmäßigkeit verraten, für die man den
+Zweck nicht kennt, darum gleichwohl nicht für schön erklärt
+werden«. Die lange Nominalphrase »die öfter aus alten Grabhügeln
+gezogenen, mit einem Loche als zu einem Hefte, versehenen steinernen
+Geräte« gehört ohne Zweifel \emph{ganz} zum Beispiel, denn kein Teil
+dieser Phrase würden der intensionalen Bestimmung des Beispiels
+gerecht: Es geht nicht um ›steinerne Geräte‹, sondern um diejenigen
+›steinernen Geräte‹, die man ›in alten Grabhügeln‹ findet und die ›mit
+einem Loche als zu einem Hefte versehen sind‹. Ohne diese Bestimmungen
+wäre von einer viel größeren Klasse von Gegenständen die
+Rede. Allerdings ist es möglich, die Nominalkonstruktion in
+Relativsätze umzuformen, und in der Folge entsteht die Frage, ob der
+mit einem Semikolon abgetrennte Relativsatz nicht auch zum Beispiel
+zu rechnen wäre. Andererseits wird in ihm das Besondere des Beispiels
+mit dem Allgemeinen des Verhältnisses zweier Begriffe, um die es in
+diesem Abschnitt geht, verwoben: Zweckmäßigkeit und Schönheit. Das
+wäre ein Argument, diesen Relativsatz nicht mehr zum Beispiel zu
+zählen. Im Gegensatz zu den Relativsätzen, die durch Auflösung der
+vorhergehenden Nominalkonstruktion gewonnen werden, handelt es sich um
+einen nicht-restriktiven Relativsatz. Es gibt gute Gründe für die
+Regel, dass nicht-restriktive Relativsätze nicht mehr zum Beispiel
+gehören sollen. Werden sie dennoch als Beispiel annotiert, dann müsste
+konsequenterweise der nächsten Satz ebenfalls zum Beispiel
+hinzugerechnet werden, da auch dort von den Grabbeigaben die Rede ist.
 
 Im zweiten Fall von »eine Tulpe« ist die Lage nur auf den ersten Blick
-klar. Auf den zweiten Blick bemerkt man, dass bereits »eine Blume« ein
-Beispiel ist, das durch »z.\,B. eine Tulpe« noch einmal weiter
-konkretisiert wird. Hier bilden also zwei Beispiele eine Art Kaskade
-der Konkretisierung. Und man bemerkt weiter, dass es in der gesamten
-Fußnote (die bis zum Ende des Zitats reicht) um Beispiele geht, denn
-im ersten Satz der Fußnote heißt es, dass man gegen den allgemeinen
-Obersatz »als Instanz« existierende Dinge mit bestimmten Eigenschaften
-anführen könnte. Eine Instanz gegen etwas anzuführen, ist eine
-Beispielpraxis, nämlich die des Gegenbeispiels, also des Widerlegens
-einer allgemeinen Aussage mittels Beispielen. Ist dann aber »Dinge
-[…], an denen man eine zweckmäßige Form sieht, ohne an ihnen einen
-Zweck zu erkennen« bereits ein Gegenbeispiel in seiner allgemeinsten,
-abstraktesten Form, die dann in den mit »z.\,B.« markierten Beispielen
-konkretisiert wird? Oder handelt es sich um einen Begriff, welcher in
-den dann folgenden Beispielen konkretisiert wird?
+einfacher. Auf den zweiten Blick bemerkt man, dass bereits »eine
+Blume« ein Beispiel ist, das durch »z.\,B. eine Tulpe« noch einmal
+weiter konkretisiert wird. Hier bilden also zwei Beispiele eine Art
+Kaskade der Konkretisierung. Und man bemerkt weiter, dass es in der
+gesamten Fußnote (die bis zum Ende des Zitats reicht) um Beispiele
+geht, denn im ersten Satz der Fußnote heißt es, dass man gegen den
+allgemeinen Obersatz »als Instanz« existierende Dinge mit bestimmten
+Eigenschaften anführen könnte. Eine Instanz gegen etwas anzuführen,
+ist eine Beispielpraxis, nämlich die des Gegenbeispiels, also des
+Widerlegens einer allgemeinen Aussage mittels Beispielen. Ist dann
+aber »Dinge […], an denen man eine zweckmäßige Form sieht, ohne an
+ihnen einen Zweck zu erkennen« bereits ein Gegenbeispiel in seiner
+allgemeinsten, abstraktesten Form, die dann in den mit »z.\,B.«
+markierten Beispielen konkretisiert wird? Oder handelt es sich um
+einen Begriff, welcher in den dann folgenden Beispielen konkretisiert
+wird?
 
 Um die Relationen zwischen den Beispielen und dem allgemeinen Obersatz
 annotieren zu können, muss man noch mehr von der Kantischen
@@ -374,8 +392,8 @@ Geschmacksurteil und der Wahrnehmung von Zwecken.%
   anhängender Schönheit. Vgl. dazu \textcite{Guesken2018a}.} %
 Und in der Fußnote wird der Einwand erhoben (und nach Prüfung
 verworfen), dass am Schönen Zwecke nicht
-nicht % wichtig: doppeltes nicht
-wahrgenommen, sondern nicht erkannt würden. -- Das ist ein großer
+nicht % wichtig: doppeltes nicht; würden im Plural: Subjekt ist Zwecke!
+wahrgenommen, sondern nicht erkannt würden.~-- Das ist ein großer
 Unterschied in der Intentionalität, mit der man sich auf einen
 Gegenstand bezieht, und somit im Modus der Wahrnehmung. -- Das erste
 Beispiel soll als Beleg für diese Gegenthese herhalten und wird dann
@@ -389,12 +407,12 @@ Dimension eines Beispiels. \Parencite[\see\ auch][]{CL2013b} Hier geht
 es darum, dass die Blume Tulpe klar machen soll, wie es gemeint ist,
 dass sich das Urteil, dass etwas schön sei, nicht auf den Zweck dieses
 Gegenstandes bezieht. -- Derridas Verdikt, dass eine »Paradigmatik der
-Blume« Kants Analytik des Schönen lenke, erweist sich schon als sehr
+Blume« Kants Analytik des Schönen lenke, erweist sich hier als sehr
 instruktiv.
 
 Solche Annotationen der propositionalen Struktur, in der Beispiele
-gegeben werden, werden ziemlich komplex. Sie zu erstellen gleicht
-einem \englisch{close reading} mit einem formalisierten
+gegeben werden, werden komplex. Sie zu erstellen gleicht einem
+\englisch{close reading} mit einem formalisierten
 Beschreibungsvokabular. Mit der Komplexität steigt noch einmal der
 zeitliche Aufwand, den manuelle Annotationen ohnehin schon
 erfordern. Bei derartigen Investitionen stellt sich die Frage, was man
@@ -403,7 +421,7 @@ kann. Weil man kaum ein ganzes Korpus ästhetischer Schriften wird
 annotieren können, ist die Verwendung als Datensatz, an dem
 historische Längsschnitte getätigt werden können, nicht oder nur sehr
 eingeschränkt gegeben. Die Abfragemöglichkeiten, die aus einer
-Annotation entstehen, wären aber sicher ein wichtiger Grund, den
+Annotation entstehen, sind aber sicher ein wichtiger Grund, den
 Aufwand zu betreiben. Wenn dies dann jedoch nur in einem ganz
 eingeschränkten Umfang realisiert wird, bleiben die Investitionen
 zweifelhaft.
@@ -411,10 +429,10 @@ zweifelhaft.
 Die zweite wichtige Verwendung wäre die als Datensatz für maschinelles
 Lernen, aus dem mittels Regression die Parameter eines Algorithmus
 gewonnen werden. Der Algorithmus wäre dann anschließend in der Lage,
-selbstständig weitere Beispiele zu identifizieren. Das ist natürlich
-immer eine Perspektive, die beim Annotieren eine Rolle spielt und
-wegen der man sich um mehrere parallele Annotationen eines Werks und
-ihre Deckungsgleichheit bemüht.%
+selbstständig weitere Beispiele zu identifizieren. Das ist zwar immer
+eine Perspektive, die beim Annotieren eine Rolle spielt und wegen der
+man sich um mehrere parallele Annotationen eines Werks und ihre
+Deckungsgleichheit bemüht.%
 \footnote{Vgl. den Beitrag von Evelyn Gius und Nils Reiter im
   vorliegenden Band.} %
 Allerdings zeigt die Projekterfahrung, dass bei Annotationen, die so
@@ -425,11 +443,21 @@ die Annotationen ein und derselben Person mit einer zeitlichen
 Differenz von einer Woche, einem Monat oder einem Jahr.%
 \footnote{Über ähnliche Erfahrungen mit eigenen Annotationen berichtet
   auch Willard McCarty in seinem Beitrag im vorliegenden Band.} %
-Das ist aber nicht der einzige Punkt, der die Tauglichkeit der
-Annotationen für \englisch{machine learning} infrage stellt. Es ist
-auch kaum zu erwarten, dass in den überaus komplexen Strukturen, die
-man auf diese Art und Weise annotiert, Muster stecken, die so an
-anderen Stellen wiedergefunden werden können und dann auch noch
+Möglicherweise ist diese Erfahrung jedoch nicht allein durch den
+komplexen Gegenstand bedingt, sondern hat eine tiefere Ursache in der
+hohen Expressivität der formalen Sprache (hier OWL), mit welcher die
+Annotationen erstellt werden: Für formale Sprachen konnte gezeigt
+werden, dass mit zunehmender Expressivität Entscheidungsprobleme
+schwieriger zu beantworten sind.%
+\footcite[bes. \pno\,299\psqq]{Okhotin2005a} %
+Für menschliche Interpreten sind Aussagen mit expressiven formalen
+Sprachen entsprechend schwierig zu lesen.
+
+Die geringe Deckungsgleichheit ist aber nicht der einzige Punkt, der
+die Tauglichkeit der Annotationen für \englisch{machine learning} in
+Frage stellt. Es ist auch kaum zu erwarten, dass die überaus komplexen
+Strukturen, die man auf diese Art und Weise annotiert, Muster
+enthalten, die an anderen Stellen wiedergefunden werden können und
 tatsächlich Beispiele sind.
 
 Dies und die Erfahrung, wie schwer übereinstimmende Annotationen zu
@@ -442,15 +470,15 @@ Vielleicht sollte man Annotationen so handhaben, wie
 werden, und die Frage ›Sind Annotationen Daten?‹ analog zur Frage, ob
 ein experimenteller Aufbau, sobald er überhaupt irgendeinen Output
 liefert, von Anfang an und jederzeit schon Daten produziert. Es ist
-nämlich doch in anderen Wissenschaften nicht so:
-\textcite{Rheinberger2001a} hat den Begriff des Experimentalsystems ja
+doch in anderen Wissenschaften eben nicht so:
+\textcite{Rheinberger2001a} hat den Begriff des Experimentalsystems
 eingeführt, um zu beschreiben, wie lange es dauert und welche in den
-Ergebnissen meist ausgeblendeten Abwege länger verfolgt werden
-und welche kaum jemals beschriebene Praxis in einem wissenschaftlichen
+Ergebnissen meist ausgeblendeten Abwege länger verfolgt werden und
+welche kaum jemals beschriebene Praxis in einem wissenschaftlichen
 Labor in den Experimentalaufbau einfließt und welches Begehren das
 Laborhandeln trägt, bis ein Experiment endlich Daten produziert, die
 etwas zu einer wissenschaftlich relevanten Frage beitragen. Damit ist
-natürlich auch der Begriff der Daten als schlicht Gegebenes infrage
+nicht zuletzt der Begriff der Daten als schlicht Gegebenes infrage
 gestellt, denn an Stelle des Gegebenseins rückt mit solch einer
 Beschreibung eine Labor-Praxis der Zurichtung in den Blick. Deswegen
 ist es womöglich verfrüht, bereits bei der übereinstimmenden
@@ -458,16 +486,16 @@ Auszeichnung durch zwei oder mehrere Annotator*innen von Daten zu
 sprechen. Ob der Experimentalaufbau funktioniert, entscheidet sich ja
 erst dann, wenn die Annotationen mit einem Algorithmus
 zusammentreffen. Das soll den Wert von Annotationen nicht in Abrede
-stellen. Ohne Experimentalsysteme gäbe es ja schließlich gar keine
+stellen. Ohne Experimentalsysteme gäbe es schließlich keine
 Daten. Allerdings scheint als Beschreibung des gegenwärtigen Standes
 von auf Annotationen bauenden Projekten in den
 literaturwissenschaftlichen Digital Humanities der Begriff der Daten
-meist nicht passend: Es handelt sich doch eher um Laborarbeit an
+oft nicht passend: Es handelt sich doch eher um Laborarbeit an
 Experimentalsystemen in einem frühen Stadium.
 
 \section{Re-Modellierung: Linguistik des Beispiels}
 
-Der Mehrwert eines größeren Datensatzes wäre, wie eingangs skizziert,
+Der Mehrwert eines größeren Datensatzes ist, wie eingangs skizziert,
 z.\,B. die Möglichkeit historischer Längsschnitte. Für solche ist es
 gar nicht so interessant, in welcher propositionalen Struktur ein
 Beispiel angeführt wird. Wichtiger ist die Verwendung gleicher
@@ -478,34 +506,33 @@ oder Wortgruppen) auf einer Zeitleiste.
 Das eröffnet die Perspektive für eine Re-Modellierung und drastische
 Vereinfachung. Wenn einzelne Wörter oder Wortgruppen, die den
 zentralen Teil eines Beispiels ausmachen, in den Blick genommen werden
-sollen, dann kann das Annotations- bzw. Beschreibungsvokabular
-drastisch vereinfacht werden. Allerdings muss auch ein neuer Term in
-das Vokabular eingeführt werden, nämlich der \vokabular{Kopf} eines
+sollen, dann kann das Annotations- bzw. Beschreibungsvokabular stark
+vereinfacht werden. Allerdings muss auch ein neuer Term in das
+Vokabular eingeführt werden, nämlich der \vokabular{Kopf} eines
 Beispiels. Während die Nominalphrase »ein Tulpe« das
 \vokabular{Beispiel} ist, ist das Nomen »Tulpe« der \vokabular{Kopf}
-dieses Beispiels. Im ersten Beispiel des langen Kant-Zitats sieht man
-aber gleich die Schwierigkeit, dass es oft nicht ganz leicht ist, den
-Kopf zu bestimmen: »Geräte«, »Hefte«, »Loche« oder »Grabhügeln«? Wenn
-der Kopf eine ganze Nominalphrase sein darf, dann könnte man die ganze
-Nominalkonstruktion »die öfter aus alten Grabhügeln gezogenen, mit
-einem Loche als zu einem Hefte, versehenen steinernen Geräte« als Kopf
-ansehen. Aber dies zeigt deutlich die sogleich eintretende
-Komplexität, wenn man als Kopf mehr als ein Unigram (N-Gram mit N=1)
-zulässt: Aufgrund der Produktionsregeln der Chomsky-Grammatik werden
+dieses Beispiels. Im ersten Beispiel des langen Kant-Zitats wird
+jedoch die Schwierigkeit deutlich, dass es oft nicht ganz leicht ist,
+den Kopf zu bestimmen: »Geräte«, »Hefte«, »Loche« oder »Grabhügeln«?
+Wenn der Kopf eine ganze Nominalphrase sein darf, dann könnte man die
+ganze Nominalkonstruktion »die öfter aus alten Grabhügeln gezogenen,
+mit einem Loche als zu einem Hefte, versehenen steinernen Geräte« als
+Kopf ansehen. Aber dies zeigt deutlich die sogleich eintretende
+Komplexität, wenn als Kopf mehr als ein Unigram (N-Gram mit N=1)
+zugelassen ist: Aufgrund der Produktionsregeln der Chomsky-Grammatik werden
 die Köpfe dann potentiell unendlich lang bzw. komplex. Deswegen soll
 zunächst versucht werden, bei der Re-Modellierung mit Unigram-Köpfen
 auszukommen. Sollte sich herausstellen, dass dies nicht ausreicht,
-dann könnte man ausgehend von einem Unigram die größte Nominalphrase,
-in der es steht, zu bestimmen versuchen. Dies allerdings setzt gute
-Resultate beim Parsen der Phrasenstruktur voraus, wovon bei
-historischen Texten des 18. und 19. Jahrhunderts nicht immer
-ausgegangen werden kann.
+dann wäre ausgehend von einem Unigram die größte Nominalphrase, in der
+es steht, zu bestimmen. Dies allerdings setzt gute Resultate beim
+Parsen der Phrasenstruktur voraus, wovon bei historischen Texten des
+18. und 19. Jahrhunderts nicht immer ausgegangen werden kann.
 
 Also sei der \vokabular{Kopf} eines Beispiels definiert als dasjenige
 einzelne Token (Unigram), das für das Beispiel signifikant ist. Es
-sollte zu den Tokens gehören, die man mit dem oben beschriebenen
-Vokabular (das auf die propositionelle Struktur, in der Beispiele
-gegeben werden, zielt) als Beispiel annotiert hätte. Diese Definition
+sollte zu den Tokens gehören, die mit dem oben beschriebenen Vokabular
+(das auf die propositionelle Struktur, in der Beispiele gegeben
+werden, zielt) als Beispiel annotiert worden wäre. Diese Definition
 mag zu vage und deshalb unbefriedigend erscheinen. Sie ist aber nur so
 unbefriedigend, wie es ebenfalls unbefriedigend ist, im ersten
 zitierten Beispiel nur eines der Tokens »Geräte«, »Hefte«, »Loche« und
@@ -515,12 +542,12 @@ zitierten Beispiel nur eines der Tokens »Geräte«, »Hefte«, »Loche« und
 \section{Manuelle und maschinelle Annotationen}
 
 Durch ein so reformuliertes und vereinfachtes Modell stellt sich auch
-gleich die Frage nach Algorithmen neu, die die Annotation übernehmen
+die Frage nach Algorithmen neu, die die Annotation übernehmen
 können. Verschiedene Ansätze lassen sich denken. So bekommt man beim
 Lesen von Schriften der philosophischen Ästhetik schnell den Eindruck,
 dass ein ganzes Arsenal von Tieren und Pflanzen in ihnen als Beispiele
 vorkommt: Pferde, Affen, Lerchen, Fledermäuse, Nashörner usw. oder
-Rosen, Tulpen, Lilien usw. Man kann davon ausgehen, dass Tiere fast
+Rosen, Tulpen, Lilien usw. Es ist davon auszugehen, dass Tiere fast
 immer als Beispiele angeführt werden. Die Schriften sind schließlich
 keine botanischen Abhandlungen, sondern philosophische Schriften zur
 Frage der sinnlichen Wahrnehmung, die sich aus der Alltagswelt und den
@@ -531,8 +558,8 @@ könnte also eine Tier- oder Pflanzen-Ontologie verwenden, um Tier- und
 Pflanzennamen im Korpus zu suchen. Die Vollständigkeit dieser
 Ontologien würde über die Genauigkeit (\englisch{precision}), der
 Gebrauch metaphorischer Wendungen in den Texten über die Trefferquote
-(\englisch{recall}) entscheiden. Bei einem solchen Verfahren würde man
-ein äußeres Wissen, die Ontologie, an den Text anlegen.
+(\englisch{recall}) entscheiden. Bei einem solchen Verfahren würde
+ein äußeres Wissen, die Ontologie, an den Text angelegt.
 
 Lassen sich auch Verfahren konstruieren, die das Beispielwissen der
 Texte selber erheben? Verfahren, die nicht mit einem vorgefertigten,
@@ -561,20 +588,20 @@ verbreitet, bevor es durch »z.\,B.« verdrängt worden ist. %
 %   eine Ähnlichkeit in der Verwendung, denn beide werden dazu
 %   verwendet, Begriff klar und deutlich zu
 %   machen. \Parencite[\see][78--80]{CL2018a}} %
-Die Standard-Abkürzung hat den schönen Effekt, dass man sich sicher
-sein kann, dass, wann immer sie auftaucht, ein Beispiel gegeben
-wird. -- Das ist zumindest in Schriften zur Ästhetik so, denn in ihnen
-werden zwar Reflexionen über Beispiele und auch über das Geben und den
-Gebrauch von Beispielen angestellt, aber keine metasprachlichen
-Reflexionen über die sprachliche Form von Beispielen, geschweige denn
-über die Verwendung dieses Markers. Das Auftauchen des Markers
-»z.\,B.« kann als eindeutiger Indikator für das Vorhandensein eines
-Beispiels angenommen werden. Auch andere Marker wie »bspw.« können als
-eindeutig angesehen werden; andere hingegen nicht, so etwa »wie«, das
-nur gelegentlich ein Beispiel markiert, meist aber als
-Vergleichspartikel eingesetzt wird; Ähnliches gilt für »etwa«. Das
-Wort »Beispiel« kommt auch in Reflexionen über die eigene oder eine
-fremde Beispielpraxis vor.
+Die Standard-Abkürzung hat den schönen Effekt, dass es sicher ist,
+dass bei ihrem Auftauchen ein Beispiel gegeben wird. -- Das ist
+zumindest in Schriften zur Ästhetik so, denn in ihnen werden zwar
+Reflexionen über Beispiele und auch über das Geben und den Gebrauch
+von Beispielen angestellt, aber keine metasprachlichen Reflexionen
+über die sprachliche Form von Beispielen, geschweige denn über die
+Verwendung dieses Markers. Das Auftauchen des Markers »z.\,B.« kann
+als eindeutiger Indikator für das Vorhandensein eines Beispiels
+angenommen werden. Auch andere Marker wie »bspw.« können als eindeutig
+angesehen werden; andere hingegen nicht, so etwa »wie«, das nur
+gelegentlich ein Beispiel markiert, meist aber als Vergleichspartikel
+eingesetzt wird; Ähnliches gilt für »etwa«. Das Wort »Beispiel« kommt
+auch in Reflexionen über die eigene oder eine fremde Beispielpraxis
+vor.
 
 Die eindeutige Markierung ausnutzend soll in der ersten Phase des
 Verfahrens der Kopf des Beispiels zu einem Marker identifiziert
@@ -591,22 +618,21 @@ Korpus ist also zu entscheiden, ob es sich um ein Beispiel handelt
 oder nicht. Das in dieser zweiten Phase zu lösende Problem ist also
 ein \emph{Entscheidungsproblem}.
 
-Mit diesem Verfahren wird man natürlich nicht alle Beispiele
-erwischen, sondern höchstens diejenigen, die wenigstens einmal mit
-einem eindeutigen Marker an der Textoberfläche markiert sind. Es ist
-zu erwarten, dass mit steigender Größe des Korpus, mehr Beispiele und
-auch mehr voneinander verschiedene Beispiele gefunden werden, die
-absolute Anzahl an gefundenen Beispielen also steigt; aber es ist
-nicht unbedingt davon auszugehen, dass der Quotient der gefundenen und
-der tatsächlich vorhandenen Beispiele sich mit steigender Korpusgröße
-verbessert.
+Mit diesem Verfahren werden nicht alle Beispiele erkannt, sondern
+höchstens diejenigen, die wenigstens einmal mit einem eindeutigen
+Marker an der Textoberfläche markiert sind. Es ist zu erwarten, dass
+mit steigender Größe des Korpus, mehr Beispiele und auch mehr
+voneinander verschiedene Beispiele gefunden werden, die absolute
+Anzahl an gefundenen Beispielen also steigt; aber es ist nicht davon
+auszugehen, dass der Quotient der gefundenen und der tatsächlich
+vorhandenen Beispiele sich mit steigender Korpusgröße verbessert.
 
 Dass man sich von dem Ziel, alle Beispiele zu finden, verabschiedet,
 ist zwar ein gravierender Abstrich. Dafür verspricht aber das
-Experimentalsystem mit diesem Verfahren viel eher Daten zu liefern als
-bei der Annotation der propositionalen Struktur, in der Beispiele
-gegeben werden. Denn nun können für jede Phase des Verfahrens zwei
-sehr klare und einfache Annotationsaufgaben gestellt werden:
+Experimentalsystem mit diesem Verfahren eher Daten zu liefern als bei
+der Annotation der propositionalen Struktur, in der Beispiele gegeben
+werden. Denn nun können für jede Phase des Verfahrens zwei sehr klare
+und einfache Annotationsaufgaben gestellt werden:
 \begin{description}
 \item[Phase 1:] Annotiere in jedem Satz, in dem ein eindeutiger
   Beispiel-Marker vorkommt, den Kopf des Beispiels.
@@ -615,8 +641,8 @@ sehr klare und einfache Annotationsaufgaben gestellt werden:
   nicht.
 \end{description}
 Die Chance ist jetzt viel größer, dass die Annotationen der zwei
-Phasen zum Trainieren von jeweils einem ML-Algorithmus geeignet
-sind. Für die zweite Phase kann das z.\,B. das
+Phasen zum Trainieren von jeweils einem Machine-Learning-Algorithmus
+geeignet sind. Für die zweite Phase kann das z.\,B. das
 Entscheidungsbaum-Lernen sein \parencite[105--120]{Beierle2014a}, für
 die erste Phase ein Algorithmus wie der im Folgenden vorgestellte. In
 beiden Fällen ist es dann noch von entscheidender Bedeutung, geeignete
@@ -632,8 +658,8 @@ abschätzen, wie groß die Erfolgsaussichten sind, also die Aussichten
 auf ein funktionierendes Experimentalsystem, in dem ein Algorithmus
 brauchbare Daten produziert. Wenn man hingegen weder von einem
 geeigneten Merkmalsraum noch von einem Algorithmus eine Vorstellung
-hat, dann bleibt die Brauchbarkeit der Annotationen ein vages
-Versprechen.
+hat, dann bleibt die Brauchbarkeit % Redundanz gewollt
+der Annotationen ein Versprechen.
 
 \subsubsection{Merkmalsraum}
 
@@ -641,21 +667,22 @@ In die Definition des Merkmalsraums werden \emph{Beobachtungen und
   Hypothesen} einfließen, die man beim Annotieren machen
 bzw. aufstellen kann. Unserer Beobachtung zufolge sind Beispiel-Köpfe
 meistens Nomen, seltener Vollverben, manchmal Adjektive, aber nie
-Hilfverben, Artikel, Präpositionen usw. Die Wortart wird also schon
-einmal zum Merkmalsraum gehören.
+Hilfverben, Artikel, Präpositionen usw. Die Wortart gehört also zum
+Merkmalsraum.
 
 Relevant ist auch, wie weit ein Token vom Marker entfernt ist: Ein
 näher am Marker stehendes Token ist häufiger ein akzeptabler
 Beispiel-Kopf als weiter weg stehende. Man kann die Distanz in Tokens,
-die zwischen dem Marker und einem Kandidaten stehen, zählen oder auch
-in dazwischen liegenden Kommata. Allerdings sieht man an Kants
-verschachtelten Sätzen und Nominalkonstruktionen, dass diese einfachen
-Distanzmaße auch trügerisch sein können und eine in Satzkonstituenten
-gemessene Distanz noch besser wäre: In einer solchen wäre »Geräte«
-genauso weit vom Marker entfernt wie »Grabhügeln«. Die Verwendung
-eines solchen Maßes würde allerdings erneut gute Resultate beim Parsen
-der Phrasenstruktur voraussetzen, wovon bei historischen Texten des
-18. und 19. Jahrhunderts nicht immer ausgegangen werden kann.  
+die zwischen dem Marker und einem Kandidaten stehen, messen
+oder auch in dazwischen liegenden Kommata. Allerdings sieht man an
+Kants verschachtelten Sätzen und Nominalkonstruktionen, dass diese
+einfachen Distanzmaße auch trügerisch sein können und eine in
+Satzkonstituenten gemessene Distanz noch besser wäre: In einer solchen
+wäre »Geräte« genauso weit vom Marker entfernt wie »Grabhügeln«. Die
+Verwendung eines solchen Maßes würde allerdings erneut gute Resultate
+beim Parsen der Phrasenstruktur voraussetzen, wovon bei historischen
+Texten des 18. und 19. Jahrhunderts nicht immer ausgegangen werden
+kann.
 
 Des Weiteren kann man beim Annotieren beobachten, dass der Marker dem
 Beispiel meist, aber nicht immer vorangeht. Die Richtung zum Marker
@@ -752,7 +779,7 @@ Maximums weglassen kann.%
 Die Gewichte können bei vorliegenden manuellen Annotationen durch
 Regression gewonnen werden. Alternativ kann man versuchen, sie grob zu
 schätzen, indem man überlegt, welches Merkmal wohl am wichtigsten ist,
-welches am zweitwichtigsten usw. und dann noch versucht zu bestimmen,
+welches am zweitwichtigsten usw. und versucht zu bestimmen,
 wievielmal wichtiger das wichtigste Merkmal als die anderen Merkmale
 ist. Das läuft dann auf ein hybrides Verfahren für die erste Phase
 hinaus:
@@ -763,13 +790,13 @@ hinaus:
   und ersetzt diejenigen Köpfe, die nicht richtig annotiert worden
   sind.
 \item Diese manuell korrigierte Liste verwendet man dann als Zielliste
-  anstelle der manuellen Annotationen im Volltext und versucht,
-  bessere Gewichte durch Regression zu bestimmen.
+  anstelle der manuellen Annotationen im Volltext und versucht, die
+  Gewichte durch Regression akkurater zu bestimmen.
 \end{enumerate}
 Die Liste besteht aus Tupeln aus der ID des Satzes und der ID des
-Tokens, welches als Kopf bestimmt worden ist. -- Auch dies würde ich
-eine Form von Annotationen nennen; sie weist eine Ähnlichkeit mit
-Stand-Off-Markup%
+Tokens, welches als Kopf bestimmt worden ist. -- Auch dies kann als
+eine Form von Annotationen aufgefasst werden; sie weist eine
+Ähnlichkeit mit Stand-Off-Markup%
 \footnote{\Cite[\see\ z.\,B.][575--579]{TEIP5}, und insbesondere das
   Text Corpus Format (TCF) von WebLicht:
   \url{https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format}.} %
@@ -782,8 +809,9 @@ Nicht nur die Merkmalsgewichte, sondern auch die Auswertfunktionen der
 Merkmale enthalten Parameter, die bestimmt werden müssen. So auch die
 Auswertfunktion für das PoS-tag. Auch hier werde mit geschätzten
 Parametern begonnen.  Sei $p$ die Komponente des Merkmalsvektors, in
-der das PoS-tag gegeben ist, wobei das STTS \parencite{Schiller1999a}
-verwendet wird, dann sei $f_{PoS}:V\mapsto [0,1]$ definiert durch:
+der das PoS-tag gegeben ist, wobei Wortartenklassen des
+Stuttgart-Tübingen-TagSet (STTS) \parencite{Schiller1999a} verwendet
+werden, dann sei $f_{PoS}:V\mapsto [0,1]$ definiert durch:
 \begin{equation}
   \label{eq:pos}
   f_{PoS}((\dots,p,\dots)) := \left\{
@@ -817,10 +845,11 @@ errechnet.
 
 \subsubsection{Richtung}
 
-Auch die Richtung enthält einen Schätzwert. Seien $p_m$ und $p_t$ die
-Positionsnummer des Markers bzw. des untersuchten Tokens im Satz und
-beides im Merkmalsvektor gegeben. Dann sei $f_{dir}:V\mapsto [0,1]$
-definiert durch:
+Erfahrungsgemäß steht der Marker öfter vor dem Beispiel als hinter
+ihm. Entsprechend enthält auch die hier sogenannte Richtung einen
+Schätzwert. Seien $p_m$ und $p_t$ die Positionsnummer des Markers
+bzw. des untersuchten Tokens im Satz und beides im Merkmalsvektor
+gegeben. Dann sei $f_{dir}:V\mapsto [0,1]$ definiert durch:
 
 \begin{equation}
   \label{eq:direction}
@@ -865,7 +894,7 @@ $w_{dt}=2$, $w_{dc}=6$, $w_{tf}=0$ und $w_{lf}=4$ verwendet.
 
 In Immanuel Kants dritter \lit{Kritik} gibt es 51 eindeutige Marker
 »z.\,B.«. Das Verfahren liefert dazu folgende Beispiel-Köpfe:%
-\footnote{Datengrundlage ist hier die von Gutenberg-DE gescrapte
+\footnote{Datengrundlage ist hier die von Gutenberg-DE ausgelesene
   Fassung.} %
 \begin{quote}
   mihi, Substanz, Bergkristall, Körper, Geister, Rose, Rasenplatzes,
@@ -877,9 +906,9 @@ In Immanuel Kants dritter \lit{Kritik} gibt es 51 eindeutige Marker
   Wassertiere, Erden, Seele, Ewigkeit, Ewigkeit
 \end{quote}
 
-Darunter sind einige Wörter, die man nicht erwarten würde, weil es
-sich um allgemeine Konzepte handelt: »Substanz«, »Körper«, »Affekten«
-oder »Formen« etwa. Jedoch sind »Substanz«, »Körper« und »Affekten«
+Darunter sind einige Wörter, die nicht zu erwarten waren, weil es sich
+um allgemeine Konzepte handelt: »Substanz«, »Körper«, »Affekten« oder
+»Formen« etwa. Jedoch sind »Substanz«, »Körper« und »Affekten«
 korrekt. »Formen« ist nicht korrekt und der Fehler kann auch
 identifiziert werden: Er besteht darin, in $f_{dc}$ einen Doppelpunkt
 nicht als Satzzeichen, nicht als Komma, gezählt zu haben. Obwohl
@@ -892,12 +921,12 @@ diesem Satz wäre »Wohnhause« gewesen, aber die Lemmatisierung durch
 WebLicht funktioniert bei Komposita nicht richtig, sondern gibt dann
 stets »unkown« aus. Weil es viele Komposita gibt, ist die Häufigkeit
 dieses Lemmas entsprechend hoch und das stark gewichtete Merkmal
-$f_{fl}$ niedrig. So hat »Schönheit« das Rennen um das Maximum
-gewinnen können und ist als Beispiel-Kopf annotiert worden.
+$f_{fl}$ niedrig. So hat »Schönheit« einen hohen Wert erlangt und ist
+als Beispiel-Kopf annotiert worden.
 
 Insgesamt handelt es sich um 5 Fehler in 51 Annotationen. Für einen
 Anfang mit derart grob geschätzten Gewichten ist diese Genauigkeit
-(\englisch{precision}) ganz akzeptabel; bei der Trefferquote
+(\englisch{precision}) akzeptabel; bei der Trefferquote
 (\englisch{recall}) kann man davon ausgehen, dass alle Bigramme
 »z.\,B.« gefunden und zu jedem ein Kopf
 bestimmt worden ist. Aber es ist klar, dass eine bessere Bestimmung
@@ -935,7 +964,7 @@ ausgewählten Köpfe: (Aus druck-technischen Gründen ist das lange S
   Hauptstelle, Erdbeben, Architektur, Schenke, Unzahl, Posse, Cain.
 \end{quote}
 
-An beiden Listen wird klar, wie wünschenswert es wäre, nach der
+An beiden Listen wird deutlich, wie wünschenswert es wäre, nach der
 Bestimmung des Kopfes eine Ausweitung auf eine Phrase zu berechnen.
 
 \subsection{Phase 2: Entscheiden über weitere Vorkommen}
@@ -949,12 +978,12 @@ stehen im Zusammenhang mit Beispielen.
 
 Manuelle Annotationen lassen sich für die zweite Phase schnell und
 ohne viel Aufwand erstellen. Auch ist das \englisch{decision tree
-  learning} ein wirklich guter Kandidat für einen ML-Algorithmus, der
-zudem vorteilhafterweise nicht so viele Trainingsdaten benötigt wie
-ein Perceptron. Die größte Herausforderung liegt in dieser Phase in
-der Definition hinreichend diskriminierender Merkmale. Die Frequenz,
-die in Phase 1 besonders relevant gewesen ist, reicht hier höchstens
-dazu aus, einen Schwellenwert zu definieren, bei dessen Überschreitung
+  learning} ein guter Kandidat für \textit{machine learning}, der zudem
+vorteilhafterweise nicht so viele Trainingsdaten benötigt wie ein
+Perceptron. Die größte Herausforderung liegt in dieser Phase in der
+Definition hinreichend diskriminierender Merkmale. Die Frequenz, die
+in Phase 1 besonders relevant gewesen ist, reicht hier höchstens dazu
+aus, einen Schwellenwert zu definieren, bei dessen Überschreitung
 gleich alle Vorkommen nicht annotiert werden, um im Resultat nicht so
 viele falschpositive Annotationen zu haben. Hier seien lediglich
 einige Ideen zu einem Merkmalsraum skizziert, deren Implementierung
@@ -962,13 +991,15 @@ noch auf sich wartet. Es sei das Dokument, in dem ein Token als
 Beispielkopf ausgewählt worden ist, das Quelldokument, und der Satz
 der Quellsatz; und es sei das Dokument, in dem ein weiteres Vorkommen
 dieses Tokens vorliegt, das Zieldokument, und der dieses Token
-enthaltende Satz der Zielsatz. Merkmale könnten dann sein:
+enthaltende Satz der Zielsatz. Als Merkmale sind in Betracht zu ziehen:
 \begin{itemize}
 \item die Ähnlichkeit zwischen Quell- und Zielsatz, wobei als
   Ähnlichkeitsmaß das Vorkommen gleicher Tokens in Frage kommt;
 \item die Ähnlichkeit zwischen Umgebungen, die über Quell- und
   Zielsatz hinausgehen, etwa zwei Sätze davor und dahinter, der
   gesamte Absatz oder das Kapitel;
+\item durch Word-Embeddings gefundene Beziehungen zwischen Unigrammen,
+  insbesondere Synonymie und Hyponymie;
 \item die Ähnlichkeit von Einheiten, die kleiner sind als der Quell-
   und Zielsatz, etwa zwischen PoS-Tag-N-Grams, mit denen die
   Phrasenstruktur approximiert werden kann. Dabei wäre besonders auf
@@ -987,27 +1018,27 @@ enthaltende Satz der Zielsatz. Merkmale könnten dann sein:
 
 Auch wenn das reformulierte Modell für Beispiel-Annotationen noch
 nicht vollständig implementiert ist, zeichnet sich doch schon jetzt
-mit den akzeptablen Ergebnissen der ersten Phase ab, dass die Chance
-auf ein funktionierendes Experimentalsystem ungleich höher ist als mit
-den komplexen Annotationen der propositionalen Struktur, in der
-Beispiele gegeben werden. Der Grund ist, dass die Annotationen
-konzeptionell viel näher an einen Algorithmus rücken, während dieser
-bei den komplexen Annotationen ein vages Versprechen einer Zukunft
-bleibt. In dem reformulierten Modell sind die Spannungen zwischen der
-interpretativen Arbeit am philosophischen Text und dem Formalismus des
-Vokabulars, die für die komplexen Annotationen kennzeichnend waren,
-weitgehend verschwunden und es rücken Maße wie \englisch{precision}
-und \englisch{recall} für die Genauigkeit maschineller Annotationen an
-ihre Stelle. Entsprechend sind auch die manuellen Annotationen nicht
-mehr mit großen hermeneutischen Investitionen verbunden; Annotieren
-ist hier kein \englisch{close reading} mehr, sondern tendenziell ein
-technischer Vorgang. In dem beschriebenen hybriden Aufbau, in welchem
-die Liste der Beispiel-Köpfe, die das regelbasierte Verfahren
-geliefert hat, einer Revision unterzogen wird, um dann die Gewichte
-mittels Regression besser zu bestimmen, haben die Annotationen
-keinerlei Ähnlichkeit mehr mit dem Markup eines TEI-Dokuments. Sie
-bleiben aber dennoch deutlich eine Form des Informationsaustauschs in
-der Mensch-Maschine-Kommunikation über einen Text.
+mit den akzeptablen Ergebnissen der ersten Phase ab, dass ein
+funktionierendes Experimentalsystem viel leichter realisierbar ist als
+mit den komplexen Annotationen der propositionalen Struktur. Der Grund
+ist, dass die Annotationen konzeptionell viel näher an einen
+Algorithmus rücken, während dieser bei den komplexen Annotationen das
+Versprechen einer Zukunft bleibt. In dem reformulierten Modell sind
+die Spannungen zwischen der interpretativen Arbeit am philosophischen
+Text und dem Formalismus des Vokabulars, die für die komplexen
+Annotationen kennzeichnend waren, weitgehend verschwunden und es
+rücken Maße wie \englisch{precision} und \englisch{recall} für die
+Genauigkeit maschineller Annotationen an ihre Stelle. Entsprechend
+sind auch die manuellen Annotationen nicht mehr mit großen
+hermeneutischen Investitionen verbunden; Annotieren ist hier kein
+\englisch{close reading} mehr, sondern tendenziell ein technischer
+Vorgang. In dem beschriebenen hybriden Aufbau, in welchem die Liste
+der Beispiel-Köpfe, die das regelbasierte Verfahren geliefert hat,
+einer Revision unterzogen wird, um dann die Gewichte mittels
+Regression besser zu bestimmen, haben die Annotationen keinerlei
+Ähnlichkeit mehr mit dem Markup eines XML-Dokuments. Sie bleiben aber
+dennoch deutlich eine Form des Informationsaustauschs in der
+Mensch-Maschine-Kommunikation über einen Text.
 
 \printbibliography
 
