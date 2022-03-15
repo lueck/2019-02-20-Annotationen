@@ -1,0 +1,14 @@
+Package: beispielr
+Version: 0.1
+Date: 2019-02-18
+Titel: Beispiel Mining
+Description: Text Mining in DFG Beispiel
+Depends:
+  R (>= 3.3.0),
+  tools,
+  dplyr,
+  tidyr,
+  magrittr,
+  readr,
+  purrr,
+  stringr
