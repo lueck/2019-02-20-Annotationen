@@ -1,0 +1,1047 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\preamble{%
+\DeclareFieldFormat{eprint:nbn}{URN\addcolon\space\href{http://www.nbn-resolving.org/#1}{#1}}%
+\DeclareFieldFormat{eprint:nbnbi}{URN\addcolon\space\href{http://ds.ub.uni-bielefeld.de/viewer/resolver?urn=#1}{#1}}%
+\DeclareFieldFormat{eprint:hathitrust}{HathiTrust\space\href{https://babel.hathitrust.org/cgi/pt?id=#1}{#1}}%
+\newcommand{\REZ}[1]{\textup{Rez.\ zu:} #1}%
+\newcommand{\HEFT}[1]{H.~#1}%
+\newcommand{\STATE}[1]{\mkbibparens{#1}}%
+\newcommand{\FaM}{Frankfurt a.\,M\adddot}%
+}
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Beierle2014a}{book}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,uniquepart=base,hash=6062fa3fdb18fa90a00e6f227a294d28}{%
+           family={Beierle},
+           familyi={B\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=b5f0dce410b6e04b9df5880cf0643c20}{%
+           family={Kern-Isberner},
+           familyi={K\bibinithyphendelim I\bibinitperiod},
+           given={Gabriele},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Wiesbaden}%
+      }
+      \list{publisher}{1}{%
+        {Springer Vieweg}%
+      }
+      \strng{namehash}{b3b17954aba7542c125294c42f3021b4}
+      \strng{fullhash}{b3b17954aba7542c125294c42f3021b4}
+      \strng{bibnamehash}{b3b17954aba7542c125294c42f3021b4}
+      \strng{authorbibnamehash}{b3b17954aba7542c125294c42f3021b4}
+      \strng{authornamehash}{b3b17954aba7542c125294c42f3021b4}
+      \strng{authorfullhash}{b3b17954aba7542c125294c42f3021b4}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5}
+      \field{langid}{ngerman}
+      \field{subtitle}{Grundlagen, Algorithmen, Anwendungen}
+      \field{title}{Methoden wissensbasierter Systeme}
+      \field{year}{2014}
+      \keyw{FO,CS}
+    \endentry
+    \entry{Bussm1990}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=35e495c1c993d5275d4fdd13e36e3175}{%
+           family={Bußmann},
+           familyi={B\bibinitperiod},
+           given={Hadumod},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Stuttgart}%
+      }
+      \list{publisher}{1}{%
+        {Kröner}%
+      }
+      \strng{namehash}{35e495c1c993d5275d4fdd13e36e3175}
+      \strng{fullhash}{35e495c1c993d5275d4fdd13e36e3175}
+      \strng{bibnamehash}{35e495c1c993d5275d4fdd13e36e3175}
+      \strng{authorbibnamehash}{35e495c1c993d5275d4fdd13e36e3175}
+      \strng{authornamehash}{35e495c1c993d5275d4fdd13e36e3175}
+      \strng{authorfullhash}{35e495c1c993d5275d4fdd13e36e3175}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2., völlig neu bearb.\ Aufl\adddot}
+      \field{langid}{ngerman}
+      \field{title}{Lexikon der Sprachwissenschaft}
+      \field{year}{1990}
+      \keyw{FO}
+    \endentry
+    \entry{Cappelli1990a}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=dfbd8842fc45b81ce8aadfce0ece8ee2}{%
+           family={Cappelli},
+           familyi={C\bibinitperiod},
+           given={Adriano},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Milano}%
+      }
+      \list{publisher}{1}{%
+        {Hoepli}%
+      }
+      \strng{namehash}{dfbd8842fc45b81ce8aadfce0ece8ee2}
+      \strng{fullhash}{dfbd8842fc45b81ce8aadfce0ece8ee2}
+      \strng{bibnamehash}{dfbd8842fc45b81ce8aadfce0ece8ee2}
+      \strng{authorbibnamehash}{dfbd8842fc45b81ce8aadfce0ece8ee2}
+      \strng{authornamehash}{dfbd8842fc45b81ce8aadfce0ece8ee2}
+      \strng{authorfullhash}{dfbd8842fc45b81ce8aadfce0ece8ee2}
+      \field{sortinit}{C}
+      \field{sortinithash}{963e9d84a3da2344e8833203de5aed05}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{langid}{italien}
+      \field{note}{Reprint}
+      \field{title}{Dizinario di abbreviature latine ed italiane}
+      \field{year}{1999}
+      \verb{file}
+      \verb Cappelli1990a.pdf
+      \endverb
+      \keyw{FO,Abkürzungen,Mittelalter,Latein}
+    \endentry
+    \entry{Derrida1992}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=242846d1ccb2b57cf3de51fc5c3411d5}{%
+           family={Derrida},
+           familyi={D\bibinitperiod},
+           given={Jacques},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=5e5d12a06fa76f0fd2c291eedda78a5b}{%
+           family={Engelmann},
+           familyi={E\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=18183a4d313ec0abeafb397f0b759fa6}{%
+           family={Wetzel},
+           familyi={W\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Wien}%
+      }
+      \list{origlanguage}{1}{%
+        {french}%
+      }
+      \list{publisher}{1}{%
+        {Passagen}%
+      }
+      \strng{namehash}{242846d1ccb2b57cf3de51fc5c3411d5}
+      \strng{fullhash}{242846d1ccb2b57cf3de51fc5c3411d5}
+      \strng{bibnamehash}{242846d1ccb2b57cf3de51fc5c3411d5}
+      \strng{authorbibnamehash}{242846d1ccb2b57cf3de51fc5c3411d5}
+      \strng{authornamehash}{242846d1ccb2b57cf3de51fc5c3411d5}
+      \strng{authorfullhash}{242846d1ccb2b57cf3de51fc5c3411d5}
+      \strng{editorbibnamehash}{5e5d12a06fa76f0fd2c291eedda78a5b}
+      \strng{editornamehash}{5e5d12a06fa76f0fd2c291eedda78a5b}
+      \strng{editorfullhash}{5e5d12a06fa76f0fd2c291eedda78a5b}
+      \strng{translatorbibnamehash}{18183a4d313ec0abeafb397f0b759fa6}
+      \strng{translatornamehash}{18183a4d313ec0abeafb397f0b759fa6}
+      \strng{translatorfullhash}{18183a4d313ec0abeafb397f0b759fa6}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{ngerman}
+      \field{title}{Die Wahrheit in der Malerei}
+      \field{year}{1992}
+      \verb{file}
+      \verb PDF:Derrida1992.pdf
+      \endverb
+      \keyw{FO,Beispiel,Beispieltheorie}
+    \endentry
+    \entry{Fouc1997a}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=984e5967448051538555a64aac11ed21}{%
+           family={Foucault},
+           familyi={F\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=28c85b5340357274823604bb3c35fbd8}{%
+           family={Köppen},
+           familyi={K\bibinitperiod},
+           given={Ulrich},
+           giveni={U\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Frankfurt a.\,M\adddot}%
+      }
+      \list{publisher}{1}{%
+        {Suhrkamp}%
+      }
+      \strng{namehash}{984e5967448051538555a64aac11ed21}
+      \strng{fullhash}{984e5967448051538555a64aac11ed21}
+      \strng{bibnamehash}{984e5967448051538555a64aac11ed21}
+      \strng{authorbibnamehash}{984e5967448051538555a64aac11ed21}
+      \strng{authornamehash}{984e5967448051538555a64aac11ed21}
+      \strng{authorfullhash}{984e5967448051538555a64aac11ed21}
+      \strng{translatorbibnamehash}{28c85b5340357274823604bb3c35fbd8}
+      \strng{translatornamehash}{28c85b5340357274823604bb3c35fbd8}
+      \strng{translatorfullhash}{28c85b5340357274823604bb3c35fbd8}
+      \field{sortinit}{F}
+      \field{sortinithash}{669c706c6f1fbf3b5a83d26f1d9e9e72}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{8}
+      \field{langid}{ngerman}
+      \field{title}{Archäologie des Wissens}
+      \field{year}{1997}
+      \keyw{FO}
+    \endentry
+    \entry{Guesken2018a}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=abd517fb8dab6bd64e212867072bce0f}{%
+           family={Güsken},
+           familyi={G\bibinitperiod},
+           given={Jessica},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{abd517fb8dab6bd64e212867072bce0f}
+      \strng{fullhash}{abd517fb8dab6bd64e212867072bce0f}
+      \strng{bibnamehash}{abd517fb8dab6bd64e212867072bce0f}
+      \strng{authorbibnamehash}{abd517fb8dab6bd64e212867072bce0f}
+      \strng{authornamehash}{abd517fb8dab6bd64e212867072bce0f}
+      \strng{authorfullhash}{abd517fb8dab6bd64e212867072bce0f}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{urn}
+      \field{journaltitle}{z.\,B. Zeitschrift zum Beispiel}
+      \field{langid}{ngerman}
+      \field{title}{Kants tätowierter Neuseeländer}
+      \field{volume}{1}
+      \field{year}{2018}
+      \field{pages}{47\bibrangedash 62}
+      \range{pages}{16}
+      \verb{eprint}
+      \verb urn:nbn:de:hbz:708-dh8163
+      \endverb
+      \keyw{FO,Beispiel,Ästhetik,Kant}
+    \endentry
+    \entry{ZB}{periodical}{}
+      \name{editor}{4}{uniquelist=1}{%
+        {{uniquename=0,uniquepart=base,hash=abd517fb8dab6bd64e212867072bce0f}{%
+           family={Güsken},
+           familyi={G\bibinitperiod},
+           given={Jessica},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=4ce7ee6b9b3f4c1ab93feeadaa303049}{%
+           family={Lück},
+           familyi={L\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=23a8e5e8000ae1796048bb18eeb1f967}{%
+           family={Niehaus},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=81877ca5ae456aa517764a19fe80b26b}{%
+           family={Risthaus},
+           familyi={R\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{86feb862583e50865a7320741a774944}
+      \strng{fullhash}{d96bea0693545db715b18d3ba2a28098}
+      \strng{bibnamehash}{86feb862583e50865a7320741a774944}
+      \strng{editorbibnamehash}{86feb862583e50865a7320741a774944}
+      \strng{editornamehash}{86feb862583e50865a7320741a774944}
+      \strng{editorfullhash}{d96bea0693545db715b18d3ba2a28098}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(zusammen mit Jessica Güsken, Michael Niehaus und Peter Risthaus) erstes Heft im Erscheinen}
+      \field{endyear}{}
+      \field{eprintclass}{urn}
+      \field{langid}{ngerman}
+      \field{title}{z.\,B. Zeitschrift zum Beispiel}
+      \field{year}{2018}
+      \true{enddateunknown}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb urn:nbn:de:hbz:708-dh8163
+      \endverb
+      \keyw{FO,CL}
+    \endentry
+    \entry{Heyer2006a}{book}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=5f54c509b5756f9b93c8b59afd2adfae}{%
+           family={Heyer},
+           familyi={H\bibinitperiod},
+           given={Gerhard},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=4766db6cf251c8be27c674b1604669b2}{%
+           family={Quasthoff},
+           familyi={Q\bibinitperiod},
+           given={Uwe},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=23df3b6b5940b4f76da756e30f6d7ea1}{%
+           family={Wittig},
+           familyi={W\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \true{morelocation}
+      \list{location}{1}{%
+        {Herdecke}%
+      }
+      \list{publisher}{1}{%
+        {W3L}%
+      }
+      \strng{namehash}{fc7b520aecb029aa9fd507c4e65cec68}
+      \strng{fullhash}{fc7b520aecb029aa9fd507c4e65cec68}
+      \strng{bibnamehash}{fc7b520aecb029aa9fd507c4e65cec68}
+      \strng{authorbibnamehash}{fc7b520aecb029aa9fd507c4e65cec68}
+      \strng{authornamehash}{fc7b520aecb029aa9fd507c4e65cec68}
+      \strng{authorfullhash}{fc7b520aecb029aa9fd507c4e65cec68}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{ngerman}
+      \field{library}{Hagen UB: TYP/HEY}
+      \field{subtitle}{Konzepte, Algorithmen, Ergebnisse}
+      \field{title}{Text Mining: Wissensrohstoff Text}
+      \field{year}{2006}
+      \keyw{TextMining}
+    \endentry
+    \entry{KantKdU}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=e1e09a59acd7633f469747be85d5edc0}{%
+           family={Kant},
+           familyi={K\bibinitperiod},
+           given={Immanuel},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=147604ccf365c9da1d2bc8e73e3f5207}{%
+           family={Vorländer},
+           familyi={V\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hamburg}%
+      }
+      \list{publisher}{1}{%
+        {Meiner}%
+      }
+      \strng{namehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{fullhash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{bibnamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authorbibnamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authornamehash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{authorfullhash}{e1e09a59acd7633f469747be85d5edc0}
+      \strng{editorbibnamehash}{147604ccf365c9da1d2bc8e73e3f5207}
+      \strng{editornamehash}{147604ccf365c9da1d2bc8e73e3f5207}
+      \strng{editorfullhash}{147604ccf365c9da1d2bc8e73e3f5207}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7}
+      \field{langid}{ngerman}
+      \field{note}{Mit einer Bibliographie von Heiner Klemme}
+      \field{title}{Kritik der Urteilskraft}
+      \field{year}{1990}
+      \keyw{QU}
+    \endentry
+    \entry{CL2018a}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=4ce7ee6b9b3f4c1ab93feeadaa303049}{%
+           family={Lück},
+           familyi={L\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{fullhash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{bibnamehash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{authorbibnamehash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{authornamehash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{authorfullhash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \field{extraname}{1}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{z.\,B. Zeitschrift zum Beispiel}
+      \field{langid}{ngerman}
+      \field{number}{1}
+      \field{title}{Beispiele annotieren: Was und wie viel\addquestion}
+      \field{year}{2018}
+      \field{pages}{78\bibrangedash 90}
+      \range{pages}{13}
+      \keyw{FO,CL}
+    \endentry
+    \entry{CL2019d}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=4ce7ee6b9b3f4c1ab93feeadaa303049}{%
+           family={Lück},
+           familyi={L\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=f5c27efc33def0f2db60ed7eba068dea}{%
+           family={Simov},
+           familyi={S\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=d819da6a1237ba37589da02e61bc1caf}{%
+           family={Eskevich},
+           familyi={E\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Leipzig}%
+      }
+      \list{publisher}{1}{%
+        {CLARIN}%
+      }
+      \strng{namehash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{fullhash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{bibnamehash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{authorbibnamehash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{authornamehash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{authorfullhash}{4ce7ee6b9b3f4c1ab93feeadaa303049}
+      \strng{editorbibnamehash}{6a1ff794572365dfb28c6a9c8aae6d57}
+      \strng{editornamehash}{6a1ff794572365dfb28c6a9c8aae6d57}
+      \strng{editorfullhash}{6a1ff794572365dfb28c6a9c8aae6d57}
+      \field{extraname}{2}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of CLARIN Annual Conference 2019}
+      \field{langid}{english}
+      \field{title}{Corpus-Preparation with WebLicht for Machine-made Annotations of Examples in Philosophical Texts}
+      \field{year}{2019}
+      \field{pages}{44\bibrangedash 47}
+      \range{pages}{4}
+      \keyw{CL,FO,Peerreview,ACCEPTED}
+    \endentry
+    \entry{CL2013a}{collection}{}
+      \name{editor}{4}{uniquelist=2}{%
+        {{uniquename=0,uniquepart=base,hash=4ce7ee6b9b3f4c1ab93feeadaa303049}{%
+           family={Lück},
+           familyi={L\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=23a8e5e8000ae1796048bb18eeb1f967}{%
+           family={Niehaus},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=81877ca5ae456aa517764a19fe80b26b}{%
+           family={Risthaus},
+           familyi={R\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=4bc8b93d961ddac57a651f03dce7b3b0}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{2}{%
+        {Zürich}%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {diaphanes}%
+      }
+      \strng{namehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{fullhash}{1f5eb8af01680385f6973a9253e03e46}
+      \strng{bibnamehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{editorbibnamehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{editornamehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{editorfullhash}{1f5eb8af01680385f6973a9253e03e46}
+      \field{extraname}{1}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(zusammen mit Michael Niehaus, Peter Risthaus und Manfred Schneider)}
+      \field{isbn}{978-3-03734-252-7}
+      \field{langid}{ngerman}
+      \field{subtitle}{Vorarbeiten und Überlegungen}
+      \field{title}{Archiv des Beispiels}
+      \field{year}{2013}
+      \keyw{FO,CL}
+    \endentry
+    \entry{CL2013b}{incollection}{}
+      \name{author}{4}{uniquelist=2}{%
+        {{uniquename=0,uniquepart=base,hash=4ce7ee6b9b3f4c1ab93feeadaa303049}{%
+           family={Lück},
+           familyi={L\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=23a8e5e8000ae1796048bb18eeb1f967}{%
+           family={Niehaus},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=81877ca5ae456aa517764a19fe80b26b}{%
+           family={Risthaus},
+           familyi={R\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=4bc8b93d961ddac57a651f03dce7b3b0}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{4}{}{%
+        {{uniquename=0,uniquepart=base,hash=4ce7ee6b9b3f4c1ab93feeadaa303049}{%
+           family={Lück},
+           familyi={L\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=23a8e5e8000ae1796048bb18eeb1f967}{%
+           family={Niehaus},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=81877ca5ae456aa517764a19fe80b26b}{%
+           family={Risthaus},
+           familyi={R\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=4bc8b93d961ddac57a651f03dce7b3b0}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Manfred},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{2}{%
+        {Zürich}%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {diaphanes}%
+      }
+      \strng{namehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{fullhash}{1f5eb8af01680385f6973a9253e03e46}
+      \strng{bibnamehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{authorbibnamehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{authornamehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{authorfullhash}{1f5eb8af01680385f6973a9253e03e46}
+      \strng{editorbibnamehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{editornamehash}{985234aca1c861dcb0d0f38763de5ec6}
+      \strng{editorfullhash}{1f5eb8af01680385f6973a9253e03e46}
+      \field{extraname}{2}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{(zusammen mit Michael Niehaus, Peter Risthaus und Manfred Schneider)}
+      \field{booksubtitle}{Vorarbeiten und Überlegungen}
+      \field{booktitle}{Archiv des Beispiels}
+      \strng{crossref}{CL2013a}
+      \field{isbn}{978-3-03734-252-7}
+      \field{langid}{ngerman}
+      \field{title}{Einleitung}
+      \field{year}{2013}
+      \field{pages}{7\bibrangedash 25}
+      \range{pages}{19}
+      \keyw{FO,CL}
+    \endentry
+    \entry{Rheinberger2001a}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=610a34fdbfb09ae7e97d5bcfe53a26f3}{%
+           family={Rheinberger},
+           familyi={R\bibinitperiod},
+           given={Hans-Jörg},
+           giveni={H\bibinithyphendelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Göttingen}%
+      }
+      \list{publisher}{1}{%
+        {Wallstein}%
+      }
+      \strng{namehash}{610a34fdbfb09ae7e97d5bcfe53a26f3}
+      \strng{fullhash}{610a34fdbfb09ae7e97d5bcfe53a26f3}
+      \strng{bibnamehash}{610a34fdbfb09ae7e97d5bcfe53a26f3}
+      \strng{authorbibnamehash}{610a34fdbfb09ae7e97d5bcfe53a26f3}
+      \strng{authornamehash}{610a34fdbfb09ae7e97d5bcfe53a26f3}
+      \strng{authorfullhash}{610a34fdbfb09ae7e97d5bcfe53a26f3}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{ngerman}
+      \field{subtitle}{\autocap{e}ine Geschichte der Proteinsynthese im Reagenzglas}
+      \field{title}{Experimentalsysteme und epistemische Dinge}
+      \field{year}{2001}
+      \keyw{FO,Wissenschaftsgeschichte,Epistemologie,Praktiken,Naturwissenschaft}
+    \endentry
+    \entry{Rosenkranz1853a}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=ee07dcafd32a169ee621210ad13140ed}{%
+           family={Rosenkranz},
+           familyi={R\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Königsberg}%
+      }
+      \strng{namehash}{ee07dcafd32a169ee621210ad13140ed}
+      \strng{fullhash}{ee07dcafd32a169ee621210ad13140ed}
+      \strng{bibnamehash}{ee07dcafd32a169ee621210ad13140ed}
+      \strng{authorbibnamehash}{ee07dcafd32a169ee621210ad13140ed}
+      \strng{authornamehash}{ee07dcafd32a169ee621210ad13140ed}
+      \strng{authorfullhash}{ee07dcafd32a169ee621210ad13140ed}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{addendum}{Deutsches Textarchiv}
+      \field{langid}{ngerman}
+      \field{title}{Ästhetik des Häßlichen}
+      \field{urlday}{27}
+      \field{urlmonth}{6}
+      \field{urlyear}{2019}
+      \field{year}{1853}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.deutschestextarchiv.de/rosenkranz_aesthetik_1853
+      \endverb
+      \verb{url}
+      \verb http://www.deutschestextarchiv.de/rosenkranz_aesthetik_1853
+      \endverb
+    \endentry
+    \entry{Ruchatz2007a}{collection}{}
+      \name{editor}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=ad83b088549b14941c7e018e0baff7e2}{%
+           family={Ruchatz},
+           familyi={R\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=d5dcc4c0315ee6636219a61574ff3293}{%
+           family={Willer},
+           familyi={W\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=01cb077188f1255e16f382c7159252b2}{%
+           family={Pethes},
+           familyi={P\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Kadmos}%
+      }
+      \strng{namehash}{81fbf737fc22b226d3f3952dcd958cea}
+      \strng{fullhash}{81fbf737fc22b226d3f3952dcd958cea}
+      \strng{bibnamehash}{81fbf737fc22b226d3f3952dcd958cea}
+      \strng{editorbibnamehash}{81fbf737fc22b226d3f3952dcd958cea}
+      \strng{editornamehash}{81fbf737fc22b226d3f3952dcd958cea}
+      \strng{editorfullhash}{81fbf737fc22b226d3f3952dcd958cea}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{langid}{ngerman}
+      \field{subtitle}{Epistemologie des Exemplarischen}
+      \field{title}{Das Beispiel}
+      \field{year}{2007}
+      \keyw{FO,Beispiel}
+    \endentry
+    \entry{Salton1988a}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,uniquepart=base,hash=7cce77040cccf3822126400b46318ab3}{%
+           family={Salton},
+           familyi={S\bibinitperiod},
+           given={Gerard},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=f7a94089d1cd6ebfcb0d920eb84e9778}{%
+           family={Buckley},
+           familyi={B\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{75a55b37777743097cff63dc3e13508c}
+      \strng{fullhash}{75a55b37777743097cff63dc3e13508c}
+      \strng{bibnamehash}{75a55b37777743097cff63dc3e13508c}
+      \strng{authorbibnamehash}{75a55b37777743097cff63dc3e13508c}
+      \strng{authornamehash}{75a55b37777743097cff63dc3e13508c}
+      \strng{authorfullhash}{75a55b37777743097cff63dc3e13508c}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journalsubtitle}{\autocap{a}n International Journal}
+      \field{journaltitle}{Information Processing and Management}
+      \field{langid}{english}
+      \field{number}{5}
+      \field{title}{Term-Weighting Approaches in Automatic Text Retrieval}
+      \field{volume}{24}
+      \field{year}{1988}
+      \field{pages}{513\bibrangedash 523}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/0306-4573(88)90021-0
+      \endverb
+      \verb{file}
+      \verb Salton1988a.pdf
+      \endverb
+    \endentry
+    \entry{Schaub2010a}{book}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=d28ce263749146c771b5b0390435efce}{%
+           family={Schaub},
+           familyi={S\bibinitperiod},
+           given={Mirjam},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{2}{%
+        {Zürich}%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {diaphanes}%
+      }
+      \strng{namehash}{d28ce263749146c771b5b0390435efce}
+      \strng{fullhash}{d28ce263749146c771b5b0390435efce}
+      \strng{bibnamehash}{d28ce263749146c771b5b0390435efce}
+      \strng{authorbibnamehash}{d28ce263749146c771b5b0390435efce}
+      \strng{authornamehash}{d28ce263749146c771b5b0390435efce}
+      \strng{authorfullhash}{d28ce263749146c771b5b0390435efce}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{ngerman}
+      \field{subtitle}{\autocap{z}u Logik und Praxis der Beispiele in Philosophie und Ästhetik}
+      \field{title}{Das Singuläre und das Exemplarische}
+      \field{year}{2010}
+      \keyw{FO,Beispiel,Beispieltheorie,Ästhetik}
+    \endentry
+    \entry{Schiller1999a}{online}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=e29d906b157c98b69a96f2f3b2b6bec7}{%
+           family={Schiller},
+           familyi={S\bibinitperiod},
+           given={Anne},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=0fb1ccbe0f62d61aebd5e75c346373c4}{%
+           family={Teufel},
+           familyi={T\bibinitperiod},
+           given={Simone},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=9c68388f349cdbe624ecab954dbfe4ff}{%
+           family={Stöckert},
+           familyi={S\bibinitperiod},
+           given={Christine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {Institut für maschinelle Sprachverarbeitung, Universität Stuttgart}%
+      }
+      \strng{namehash}{87eaefa9d4f580a9b12c1b95d5493e3e}
+      \strng{fullhash}{87eaefa9d4f580a9b12c1b95d5493e3e}
+      \strng{bibnamehash}{87eaefa9d4f580a9b12c1b95d5493e3e}
+      \strng{authorbibnamehash}{87eaefa9d4f580a9b12c1b95d5493e3e}
+      \strng{authornamehash}{87eaefa9d4f580a9b12c1b95d5493e3e}
+      \strng{authorfullhash}{87eaefa9d4f580a9b12c1b95d5493e3e}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{ngerman}
+      \field{month}{8}
+      \field{subtitle}{(Kleines und großes Tagset)}
+      \field{title}{Guidelines für das Tagging deutscher Textcorpora mit STTS}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2019}
+      \field{year}{1999}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Schiller1999a.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/TagSets/stts-1999.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/TagSets/stts-1999.pdf
+      \endverb
+      \keyw{FO,POStags}
+    \endentry
+    \entry{Sebastiani2002a}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=702180e4afc7fef6f2f45cd761a12c1f}{%
+           family={Sebastiani},
+           familyi={S\bibinitperiod},
+           given={Fabrizio},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{702180e4afc7fef6f2f45cd761a12c1f}
+      \strng{fullhash}{702180e4afc7fef6f2f45cd761a12c1f}
+      \strng{bibnamehash}{702180e4afc7fef6f2f45cd761a12c1f}
+      \strng{authorbibnamehash}{702180e4afc7fef6f2f45cd761a12c1f}
+      \strng{authornamehash}{702180e4afc7fef6f2f45cd761a12c1f}
+      \strng{authorfullhash}{702180e4afc7fef6f2f45cd761a12c1f}
+      \field{sortinit}{S}
+      \field{sortinithash}{322b1d5276f2f6c1bccdcd15920dbee6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{langid}{english}
+      \field{number}{1}
+      \field{title}{Machine Learning in Automated Text Categorization}
+      \field{volume}{34}
+      \field{year}{2002}
+      \field{pages}{1\bibrangedash 47}
+      \range{pages}{47}
+      \verb{file}
+      \verb Sebastiani2002a.pdf
+      \endverb
+      \keyw{FO,TextMining,Klassifikation,InformationRetrieval}
+    \endentry
+    \entry{TEIP5}{manual}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=15e7c1c8497b597c17bc3747e2274fa2}{%
+           family={{TEI Consortium}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{15e7c1c8497b597c17bc3747e2274fa2}
+      \strng{fullhash}{15e7c1c8497b597c17bc3747e2274fa2}
+      \strng{bibnamehash}{15e7c1c8497b597c17bc3747e2274fa2}
+      \strng{authorbibnamehash}{15e7c1c8497b597c17bc3747e2274fa2}
+      \strng{authornamehash}{15e7c1c8497b597c17bc3747e2274fa2}
+      \strng{authorfullhash}{15e7c1c8497b597c17bc3747e2274fa2}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{29}
+      \field{edition}{rev\adddotspace 3c0c64ec4}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{subtitle}{Guidelines for Electronic Text Encoding and Interchange}
+      \field{title}{TEI P5}
+      \field{urlday}{9}
+      \field{urlmonth}{7}
+      \field{urlyear}{2019}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb TEI-P5.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://tei-c.org/guidelines/P5/
+      \endverb
+      \verb{url}
+      \verb https://tei-c.org/guidelines/P5/
+      \endverb
+      \keyw{FO,Textkodierung,XML}
+    \endentry
+    \entry{Willer2007a}{incollection}{}
+      \name{author}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=d5dcc4c0315ee6636219a61574ff3293}{%
+           family={Willer},
+           familyi={W\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=ad83b088549b14941c7e018e0baff7e2}{%
+           family={Ruchatz},
+           familyi={R\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=01cb077188f1255e16f382c7159252b2}{%
+           family={Pethes},
+           familyi={P\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{3}{}{%
+        {{uniquename=0,uniquepart=base,hash=ad83b088549b14941c7e018e0baff7e2}{%
+           family={Ruchatz},
+           familyi={R\bibinitperiod},
+           given={Jens},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=d5dcc4c0315ee6636219a61574ff3293}{%
+           family={Willer},
+           familyi={W\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=01cb077188f1255e16f382c7159252b2}{%
+           family={Pethes},
+           familyi={P\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin}%
+      }
+      \list{publisher}{1}{%
+        {Kadmos}%
+      }
+      \strng{namehash}{486bbc90168b885d41c786ad777f6c9d}
+      \strng{fullhash}{486bbc90168b885d41c786ad777f6c9d}
+      \strng{bibnamehash}{486bbc90168b885d41c786ad777f6c9d}
+      \strng{authorbibnamehash}{486bbc90168b885d41c786ad777f6c9d}
+      \strng{authornamehash}{486bbc90168b885d41c786ad777f6c9d}
+      \strng{authorfullhash}{486bbc90168b885d41c786ad777f6c9d}
+      \strng{editorbibnamehash}{81fbf737fc22b226d3f3952dcd958cea}
+      \strng{editornamehash}{81fbf737fc22b226d3f3952dcd958cea}
+      \strng{editorfullhash}{81fbf737fc22b226d3f3952dcd958cea}
+      \field{sortinit}{W}
+      \field{sortinithash}{ecb89ff85896a47dc313960773ac311d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booksubtitle}{Epistemologie des Exemplarischen}
+      \field{booktitle}{Das Beispiel}
+      \strng{crossref}{Ruchatz2007a}
+      \field{langid}{ngerman}
+      \field{title}{Zur Systematik des Beispiels}
+      \field{year}{2007}
+      \field{pages}{7\bibrangedash 59}
+      \range{pages}{53}
+      \keyw{FO,Beispiel}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
